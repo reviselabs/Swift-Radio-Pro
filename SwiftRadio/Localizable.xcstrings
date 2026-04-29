@@ -40,7 +40,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Daniel Warren"
+            "value" : "RadioCorp Australia"
           }
         }
       }
@@ -62,7 +62,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "**Swift Radio** is a fully featured, open-source radio station app written entirely in **Swift**. It provides robust, professional functionality out of the box, complete with **Apple CarPlay** support, making it the perfect foundation for **building** or **customizing** your own streaming radio experience."
+            "value" : "**Starter Plus** is Australia’s home of truly independent media. We provide curated listening experiences not heard anywhere else."
           }
         }
       }
@@ -221,6 +221,17 @@
         }
       }
     },
+    "about.sections.settings" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        }
+      }
+    },
     "about.sections.support" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -265,6 +276,17 @@
         }
       }
     },
+    "accessibility.starterFMOnAirHint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shows the full weekly schedule."
+          }
+        }
+      }
+    },
     "bottomSheet.aboutStation" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -298,17 +320,6 @@
         }
       }
     },
-    "bottomSheet.stationWebsite" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Station Website"
-          }
-        }
-      }
-    },
     "bottomSheet.showSchedule" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -320,79 +331,13 @@
         }
       }
     },
-    "starterFMSchedule.screenTitle" : {
+    "bottomSheet.stationWebsite" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Starter FM schedule"
-          }
-        }
-      }
-    },
-    "player.starterFMOnAirPrefix" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "On air"
-          }
-        }
-      }
-    },
-    "player.starterFMScheduleUnavailable" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Programme guide unavailable"
-          }
-        }
-      }
-    },
-    "starterFMSchedule.timezoneFooter" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "All times are Australia / Sydney."
-          }
-        }
-      }
-    },
-    "starterFMSchedule.timezoneShort" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sydney"
-          }
-        }
-      }
-    },
-    "starterFMSchedule.todaySectionSuffix" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Today"
-          }
-        }
-      }
-    },
-    "accessibility.starterFMOnAirHint" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Shows the full weekly schedule."
+            "value" : "Station Website"
           }
         }
       }
@@ -683,46 +628,35 @@
         }
       }
     },
-    "player.tierLowTitle" : {
+    "player.liveBadge" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Low quality"
+            "value" : "LIVE"
           }
         }
       }
     },
-    "player.tierMidTitle" : {
+    "player.starterFMOnAirPrefix" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mid quality"
+            "value" : "On air"
           }
         }
       }
     },
-    "player.tierHighTitle" : {
+    "player.starterFMScheduleUnavailable" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "High quality"
-          }
-        }
-      }
-    },
-    "player.tierWithBitrateLabel" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$@ · %2$@"
+            "value" : "Programme guide unavailable"
           }
         }
       }
@@ -738,13 +672,167 @@
         }
       }
     },
-    "player.liveBadge" : {
+    "player.tierHighTitle" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "LIVE"
+            "value" : "FHD (256/320 Kbps)"
+          }
+        }
+      }
+    },
+    "player.tierLowTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LQ (48kbps)"
+          }
+        }
+      }
+    },
+    "player.tierMidTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HD (192kbps)"
+          }
+        }
+      }
+    },
+    "player.tierWithBitrateLabel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ · %2$@"
+          }
+        }
+      }
+    },
+    "settings.playbackMenuTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stream quality"
+          }
+        }
+      }
+    },
+    "settings.playbackTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Playback"
+          }
+        }
+      }
+    },
+    "settings.quality.auto" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auto"
+          }
+        }
+      }
+    },
+    "settings.quality.high" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FHD (256/320 Kbps)"
+          }
+        }
+      }
+    },
+    "settings.quality.low" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LQ (48kbps)"
+          }
+        }
+      }
+    },
+    "settings.quality.medium" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HD (192kbps)"
+          }
+        }
+      }
+    },
+    "settings.streamQualityFooter" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auto uses smart network-adaptable streaming. You can also switch to Low / Mid / High to hear a station in your preferred streaming quality if available. "
+          }
+        }
+      }
+    },
+    "starterFMSchedule.screenTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starter FM Schedule"
+          }
+        }
+      }
+    },
+    "starterFMSchedule.timezoneFooter" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All times are Australia / Sydney."
+          }
+        }
+      }
+    },
+    "starterFMSchedule.timezoneShort" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sydney"
+          }
+        }
+      }
+    },
+    "starterFMSchedule.todaySectionSuffix" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Today"
           }
         }
       }
@@ -755,7 +843,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "You are listening to Starter Plus. Australia’s home for independent media."
+            "value" : "You are listening to Starter Plus. Australia’s home of independent media."
           }
         }
       }
@@ -782,6 +870,28 @@
         }
       }
     },
+    "stations.emptyFavorites" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No favorites yet. Tap the star on any station in Starter Plus station list to add one."
+          }
+        }
+      }
+    },
+    "stations.favoriteAccessibility" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favorite"
+          }
+        }
+      }
+    },
     "stations.loadingMessage" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -804,28 +914,6 @@
         }
       }
     },
-    "stations.emptyFavorites" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No favorites yet. Tap the star on any station in Starter Plus to add one."
-          }
-        }
-      }
-    },
-    "stations.favoriteAccessibility" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Favorite"
-          }
-        }
-      }
-    },
     "tabs.allStations" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -844,94 +932,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Favorites"
-          }
-        }
-      }
-    },
-    "settings.playbackTitle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Playback"
-          }
-        }
-      }
-    },
-    "settings.playbackMenuTitle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Stream quality"
-          }
-        }
-      }
-    },
-    "settings.streamQualityFooter" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Auto uses streamURL. Low / Mid / High use streamURLlow, streamURLmid, streamURLhigh when set. Optional bitrateLabelLow, bitrateLabelMid, bitrateLabelHigh describe each tier on the player (e.g. 320 kbps)."
-          }
-        }
-      }
-    },
-    "settings.quality.auto" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Auto quality"
-          }
-        }
-      }
-    },
-    "settings.quality.low" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Low quality"
-          }
-        }
-      }
-    },
-    "settings.quality.medium" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mid quality"
-          }
-        }
-      }
-    },
-    "settings.quality.high" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "High quality"
-          }
-        }
-      }
-    },
-    "about.sections.settings" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Settings"
           }
         }
       }
