@@ -14,7 +14,23 @@ import FRadioPlayer
 
 class MainCoordinator: NavigationCoordinator {
     var childCoordinators: [Coordinator] = []
-    let navigationController: UINavigationController
+
+    /// Window reference so we can swap loader → tab bar root.
+    private weak var window: UIWindow?
+
+    /// Shown until stations finish loading (SceneDelegate assigns this as the initial root).
+    let loaderNavigationController = UINavigationController()
+
+    /// Tab bar hosts All Stations + Favorites; popup bar is attached here so it stays visible when switching tabs.
+    let tabBarController = UITabBarController()
+
+    private let stationsNavAll = UINavigationController()
+    private let stationsNavFavorites = UINavigationController()
+
+    /// LNPopup / pushes use the currently selected tab’s navigation stack.
+    var navigationController: UINavigationController {
+        (tabBarController.selectedViewController as? UINavigationController) ?? stationsNavAll
+    }
 
     private lazy var nowPlayingViewController: NowPlayingViewController = {
         let vc = NowPlayingViewController()
@@ -25,25 +41,27 @@ class MainCoordinator: NavigationCoordinator {
     private let player = FRadioPlayer.shared
     private var isPopupBarPresented = false
 
-    func start() {
-        let loaderVC = LoaderController()
-        loaderVC.delegate = self
-        navigationController.setViewControllers([loaderVC], animated: false)
+    init(window: UIWindow) {
+        self.window = window
     }
 
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    func start() {
+        StarterFMScheduleStore.shared.ensurePollingStarted()
+        let loaderVC = LoaderController()
+        loaderVC.delegate = self
+        loaderNavigationController.setViewControllers([loaderVC], animated: false)
+        window?.rootViewController = loaderNavigationController
     }
 
     // MARK: - Popup Bar
 
     func presentPopupBarIfNeeded() {
         guard !isPopupBarPresented else { return }
-        navigationController.popupBar.barStyle = .prominent
-        navigationController.popupBar.tintColor = Config.tintColor
-        navigationController.popupBar.progressViewStyle = .bottom
-        navigationController.popupContentView.popupCloseButtonStyle = .chevron
-        navigationController.presentPopupBar(with: nowPlayingViewController, animated: true)
+        tabBarController.popupBar.barStyle = .prominent
+        tabBarController.popupBar.tintColor = Config.tintColor
+        tabBarController.popupBar.progressViewStyle = .bottom
+        tabBarController.popupContentView.popupCloseButtonStyle = .chevron
+        tabBarController.presentPopupBar(with: nowPlayingViewController, animated: true)
         isPopupBarPresented = true
     }
 
@@ -70,7 +88,7 @@ class MainCoordinator: NavigationCoordinator {
         aboutCoordinator.parentCoordinator = self
         aboutCoordinator.start()
         childCoordinators.append(aboutCoordinator)
-        navigationController.present(modalNav, animated: true)
+        tabBarController.present(modalNav, animated: true)
     }
 
     func share(_ text: String, from viewController: UIViewController) {
@@ -88,9 +106,29 @@ class MainCoordinator: NavigationCoordinator {
 
 extension MainCoordinator: LoaderControllerDelegate {
     func didFinishLoading(_ controller: LoaderController, stations: [RadioStation]) {
-        let stationsVC = StationsViewController()
-        stationsVC.delegate = self
-        navigationController.setViewControllers([stationsVC], animated: false)
+        let allVC = StationsViewController(listKind: .allStations)
+        let favVC = StationsViewController(listKind: .favoritesOnly)
+        allVC.delegate = self
+        favVC.delegate = self
+
+        stationsNavAll.setViewControllers([allVC], animated: false)
+        stationsNavFavorites.setViewControllers([favVC], animated: false)
+
+        stationsNavAll.tabBarItem = UITabBarItem(
+            title: Content.Tabs.allStations,
+            image: UIImage(systemName: "radio"),
+            selectedImage: nil
+        )
+        stationsNavFavorites.tabBarItem = UITabBarItem(
+            title: Content.Tabs.favorites,
+            image: UIImage(systemName: "star.fill"),
+            selectedImage: nil
+        )
+
+        tabBarController.viewControllers = [stationsNavAll, stationsNavFavorites]
+        tabBarController.tabBar.tintColor = Config.tintColor
+
+        window?.rootViewController = tabBarController
     }
 }
 
@@ -104,14 +142,14 @@ extension MainCoordinator: StationsViewControllerDelegate {
             StationsManager.shared.set(station: station)
             presentPopupBarIfNeeded()
         } else if player.isPlaying {
-            navigationController.openPopup(animated: true)
+            tabBarController.openPopup(animated: true)
         } else {
             player.togglePlaying()
         }
     }
 
     func didTapNowPlaying(_ stationsViewController: StationsViewController) {
-        navigationController.openPopup(animated: true)
+        tabBarController.openPopup(animated: true)
     }
 
     func presentAbout(_ stationsViewController: StationsViewController) {
@@ -130,14 +168,18 @@ extension MainCoordinator: NowPlayingViewControllerDelegate {
         case .info:
             let infoController = InfoDetailViewController(station: station)
             navigationController.pushViewController(infoController, animated: true)
-            navigationController.closePopup(animated: true)
+            tabBarController.closePopup(animated: true)
         case .website:
             if let website = station.website, let url = URL(string: website) {
                 let safariVC = SFSafariViewController(url: url)
-                navigationController.closePopup(animated: true, completion: { [weak self] in
+                tabBarController.closePopup(animated: true, completion: { [weak self] in
                     self?.navigationController.present(safariVC, animated: true)
                 })
             }
+
+        case .starterFMSchedule:
+            pushStarterFMScheduleFromPlayer()
+
         default:
             BottomSheetHandler.handle(option, station: station, from: controller)
         }
@@ -145,5 +187,21 @@ extension MainCoordinator: NowPlayingViewControllerDelegate {
 
     func didTapCompanyButton(_ nowPlayingViewController: NowPlayingViewController) {
         openAbout()
+    }
+
+    func nowPlayingViewControllerDidRequestStarterFMSchedule(_ controller: NowPlayingViewController) {
+        pushStarterFMScheduleFromPlayer()
+    }
+
+    private func pushStarterFMScheduleFromPlayer() {
+        guard StationsManager.shared.currentStation?.showsStarterFMShowSchedule == true else { return }
+        tabBarController.closePopup(animated: true) { [weak self] in
+            guard let self else { return }
+            let scheduleVC = StarterFMScheduleViewController()
+            // Defer push to the next run loop so LNPopup teardown/layout is finished (avoids main-thread stalls).
+            DispatchQueue.main.async {
+                self.navigationController.pushViewController(scheduleVC, animated: true)
+            }
+        }
     }
 }

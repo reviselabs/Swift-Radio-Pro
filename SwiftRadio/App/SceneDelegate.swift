@@ -29,16 +29,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UINavigationBar.appearance().barStyle = .black
         UINavigationBar.appearance().tintColor = Config.tintColor
         UINavigationBar.appearance().prefersLargeTitles = true
+        UITabBar.appearance().tintColor = Config.tintColor
     }
     
     private func setupCoordinator(windowScene: UIWindowScene) {
-        coordinator = MainCoordinator(navigationController: UINavigationController())
-        
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = coordinator?.navigationController
+
+        let mainCoordinator = MainCoordinator(window: window!)
+        coordinator = mainCoordinator
+
+        window?.rootViewController = mainCoordinator.loaderNavigationController
         window?.makeKeyAndVisible()
-        
-        coordinator?.start()
+
+        mainCoordinator.start()
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -46,6 +49,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func sceneDidBecomeActive(_ scene: UIScene) {
         audioService.activateAudioSession()
+        StarterFMScheduleStore.shared.reloadFromBundle()
     }
     
     func sceneWillResignActive(_ scene: UIScene) {

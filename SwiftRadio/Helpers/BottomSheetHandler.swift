@@ -36,6 +36,9 @@ class BottomSheetHandler {
             if let url {
                 UIApplication.shared.open(url)
             }
+
+        case .starterFMSchedule:
+            break
         }
     }
 }

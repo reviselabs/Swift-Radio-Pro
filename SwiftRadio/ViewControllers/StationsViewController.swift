@@ -16,14 +16,44 @@ protocol StationsViewControllerDelegate: AnyObject {
     func presentAbout(_ stationsViewController: StationsViewController)
 }
 
+enum StationsListKind {
+    /// Full list with favorites pinned to the top.
+    case allStations
+    /// Only favorited stations.
+    case favoritesOnly
+}
+
 class StationsViewController: BaseController, Handoffable {
 
     // MARK: - Delegate
     weak var delegate: StationsViewControllerDelegate?
 
+    private let listKind: StationsListKind
+
     // MARK: - Properties
     private let player = FRadioPlayer.shared
     private let manager = StationsManager.shared
+    private var favoritesObserver: NSObjectProtocol?
+    private var externalNowPlayingObserver: NSObjectProtocol?
+
+    /// Stations shown when search is inactive (favorites-first on the All tab).
+    private var displayStations: [RadioStation] {
+        switch listKind {
+        case .allStations:
+            return FavoriteStationsStore.shared.stationsAllTabOrdering(manager.stations)
+        case .favoritesOnly:
+            return FavoriteStationsStore.shared.stationsFavoritesOnly(from: manager.stations)
+        }
+    }
+
+    init(listKind: StationsListKind) {
+        self.listKind = listKind
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - UI
 
@@ -118,14 +148,45 @@ class StationsViewController: BaseController, Handoffable {
         // Setup Search Bar
         setupSearchController()
 
+        favoritesObserver = NotificationCenter.default.addObserver(
+            forName: .favoriteStationsDidChange,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            self?.tableView.reloadData()
+        }
+
+        externalNowPlayingObserver = NotificationCenter.default.addObserver(
+            forName: .externalNowPlayingMetadataDidUpdate,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            guard let self else { return }
+            self.updateHandoffUserActivity(self.userActivity, station: self.manager.currentStation)
+        }
+
         // Set defaults station if the app started from CarPlay
         updateNowPlayingBarButton(station: manager.currentStation)
         updateHandoffUserActivity(userActivity, station: manager.currentStation)
     }
 
+    deinit {
+        if let favoritesObserver {
+            NotificationCenter.default.removeObserver(favoritesObserver)
+        }
+        if let externalNowPlayingObserver {
+            NotificationCenter.default.removeObserver(externalNowPlayingObserver)
+        }
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        title = Content.Stations.title
+        switch listKind {
+        case .allStations:
+            title = Content.Stations.title
+        case .favoritesOnly:
+            title = Content.Tabs.favorites
+        }
     }
 
     @objc func refresh(sender: AnyObject) {
@@ -173,10 +234,20 @@ class StationsViewController: BaseController, Handoffable {
 
         for case let cell as StationTableViewCell in tableView.visibleCells {
             guard let indexPath = tableView.indexPath(for: cell) else { continue }
-            let station = searchController.isActive ? manager.searchedStations[indexPath.row] : manager.stations[indexPath.row]
+            guard let station = station(at: indexPath) else { continue }
             let isCurrentStation = station == manager.currentStation
             cell.setNowPlaying(isPlaying: player.isPlaying, isBuffering: isBuffering, isCurrentStation: isCurrentStation)
         }
+    }
+
+    private func station(at indexPath: IndexPath) -> RadioStation? {
+        if searchController.isActive, listKind == .allStations {
+            guard indexPath.row < manager.searchedStations.count else { return nil }
+            return manager.searchedStations[indexPath.row]
+        }
+        let list = displayStations
+        guard indexPath.row < list.count else { return nil }
+        return list[indexPath.row]
     }
 
     @objc private func nowPlayingBarButtonPressed() {
@@ -219,11 +290,16 @@ extension StationsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchController.isActive {
+        if searchController.isActive, listKind == .allStations {
             return manager.searchedStations.count
-        } else {
-            return manager.stations.isEmpty ? 1 : manager.stations.count
         }
+        if manager.stations.isEmpty {
+            return 1
+        }
+        if listKind == .favoritesOnly, displayStations.isEmpty {
+            return 1
+        }
+        return displayStations.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -236,15 +312,31 @@ extension StationsViewController: UITableViewDataSource {
                 label.text = Content.Stations.loadingMessage
             }
             return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(for: indexPath) as StationTableViewCell
+        }
 
-            let station = searchController.isActive ? manager.searchedStations[indexPath.row] : manager.stations[indexPath.row]
-            cell.configureStationCell(station: station)
-            let isCurrentStation = station == manager.currentStation
-            cell.setNowPlaying(isPlaying: player.isPlaying, isBuffering: isBuffering, isCurrentStation: isCurrentStation)
+        if listKind == .favoritesOnly, displayStations.isEmpty {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "NothingFound", for: indexPath)
+            cell.backgroundColor = .clear
+            cell.selectionStyle = .none
+            if let label = cell.contentView.viewWithTag(100) as? UILabel {
+                label.text = Content.Stations.emptyFavorites
+            }
             return cell
         }
+
+        let cell = tableView.dequeueReusableCell(for: indexPath) as StationTableViewCell
+
+        guard let station = station(at: indexPath) else {
+            return cell
+        }
+        let favorite = FavoriteStationsStore.shared.isFavorite(station)
+        cell.configureStationCell(station: station, isFavorite: favorite) { [weak self] in
+            FavoriteStationsStore.shared.toggleFavorite(station)
+            self?.tableView.reloadRows(at: [indexPath], with: .none)
+        }
+        let isCurrentStation = station == manager.currentStation
+        cell.setNowPlaying(isPlaying: player.isPlaying, isBuffering: isBuffering, isCurrentStation: isCurrentStation)
+        return cell
     }
 }
 
@@ -255,7 +347,9 @@ extension StationsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        let station = searchController.isActive ? manager.searchedStations[indexPath.item] : manager.stations[indexPath.item]
+        guard manager.stations.isEmpty == false else { return }
+        if listKind == .favoritesOnly, displayStations.isEmpty { return }
+        guard let station = station(at: indexPath) else { return }
 
         selectStation(station)
     }
@@ -266,7 +360,7 @@ extension StationsViewController: UITableViewDelegate {
 extension StationsViewController: UISearchResultsUpdating {
 
     func setupSearchController() {
-        guard Config.searchable else { return }
+        guard Config.searchable, listKind == .allStations else { return }
 
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
@@ -276,7 +370,8 @@ extension StationsViewController: UISearchResultsUpdating {
 
     func updateSearchResults(for searchController: UISearchController) {
         guard let filter = searchController.searchBar.text else { return }
-        manager.updateSearch(with: filter)
+        let base = FavoriteStationsStore.shared.stationsAllTabOrdering(manager.stations)
+        manager.searchedStations = base.filter { $0.name.range(of: filter, options: [.caseInsensitive]) != nil }
         tableView.reloadData()
     }
 }

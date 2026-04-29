@@ -2,51 +2,118 @@
     "station":
     [
         {
-            "name": "Absolute Country Hits",
-            "website": "https://www.1.fm/station/acountry",
-            "streamURL": "http://strm112.1.fm/acountry_mobile_mp3",
-            "imageURL": "station-absolutecountry",
-            "desc": "The Music Starts Here",
-            "longDesc": "All your favorite country hits and artists, from Johnny Cash to Taylor Swift, on 1.FM's Absolute Country, playing non-stop crooners and banjos, dance-tunes and fiddles, ballads and harmonicas. Absolute Country focuses on 5th, 6th and 7th generation Country (from the 90s on) but often delves into classic, older tunes as well."
+            "name": "Starter FM",
+            "website": "https://starterfm.com.au",
+            "streamURL": "http://streaming.starterfm.com/hls/starterfm/live.m3u8",
+            "streamURLlow": "https://streaming.starterfm.com/listen/starterfm/starter48",
+            "streamURLmid": "https://streaming.starterfm.com/listen/starterfm/starter192",
+            "streamURLhigh": "https://streaming.starterfm.com/listen/starterfm/starter320",
+            "bitrateLabelLow": "48 kbps",
+            "bitrateLabelMid": "192 kbps",
+            "bitrateLabelHigh": "320 kbps",
+            "imageURL": "station-starterfm",
+            "desc": "The Beat of Sydney",
+            "longDesc": "We are Sydney’s No.1 Dance Music Station, playing the biggest hits and dance anthems 24/7 with the hottest line-up of Djs across the week and featuring local Australian Djs across the weekend."
         },
         {
-            "name": "AZ Rock Radio",
-            "website": "https://www.azrockradio.com",
-            "streamURL": "http://cassini.shoutca.st:9300/stream",
-            "imageURL": "az-rock-radio",
-            "desc": "We Know Music from A to Z",
-            "longDesc": "Web Radio Station from Puerto Rico. Download our App (Apple & Android) or go to: www.azrockradio.com"
+             "name": "Starter Bangaz",
+             "website": "https://starterfm.com.au/station/bangaz/",
+             "streamURL": "http://streaming.starterfm.com/hls/bangaz/live.m3u8",
+             "streamURLlow": "https://streaming.starterfm.com/listen/bangaz/bangaz48mob",
+             "streamURLmid": "https://streaming.starterfm.com/listen/bangaz/bangaz192",
+             "streamURLhigh": "https://streaming.starterfm.com/listen/bangaz/bangaz320",
+             "imageURL": "station-bangaz",
+             "desc": "fresh beatz and chunky bangaz",
+             "longDesc": "The home of fresh beatz and chunky bangaz."
         },
         {
-            "name": "The Rock FM",
-            "website": "https://www.therock.net.nz",
-            "streamURL": "https://20593.live.streamtheworld.com/CKGEFMAAC.aac",
-            "imageURL": "station-therockfm",
-            "desc": "Rock Music",
-            "longDesc": "NZ's number one Rock music station."
+             "name": "Chill with Starter",
+             "website": "https://starterfm.com.au/station/chill/",
+             "streamURL": "http://streaming.starterfm.com/hls/space/live.m3u8",
+             "imageURL": "station-chill",
+             "desc": "Summer beach vibes at work",
+             "longDesc": "Feel the warmth of beachside vibes as uplifting rhythms, soothing vocals, and sun-soaked grooves transport you to paradise. Whether you’re relaxing by the pool, catching the sunset on the coast, or dreaming of an island getaway, our tropical house and beach summer vibes bring the essence of summer right to you, wherever you are. Let the music set the tone for endless good vibes and unforgettable moments under the sun."
         },
         {
-            "name": "Classic Rock",
-            "streamURL": "https://rfcm.streamguys1.com/classicrock-mp3",
-            "imageURL": "station-classicrock",
-            "desc": "Classic Rock Hits",
-            "longDesc": "Classic rock is a radio format which developed from the album-oriented rock (AOR) format in the early 1980s. In the United States, the classic rock format features music ranging generally from the late 1960s to the late 1980s, primarily focusing on commercially successful hard rock popularized in the 1970s. The radio format became increasingly popular with the baby boomer demographic by the end of the 1990s."
+            "name": "Starter Trance",
+            "website": "https://starterfm.com.au",
+            "streamURL": "https://streaming.starterfm.com.au/hls/trance/live.m3u8",
+            "nowPlayingURL": "https://streaming.starterfm.com/api/nowplaying/20",
+            "imageURL": "station-trance",
+            "desc": "Non-Stop, New and Classic Trance Anthems",
+            "longDesc": "Welcome to the home of trance, this is your destination for new and classic trance anthems plus the biggest shows like Group Therapy from Above & Beyond and more."
         },
         {
-            "name": "Radio 1190",
-            "website": "https://radio1190.org",
-            "streamURL": "http://kvcu.streamguys1.com/live",
-            "imageURL": "station-radio1190",
-            "desc": "KVCU - Boulder, CO",
-            "longDesc": "Radio 1190 is the bomb."
+            "name": "Hawkesbury Radio",
+            "website": "https://hawkesburyradio.com.au",
+            "streamURL": "http://streaming.starterfm.com/hls/hawkesburyradio/live.m3u8",
+            "imageURL": "station-hawkesburyradio",
+            "desc": "Hawkesbury's home of real local voices",
+            "longDesc": "Hawkesbury Radio is a great little community radio station in Sydney's north west. Firmly founded in the local community, the station provides interesting content related to the Hawkesbury area, sports, music and talk aimed at the local listeners."
         },
         {
-            "name": "MP3 file sample",
-            "website": "https://samplelib.com",
-            "streamURL": "https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_1OMB_MP3.mp3",
-            "imageURL": "",
-            "desc": "From: https://samplelib.com",
-            "longDesc": "https://samplelib.com"
+            "name": "The Fresh Mix",
+            "website": "https://thefreshmix.com",
+            "streamURL": "http://streaming.starterfm.com/hls/freshmix/live.m3u8",
+            "imageURL": "station-mix",
+            "desc": "A fresh and different selection everyday",
+            "longDesc": "The Fresh Mix breathes new life into your day with a huge archive of hits, popular and lost beyond the depths of the archives; you'll be surprised on what we'll dig up.  You'll hear everything from 50s crooners, to 80s new wave, up to current top 40.  The playlist will have an emphasis on the 70s 80s and 90s.  With over 16,000 tracks, as we say, We'll have a fresh and different selection everyday!"
+        },
+        {
+            "name": "4PLAY.fm",
+            "website": "https://4play.fm",
+            "streamURL": "http://streaming.starterfm.com/hls/4play/live.m3u8",
+            "imageURL": "station-4play",
+            "desc": "The World's Best & Latest Club & Electronic Dance Music",
+            "longDesc": "The World's Best & Latest Club & Electronic Dance Music."
+        },
+        {
+            "name": "Cherri Radio",
+            "website": "https://cherriradio.com.au",
+            "streamURL": "http://streaming.starterfm.com/hls/gemfm/live.m3u8",
+            "imageURL": "station-cherri",
+            "desc": "Today's Best Music",
+            "longDesc": "Sydney's local internet radio station streaming 24/7. Playing Today's Best Music All Day, Everyday!"
+        },
+        {
+            "name": "KiSS FM Noumea",
+            "website": "https://kissfm.nc",
+            "streamURL": "http://streaming.starterfm.com/hls/kissfm/live.m3u8",
+            "imageURL": "station-kissfm",
+            "desc": "The Hit Music Channel",
+            "longDesc": "The Hit Music Channel"
+        },
+        {
+            "name": "INJABULO Africa",
+            "website": "https://",
+            "streamURL": "http://streaming.starterfm.com/hls/injabulo/live.m3u8",
+            "imageURL": "station-injabulo",
+            "desc": "We are the culture",
+            "longDesc": "Playing the latest Amapiano, Afrobeats and Hip-hop from across Africa and the world."
+        },
+        {
+            "name": "V1Radio",
+            "website": "https://v1radio.com.au",
+            "streamURL": "http://streaming.starterfm.com/hls/v1radio/live.m3u8",
+            "imageURL": "station-v1radio",
+            "desc": "Live and free from Melbourne, VIC",
+            "longDesc": "V1 RADIO is a deep house and dance net station, broadcasting live and free in HD from Melbourne Australia with a selection of fresh tracks and unique remixes as well as weekly programs from renowned DJ's and artists locally and from around the world including London, Germany, Switzerland, USA, and Canada!"
+        },
+        {
+            "name": "Tune1 Perth",
+            "website": "https://tune1.com.au",
+            "streamURL": "https://audio-edge-d34v9.syd.o.radiomast.io/tune1",
+            "imageURL": "station-tune1",
+            "desc": "Live and free from Perth, WA",
+            "longDesc": "Tune1 supports local music and hosting locally Australian produced programming featuring local announcers plus the best in globally produced shows!"
+        },
+        {
+            "name": "Regent Radio",
+            "website": "https://starterfm.com.au",
+            "streamURL": "http://streaming.starterfm.com/hls/bridgefm/live.m3u8",
+            "imageURL": "station-regentradio",
+            "desc": "Popcorn and tunes",
+            "longDesc": "Grab some popcorn and enjoy all your favorite hits on Regent Radio."
         }
     ]
 }

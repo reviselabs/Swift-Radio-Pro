@@ -22,12 +22,21 @@ extension Handoffable {
         guard let activity = activity else { return }
         
         defer { updateUserActivityState(activity) }
-        
-        guard let metadata = FRadioPlayer.shared.currentMetadata, let artistName = metadata.artistName, let trackName = metadata.trackName else {
+
+        guard let station else {
             activity.webpageURL = nil
             return
         }
-        
+
+        let trackName = station.trackName
+        let artistName = station.artistName
+        let hasStreamICY = FRadioPlayer.shared.currentMetadata?.trackName != nil
+        let hasExternal = station.nowPlayingURL != nil && StationNowPlayingService.shared.hasExternalMetadata(for: station)
+        guard hasStreamICY || hasExternal else {
+            activity.webpageURL = nil
+            return
+        }
+
         activity.webpageURL = getHandoffURL(artistName: artistName, trackName: trackName)
     }
     

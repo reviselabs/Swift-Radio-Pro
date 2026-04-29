@@ -26,6 +26,7 @@ class BottomSheetViewController: UIViewController {
     
     enum Option {
         case info
+        case starterFMSchedule
         case share(UIImage?)
         case website
         case openInMusic(URL?)
@@ -33,6 +34,7 @@ class BottomSheetViewController: UIViewController {
         var title: String {
             switch self {
                 case .info: return Content.BottomSheet.aboutStation
+                case .starterFMSchedule: return Content.BottomSheet.showSchedule
                 case .share: return Content.BottomSheet.shareNowPlaying
                 case .website: return Content.BottomSheet.stationWebsite
                 case .openInMusic: return Content.BottomSheet.playInMusicApp
@@ -42,6 +44,7 @@ class BottomSheetViewController: UIViewController {
         var image: UIImage? {
             switch self {
                 case .info: return UIImage(systemName: "info.circle")
+                case .starterFMSchedule: return UIImage(systemName: "calendar")
                 case .share: return UIImage(systemName: "square.and.arrow.up")
                 case .website: return UIImage(systemName: "safari")
                 case .openInMusic: return UIImage(systemName: "music.note")
@@ -52,6 +55,9 @@ class BottomSheetViewController: UIViewController {
     weak var delegate: BottomSheetViewControllerDelegate?
     private let station: RadioStation
     private let player = FRadioPlayer.shared
+
+    /// Avoids repeated sheet detent recalculation when `contentSize` fluctuates by a few points.
+    private var lastSheetLayoutContentHeight: CGFloat = -1
     
     private lazy var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .insetGrouped)
@@ -82,6 +88,9 @@ class BottomSheetViewController: UIViewController {
         switch section {
             case .stationInfo:
                 var options: [Option] = [.info]
+                if station.showsStarterFMShowSchedule {
+                    options.append(.starterFMSchedule)
+                }
                 if station.hasValidWebsite {
                     options.append(.website)
                 }
@@ -115,9 +124,12 @@ class BottomSheetViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+
         if let sheet = sheetPresentationController {
             let contentHeight = tableView.contentSize.height + view.safeAreaInsets.top + view.safeAreaInsets.bottom
+            guard contentHeight > 1 else { return }
+            if abs(contentHeight - lastSheetLayoutContentHeight) < 12 { return }
+            lastSheetLayoutContentHeight = contentHeight
             sheet.detents = [.custom { _ in contentHeight }]
             sheet.animateChanges {
                 sheet.selectedDetentIdentifier = sheet.detents.first?.identifier

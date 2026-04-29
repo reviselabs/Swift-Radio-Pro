@@ -33,6 +33,20 @@
 		CA2511B32D4E100000111003 /* AboutCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2511B22D4E100000111003 /* AboutCoordinator.swift */; };
 		CA2511B32D4E100000111004 /* AboutCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2511B22D4E100000111003 /* AboutCoordinator.swift */; };
 		CA2511B52D458033006D1A99 /* AudioSetupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2511B42D458033006D1A99 /* AudioSetupService.swift */; };
+		CA7F05012F53000100000002 /* StreamBitrateTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05002F53000100000001 /* StreamBitrateTracker.swift */; };
+		CA7F05022F53000100000003 /* StreamBitrateTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05002F53000100000001 /* StreamBitrateTracker.swift */; };
+		CA7F05112F54000200000001 /* StationNowPlayingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05102F54000200000000 /* StationNowPlayingService.swift */; };
+		CA7F05122F54000200000002 /* StationNowPlayingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05102F54000200000000 /* StationNowPlayingService.swift */; };
+		CA7F05252F55000100000006 /* StarterFMSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05202F55000100000001 /* StarterFMSchedule.swift */; };
+		CA7F05262F55000100000007 /* StarterFMSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05202F55000100000001 /* StarterFMSchedule.swift */; };
+		CA7F05272F55000100000008 /* StarterFMScheduleEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05212F55000100000002 /* StarterFMScheduleEngine.swift */; };
+		CA7F05282F55000100000009 /* StarterFMScheduleEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05212F55000100000002 /* StarterFMScheduleEngine.swift */; };
+		CA7F05292F5500010000000A /* StarterFMScheduleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05222F55000100000003 /* StarterFMScheduleStore.swift */; };
+		CA7F052A2F5500010000000B /* StarterFMScheduleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05222F55000100000003 /* StarterFMScheduleStore.swift */; };
+		CA7F052B2F5500010000000C /* StarterFMScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05232F55000100000004 /* StarterFMScheduleViewController.swift */; };
+		CA7F052C2F5500010000000D /* StarterFMScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05232F55000100000004 /* StarterFMScheduleViewController.swift */; };
+		CA7F052D2F5500010000000E /* StarterFMSchedule.json in Resources */ = {isa = PBXBuildFile; fileRef = CA7F05242F55000100000005 /* StarterFMSchedule.json */; };
+		CA7F052E2F5500010000000F /* StarterFMSchedule.json in Resources */ = {isa = PBXBuildFile; fileRef = CA7F05242F55000100000005 /* StarterFMSchedule.json */; };
 		CA2511B62D458033006D1A99 /* AudioSetupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2511B42D458033006D1A99 /* AudioSetupService.swift */; };
 		CA2511B82D45B1B6006D1A99 /* FeaturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2511B72D45B1B6006D1A99 /* FeaturesViewController.swift */; };
 		CA2511B92D45B1B6006D1A99 /* FeaturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2511B72D45B1B6006D1A99 /* FeaturesViewController.swift */; };
@@ -52,6 +66,12 @@
 		CA5F00032F40A00000000003 /* GradientBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5F00012F40A00000000001 /* GradientBackgroundView.swift */; };
 		CA5F00042F41000000000001 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = CA5F00062F41000000000003 /* Localizable.xcstrings */; };
 		CA5F00052F41000000000002 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = CA5F00062F41000000000003 /* Localizable.xcstrings */; };
+		CA7F03042F51C00100000004 /* FavoriteStationsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F03012F51C00100000001 /* FavoriteStationsStore.swift */; };
+		CA7F03052F51C00100000005 /* FavoriteStationsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F03012F51C00100000001 /* FavoriteStationsStore.swift */; };
+		CA7F03062F51C00100000006 /* PlaybackPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F03022F51C00100000002 /* PlaybackPreferences.swift */; };
+		CA7F03072F51C00100000007 /* PlaybackPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F03022F51C00100000002 /* PlaybackPreferences.swift */; };
+		CA7F03082F51C00100000008 /* PlaybackSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F03032F51C00100000003 /* PlaybackSettingsViewController.swift */; };
+		CA7F03092F51C00100000009 /* PlaybackSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F03032F51C00100000003 /* PlaybackSettingsViewController.swift */; };
 		CA900001200000000000000A /* MarqueeLabel in Frameworks */ = {isa = PBXBuildFile; productRef = CA900002200000000000000A /* MarqueeLabel */; };
 		CAB4E8292D3D7DC7001282E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB4E8282D3D7DC7001282E9 /* SceneDelegate.swift */; };
 		CAB4E82A2D3D7DC7001282E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB4E8282D3D7DC7001282E9 /* SceneDelegate.swift */; };
@@ -99,6 +119,8 @@
 		CED6353C293081ED002B216F /* Handoffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6353A293081ED002B216F /* Handoffable.swift */; };
 		CEDABBEB291217AF00C0367F /* UIImageView+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDABBEA291217AF00C0367F /* UIImageView+Cache.swift */; };
 		CEDABBED29121BBA00C0367F /* UIImage+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDABBEC29121BBA00C0367F /* UIImage+Cache.swift */; };
+		CA8F00112F60428D00000001 /* UIImage+Downsample.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8F00102F60428D00000001 /* UIImage+Downsample.swift */; };
+		CA8F00132F60428D00000001 /* UIImage+Downsample.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8F00102F60428D00000001 /* UIImage+Downsample.swift */; };
 		CEE9A2782B5345C30018FE68 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9A2772B5345C30018FE68 /* NowPlayingViewController.swift */; };
 		CEE9A2792B5345C30018FE68 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9A2772B5345C30018FE68 /* NowPlayingViewController.swift */; };
 		CEE9A27B2B535C780018FE68 /* AlbumArtworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9A27A2B535C780018FE68 /* AlbumArtworkView.swift */; };
@@ -166,6 +188,13 @@
 		CA142F6C2D3D9DFB0071A388 /* BottomSheetHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetHandler.swift; sourceTree = "<group>"; };
 		CA2511B22D4E100000111003 /* AboutCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCoordinator.swift; sourceTree = "<group>"; };
 		CA2511B42D458033006D1A99 /* AudioSetupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSetupService.swift; sourceTree = "<group>"; };
+		CA7F05002F53000100000001 /* StreamBitrateTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamBitrateTracker.swift; sourceTree = "<group>"; };
+		CA7F05102F54000200000000 /* StationNowPlayingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationNowPlayingService.swift; sourceTree = "<group>"; };
+		CA7F05202F55000100000001 /* StarterFMSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterFMSchedule.swift; sourceTree = "<group>"; };
+		CA7F05212F55000100000002 /* StarterFMScheduleEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterFMScheduleEngine.swift; sourceTree = "<group>"; };
+		CA7F05222F55000100000003 /* StarterFMScheduleStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterFMScheduleStore.swift; sourceTree = "<group>"; };
+		CA7F05232F55000100000004 /* StarterFMScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterFMScheduleViewController.swift; sourceTree = "<group>"; };
+		CA7F05242F55000100000005 /* StarterFMSchedule.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StarterFMSchedule.json; sourceTree = "<group>"; };
 		CA2511B72D45B1B6006D1A99 /* FeaturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturesViewController.swift; sourceTree = "<group>"; };
 		CA2511BA2D45C2CA006D1A99 /* LibrariesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariesViewController.swift; sourceTree = "<group>"; };
 		CA2511BD2D45CD11006D1A99 /* ContributorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributorsViewController.swift; sourceTree = "<group>"; };
@@ -185,12 +214,16 @@
 		CE6ECCFC292F1445008B3C16 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		CE6ECD02292F358C008B3C16 /* UIViewController+Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Email.swift"; sourceTree = "<group>"; };
 		CE963ECB29135A6F004F299E /* StationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsManager.swift; sourceTree = "<group>"; };
+		CA7F03012F51C00100000001 /* FavoriteStationsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStationsStore.swift; sourceTree = "<group>"; };
+		CA7F03022F51C00100000002 /* PlaybackPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackPreferences.swift; sourceTree = "<group>"; };
+		CA7F03032F51C00100000003 /* PlaybackSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackSettingsViewController.swift; sourceTree = "<group>"; };
 		CE9EE8DD293BB41300F62041 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		CE9EE8E0293C048A00F62041 /* LoaderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderController.swift; sourceTree = "<group>"; };
 		CEA82F492921F260009E9FA0 /* Info-CarPlay.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-CarPlay.plist"; sourceTree = "<group>"; };
 		CED6353A293081ED002B216F /* Handoffable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handoffable.swift; sourceTree = "<group>"; };
 		CEDABBEA291217AF00C0367F /* UIImageView+Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Cache.swift"; sourceTree = "<group>"; };
 		CEDABBEC29121BBA00C0367F /* UIImage+Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Cache.swift"; sourceTree = "<group>"; };
+		CA8F00102F60428D00000001 /* UIImage+Downsample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Downsample.swift"; sourceTree = "<group>"; };
 		CEE9A2772B5345C30018FE68 /* NowPlayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
 		CEE9A27A2B535C780018FE68 /* AlbumArtworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumArtworkView.swift; sourceTree = "<group>"; };
 		CEE9A27D2B54A5520018FE68 /* ControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
@@ -307,6 +340,10 @@
 			isa = PBXGroup;
 			children = (
 				CA2511B42D458033006D1A99 /* AudioSetupService.swift */,
+				CA7F05002F53000100000001 /* StreamBitrateTracker.swift */,
+				CA7F05102F54000200000000 /* StationNowPlayingService.swift */,
+				CA7F05212F55000100000002 /* StarterFMScheduleEngine.swift */,
+				CA7F05222F55000100000003 /* StarterFMScheduleStore.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -369,6 +406,7 @@
 			isa = PBXGroup;
 			children = (
 				945DB3C11AD58E3A00495EBB /* stations.json */,
+				CA7F05242F55000100000005 /* StarterFMSchedule.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -377,6 +415,9 @@
 			isa = PBXGroup;
 			children = (
 				94AC70AD1AD05C6200652982 /* RadioStation.swift */,
+				CA7F05202F55000100000001 /* StarterFMSchedule.swift */,
+				CA7F03012F51C00100000001 /* FavoriteStationsStore.swift */,
+				CA7F03022F51C00100000002 /* PlaybackPreferences.swift */,
 				CE963ECB29135A6F004F299E /* StationsManager.swift */,
 			);
 			path = Model;
@@ -394,6 +435,8 @@
 				94452E541AD7086800BFE7A5 /* AboutViewController.swift */,
 				94D1D0A41AD6D6230022CA11 /* InfoDetailViewController.swift */,
 				CE6036122A47A87A00E15E15 /* StationsViewController.swift */,
+				CA7F03032F51C00100000003 /* PlaybackSettingsViewController.swift */,
+				CA7F05232F55000100000004 /* StarterFMScheduleViewController.swift */,
 				CEE9A2772B5345C30018FE68 /* NowPlayingViewController.swift */,
 			);
 			path = ViewControllers;
@@ -405,6 +448,7 @@
 				CA142F662D3D8E280071A388 /* NSLayoutConstraint+with.swift */,
 				CEDABBEA291217AF00C0367F /* UIImageView+Cache.swift */,
 				CEDABBEC29121BBA00C0367F /* UIImage+Cache.swift */,
+				CA8F00102F60428D00000001 /* UIImage+Downsample.swift */,
 				CE6ECD02292F358C008B3C16 /* UIViewController+Email.swift */,
 				94E9761B1B1A8F3200F52B1E /* UIImage+DropShadow.swift */,
 				53113F38230C720900462C0E /* ShareActivity.swift */,
@@ -554,6 +598,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				945DB3C21AD58E3A00495EBB /* stations.json in Resources */,
+				CA7F052D2F5500010000000E /* StarterFMSchedule.json in Resources */,
 				945DB3C51AD5A6E200495EBB /* NothingFoundCell.xib in Resources */,
 				6258DCDA22D93A5400166C65 /* LogoShareView.xib in Resources */,
 				9409E1261ABF6FEA00312E2B /* Images.xcassets in Resources */,
@@ -566,6 +611,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE6A3E46291F376D0058C82A /* stations.json in Resources */,
+				CA7F052E2F5500010000000F /* StarterFMSchedule.json in Resources */,
 				CE6A3E47291F376D0058C82A /* NothingFoundCell.xib in Resources */,
 				CE6A3E48291F376D0058C82A /* LogoShareView.xib in Resources */,
 				CE6A3E4B291F376D0058C82A /* Images.xcassets in Resources */,
@@ -615,16 +661,26 @@
 				CA2511B32D4E100000111003 /* AboutCoordinator.swift in Sources */,
 				9409E11C1ABF6FEA00312E2B /* AppDelegate.swift in Sources */,
 				CA2511B52D458033006D1A99 /* AudioSetupService.swift in Sources */,
+				CA7F05012F53000100000002 /* StreamBitrateTracker.swift in Sources */,
+				CA7F05112F54000200000001 /* StationNowPlayingService.swift in Sources */,
+				CA7F05272F55000100000008 /* StarterFMScheduleEngine.swift in Sources */,
+				CA7F05292F5500010000000A /* StarterFMScheduleStore.swift in Sources */,
 				CAB4E82A2D3D7DC7001282E9 /* SceneDelegate.swift in Sources */,
 				CE6ECD03292F358C008B3C16 /* UIViewController+Email.swift in Sources */,
 				CEDABBED29121BBA00C0367F /* UIImage+Cache.swift in Sources */,
+				CA8F00112F60428D00000001 /* UIImage+Downsample.swift in Sources */,
 				94AC70AE1AD05C6200652982 /* RadioStation.swift in Sources */,
+				CA7F05252F55000100000006 /* StarterFMSchedule.swift in Sources */,
 				CA142F6A2D3D9A0D0071A388 /* BottomSheetViewController.swift in Sources */,
 				CE9EE8E1293C048A00F62041 /* LoaderController.swift in Sources */,
 				CEE9A27E2B54A5520018FE68 /* ControlsView.swift in Sources */,
 				CA5F00022F40A00000000002 /* GradientBackgroundView.swift in Sources */,
 				CEDABBEB291217AF00C0367F /* UIImageView+Cache.swift in Sources */,
 				CE6036132A47A87A00E15E15 /* StationsViewController.swift in Sources */,
+				CA7F052B2F5500010000000C /* StarterFMScheduleViewController.swift in Sources */,
+				CA7F03042F51C00100000004 /* FavoriteStationsStore.swift in Sources */,
+				CA7F03062F51C00100000006 /* PlaybackPreferences.swift in Sources */,
+				CA7F03082F51C00100000008 /* PlaybackSettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,6 +698,10 @@
 				CE9EE8DF293BB41300F62041 /* BaseController.swift in Sources */,
 				CA142F6E2D3D9DFB0071A388 /* BottomSheetHandler.swift in Sources */,
 				CA2511B62D458033006D1A99 /* AudioSetupService.swift in Sources */,
+				CA7F05022F53000100000003 /* StreamBitrateTracker.swift in Sources */,
+				CA7F05122F54000200000002 /* StationNowPlayingService.swift in Sources */,
+				CA7F05282F55000100000009 /* StarterFMScheduleEngine.swift in Sources */,
+				CA7F052A2F5500010000000B /* StarterFMScheduleStore.swift in Sources */,
 				CEE9A2792B5345C30018FE68 /* NowPlayingViewController.swift in Sources */,
 				CE6A3E33291F376D0058C82A /* ShareActivity.swift in Sources */,
 				CA142F672D3D8E2F0071A388 /* NSLayoutConstraint+with.swift in Sources */,
@@ -663,13 +723,19 @@
 				CAB4E8292D3D7DC7001282E9 /* SceneDelegate.swift in Sources */,
 				CE6ECD04292F358C008B3C16 /* UIViewController+Email.swift in Sources */,
 				CE6A3E3E291F376D0058C82A /* UIImage+Cache.swift in Sources */,
+				CA8F00132F60428D00000001 /* UIImage+Downsample.swift in Sources */,
 				CE6A3E40291F376D0058C82A /* RadioStation.swift in Sources */,
+				CA7F05262F55000100000007 /* StarterFMSchedule.swift in Sources */,
 				CA142F6B2D3D9A0D0071A388 /* BottomSheetViewController.swift in Sources */,
 				CE9EE8E2293C048A00F62041 /* LoaderController.swift in Sources */,
 				CEE9A27F2B54A5520018FE68 /* ControlsView.swift in Sources */,
 				CA5F00032F40A00000000003 /* GradientBackgroundView.swift in Sources */,
 				CE6A3E41291F376D0058C82A /* UIImageView+Cache.swift in Sources */,
 				CE6036142A47A87A00E15E15 /* StationsViewController.swift in Sources */,
+				CA7F052C2F5500010000000D /* StarterFMScheduleViewController.swift in Sources */,
+				CA7F03052F51C00100000005 /* FavoriteStationsStore.swift in Sources */,
+				CA7F03072F51C00100000007 /* PlaybackPreferences.swift in Sources */,
+				CA7F03092F51C00100000009 /* PlaybackSettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -688,6 +754,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 99QQSJ2EJ7;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = SwiftRadioUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -696,7 +763,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jonah.SwiftRadioUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = daniel.SwiftRadioUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = SwiftRadio;
@@ -708,6 +775,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 99QQSJ2EJ7;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = SwiftRadioUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -716,7 +784,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jonah.SwiftRadioUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = daniel.SwiftRadioUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = SwiftRadio;
@@ -844,7 +912,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 6G96AERJ7Q;
+				DEVELOPMENT_TEAM = 99QQSJ2EJ7;
 				ENABLE_MODULE_VERIFIER = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -858,7 +926,7 @@
 				);
 				MARKETING_VERSION = 3.0.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
-				PRODUCT_BUNDLE_IDENTIFIER = com.matthewfecher.SwiftRadio;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.radiocorp-starterplus";
 				PRODUCT_NAME = SwiftRadio;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -876,7 +944,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 6G96AERJ7Q;
+				DEVELOPMENT_TEAM = 99QQSJ2EJ7;
 				ENABLE_MODULE_VERIFIER = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -890,7 +958,7 @@
 				);
 				MARKETING_VERSION = 3.0.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
-				PRODUCT_BUNDLE_IDENTIFIER = com.matthewfecher.SwiftRadio;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.radiocorp-starterplus";
 				PRODUCT_NAME = SwiftRadio;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -906,18 +974,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SwiftRadio/SwiftRadio.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 6G96AERJ7Q;
+				DEVELOPMENT_TEAM = 99QQSJ2EJ7;
 				ENABLE_MODULE_VERIFIER = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SwiftRadio",
 				);
 				INFOPLIST_FILE = "SwiftRadio/Info-CarPlay.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Starter Plus";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -926,11 +994,10 @@
 				MARKETING_VERSION = 3.0.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
 				OTHER_SWIFT_FLAGS = "-D CarPlay";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fethica.SwiftRadio;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.radiocorp.starterplus-carplay";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = swiftradiocarplay3;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -943,18 +1010,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SwiftRadio/SwiftRadio.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 6G96AERJ7Q;
+				DEVELOPMENT_TEAM = 99QQSJ2EJ7;
 				ENABLE_MODULE_VERIFIER = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SwiftRadio",
 				);
 				INFOPLIST_FILE = "SwiftRadio/Info-CarPlay.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Starter Plus";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -963,11 +1030,10 @@
 				MARKETING_VERSION = 3.0.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
 				OTHER_SWIFT_FLAGS = "-D CarPlay";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fethica.SwiftRadio;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.radiocorp.starterplus-carplay";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = swiftradiocarplay3;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

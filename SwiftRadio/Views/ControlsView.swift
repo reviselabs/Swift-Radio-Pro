@@ -20,27 +20,99 @@ class ControlsView: UIView {
 
     var moreAction: (() -> Void)?
 
+    /// Starter FM: tap the on-air row to open the full schedule (same as “Show schedule” in the menu).
+    var onAirScheduleTapAction: (() -> Void)?
+
     var isSliderSliding = false
 
     private var isLive = true
 
+    private var contentSizeCategoryObserver: NSObjectProtocol?
+
+    enum OnAirScheduleState: Equatable {
+        case hidden
+        case slot(title: String, timeRange: String)
+        case unavailable(message: String)
+    }
+
+    /// Stream quality + bitrate row (tap opens menu from `NowPlayingViewController`).
+    private let streamQualityButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.contentHorizontalAlignment = .center
+        button.isHidden = true
+        return button
+    }()
+
     // Row 1: song — artist (or station name when no metadata)
     private let titleLabel: MarqueeLabel = {
         let label = MarqueeLabel(frame: .zero, rate: 30, fadeLength: 10)
-        label.font = UIFont.preferredFont(forTextStyle: .title2).bold()
         label.textAlignment = .center
+        label.textColor = .white
         label.setContentCompressionResistancePriority(.required, for: .vertical)
         label.trailingBuffer = 30
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
 
     // Row 2: station name (or station desc when no metadata)
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .title3)
         label.textAlignment = .center
+        label.textColor = .white.withAlphaComponent(0.8)
         label.setContentCompressionResistancePriority(.required, for: .vertical)
-        label.alpha = 0.7
+        label.alpha = 1
+        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 2
+        return label
+    }()
+
+    /// Starter FM: tappable area with marquee title + time (Sydney), or unavailable message.
+    private let onAirContainer: UIView = {
+        let v = UIView()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.isHidden = true
+        v.layer.cornerRadius = 10
+        v.clipsToBounds = true
+        v.backgroundColor = UIColor.white.withAlphaComponent(0.08)
+        return v
+    }()
+
+    private let onAirStack: UIStackView = {
+        let s = UIStackView()
+        s.translatesAutoresizingMaskIntoConstraints = false
+        s.axis = .vertical
+        s.spacing = 3
+        s.alignment = .fill
+        return s
+    }()
+
+    private let onAirTitleMarquee: MarqueeLabel = {
+        let label = MarqueeLabel(frame: .zero, rate: 26, fadeLength: 8)
+        label.textAlignment = .center
+        label.textColor = UIColor.white.withAlphaComponent(0.92)
+        label.adjustsFontForContentSizeCategory = true
+        label.isAccessibilityElement = false
+        return label
+    }()
+
+    private let onAirTimeLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = UIColor.white.withAlphaComponent(0.68)
+        label.numberOfLines = 2
+        label.adjustsFontForContentSizeCategory = true
+        label.isAccessibilityElement = false
+        return label
+    }()
+
+    private let onAirUnavailableLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = UIColor.white.withAlphaComponent(0.75)
+        label.numberOfLines = 0
+        label.adjustsFontForContentSizeCategory = true
+        label.isAccessibilityElement = false
         return label
     }()
 
@@ -56,22 +128,22 @@ class ControlsView: UIView {
     private let currentTimeLabel: UILabel = {
         let label = UILabel()
         label.text = "00:00"
-        label.font = UIFont.systemFont(ofSize: 10, weight: .medium)
         label.setContentCompressionResistancePriority(.required, for: .vertical)
         label.setContentCompressionResistancePriority(.required, for: .horizontal)
         label.textAlignment = .left
         label.alpha = 0.8
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
 
     private let totalTimeLabel: UILabel = {
         let label = UILabel()
         label.text = "00:00"
-        label.font = UIFont.systemFont(ofSize: 10, weight: .medium)
         label.setContentCompressionResistancePriority(.required, for: .vertical)
         label.setContentCompressionResistancePriority(.required, for: .horizontal)
         label.textAlignment = .right
         label.alpha = 0.8
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
 
@@ -108,36 +180,57 @@ class ControlsView: UIView {
 
     private let playPauseButton: UIButton = {
         let button = UIButton()
-        let config = UIImage.SymbolConfiguration(pointSize: 60, weight: .regular)
-        button.setImage(UIImage(systemName: "play.circle.fill", withConfiguration: config), for: .normal)
-        button.setImage(UIImage(systemName: "stop.circle.fill", withConfiguration: config), for: .selected)
-        button.tintColor = Config.tintColor
+        button.tintColor = UIColor(red: 20 / 255, green: 28 / 255, blue: 45 / 255, alpha: 1)
+        button.backgroundColor = Config.tintColor
+        button.layer.cornerRadius = 32
+        button.clipsToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            button.widthAnchor.constraint(equalToConstant: 64),
+            button.heightAnchor.constraint(equalToConstant: 64),
+        ])
         return button
     }()
 
     private let nextButton: UIButton = {
         let button = UIButton()
-        let config = UIImage.SymbolConfiguration(pointSize: 28, weight: .bold)
+        let config = UIImage.SymbolConfiguration(pointSize: 20, weight: .semibold)
         button.setImage(UIImage(systemName: "forward.fill", withConfiguration: config), for: .normal)
-        button.tintColor = Config.tintColor.withAlphaComponent(0.7)
+        button.tintColor = .white
+        button.backgroundColor = UIColor.white.withAlphaComponent(0.14)
+        button.layer.cornerRadius = 24
+        button.clipsToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            button.widthAnchor.constraint(equalToConstant: 48),
+            button.heightAnchor.constraint(equalToConstant: 48),
+        ])
         return button
     }()
 
     private let previousButton: UIButton = {
         let button = UIButton()
-        let config = UIImage.SymbolConfiguration(pointSize: 28, weight: .bold)
+        let config = UIImage.SymbolConfiguration(pointSize: 20, weight: .semibold)
         button.setImage(UIImage(systemName: "backward.fill", withConfiguration: config), for: .normal)
-        button.tintColor = Config.tintColor.withAlphaComponent(0.7)
+        button.tintColor = .white
+        button.backgroundColor = UIColor.white.withAlphaComponent(0.14)
+        button.layer.cornerRadius = 24
+        button.clipsToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            button.widthAnchor.constraint(equalToConstant: 48),
+            button.heightAnchor.constraint(equalToConstant: 48),
+        ])
         return button
     }()
 
     private let airPlayButton: AVRoutePickerView = {
         let button = AVRoutePickerView()
         button.activeTintColor = Config.tintColor
-        button.tintColor = Config.tintColor.withAlphaComponent(0.7)
+        button.tintColor = .white.withAlphaComponent(0.85)
+        button.backgroundColor = UIColor.white.withAlphaComponent(0.1)
+        button.layer.cornerRadius = 22
+        button.clipsToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             button.widthAnchor.constraint(equalToConstant: 44),
@@ -148,8 +241,12 @@ class ControlsView: UIView {
 
     private let moreButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "list.dash"), for: .normal)
-        button.tintColor = Config.tintColor.withAlphaComponent(0.7)
+        let config = UIImage.SymbolConfiguration(pointSize: 18, weight: .semibold)
+        button.setImage(UIImage(systemName: "ellipsis", withConfiguration: config), for: .normal)
+        button.tintColor = .white.withAlphaComponent(0.85)
+        button.backgroundColor = UIColor.white.withAlphaComponent(0.1)
+        button.layer.cornerRadius = 22
+        button.clipsToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             button.widthAnchor.constraint(equalToConstant: 44),
@@ -160,11 +257,43 @@ class ControlsView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        applyDynamicTypeFonts()
         setupViews()
+        contentSizeCategoryObserver = NotificationCenter.default.addObserver(
+            forName: UIContentSizeCategory.didChangeNotification,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            self?.applyDynamicTypeFonts()
+        }
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    deinit {
+        if let contentSizeCategoryObserver {
+            NotificationCenter.default.removeObserver(contentSizeCategoryObserver)
+        }
+    }
+
+    private func applyDynamicTypeFonts() {
+        titleLabel.font = UIFontMetrics(forTextStyle: .title2).scaledFont(for: UIFont.systemFont(ofSize: 22, weight: .bold))
+        subtitleLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: UIFont.systemFont(ofSize: 16, weight: .medium))
+        onAirTitleMarquee.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: UIFont.systemFont(ofSize: 14, weight: .semibold))
+        onAirTimeLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: UIFont.systemFont(ofSize: 12, weight: .medium))
+        onAirUnavailableLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: UIFont.systemFont(ofSize: 13, weight: .medium))
+        currentTimeLabel.font = UIFontMetrics(forTextStyle: .caption2).scaledFont(for: UIFont.systemFont(ofSize: 10, weight: .medium))
+        totalTimeLabel.font = UIFontMetrics(forTextStyle: .caption2).scaledFont(for: UIFont.systemFont(ofSize: 10, weight: .medium))
+        titleLabel.restartLabel()
+        onAirTitleMarquee.restartLabel()
+    }
+
+    /// Pauses MarqueeLabel animations (e.g. while the LNPopup mini bar is showing) to avoid main-thread stalls during interactive transitions.
+    func setMarqueeScrollingPaused(_ paused: Bool) {
+        titleLabel.holdScrolling = paused
+        onAirTitleMarquee.holdScrolling = paused
     }
 
     func setPlaying(_ isPlaying: Bool) {
@@ -204,14 +333,90 @@ class ControlsView: UIView {
             titleLabel.text = stationName
             subtitleLabel.text = stationDesc
         }
+        titleLabel.restartLabel()
+    }
+
+    func setOnAirSchedule(_ state: OnAirScheduleState) {
+        switch state {
+        case .hidden:
+            onAirContainer.isHidden = true
+            onAirContainer.isUserInteractionEnabled = false
+            onAirContainer.accessibilityTraits = .staticText
+            onAirContainer.accessibilityHint = nil
+            onAirTitleMarquee.text = nil
+            onAirTimeLabel.text = nil
+            onAirUnavailableLabel.text = nil
+            onAirTitleMarquee.isHidden = true
+            onAirTimeLabel.isHidden = true
+            onAirUnavailableLabel.isHidden = true
+
+        case .slot(let title, let timeRange):
+            onAirContainer.isHidden = false
+            onAirContainer.isUserInteractionEnabled = true
+            onAirTitleMarquee.isHidden = false
+            onAirTimeLabel.isHidden = false
+            onAirUnavailableLabel.isHidden = true
+            let prefix = Content.Player.starterFMOnAirPrefix
+            onAirTitleMarquee.text = "\(prefix): \(title)"
+            let tz = Content.StarterFMSchedule.timezoneShort
+            onAirTimeLabel.text = "\(timeRange) · \(tz)"
+            onAirTitleMarquee.restartLabel()
+            onAirContainer.accessibilityLabel = "\(prefix). \(title). \(timeRange). \(Content.StarterFMSchedule.timezoneFooter)"
+            onAirContainer.accessibilityTraits = .button
+            onAirContainer.accessibilityHint = Content.Accessibility.starterFMOnAirHint
+
+        case .unavailable(let message):
+            onAirContainer.isHidden = false
+            onAirContainer.isUserInteractionEnabled = true
+            onAirTitleMarquee.isHidden = true
+            onAirTimeLabel.isHidden = true
+            onAirUnavailableLabel.isHidden = false
+            onAirUnavailableLabel.text = message
+            onAirContainer.accessibilityLabel = "\(message). \(Content.StarterFMSchedule.timezoneFooter)"
+            onAirContainer.accessibilityTraits = .button
+            onAirContainer.accessibilityHint = Content.Accessibility.starterFMOnAirHint
+        }
+    }
+
+    @objc private func onAirContainerTapped() {
+        onAirScheduleTapAction?()
+    }
+
+    /// - Parameter menu: Pass `nil` to keep the existing menu (e.g. bitrate text changed). Pass a new menu when mode/station changes so an opening menu is not replaced mid‑gesture.
+    func setStreamQuality(text: String, menu: UIMenu?, isHidden: Bool) {
+        streamQualityButton.isHidden = isHidden
+        if isHidden {
+            streamQualityButton.menu = nil
+            streamQualityButton.showsMenuAsPrimaryAction = false
+            return
+        }
+
+        var config = streamQualityButton.configuration ?? UIButton.Configuration.plain()
+        config.title = text
+        if config.image == nil {
+            config.image = UIImage(systemName: "chevron.up.chevron.down")
+            config.imagePlacement = .trailing
+            config.imagePadding = 6
+            config.baseForegroundColor = UIColor.white.withAlphaComponent(0.82)
+            config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
+                var out = incoming
+                out.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
+                return out
+            }
+        }
+        streamQualityButton.configuration = config
+        if let menu {
+            streamQualityButton.menu = menu
+            streamQualityButton.showsMenuAsPrimaryAction = true
+        }
     }
 
     // MARK: - Private
 
     private func updatePlayPauseImages() {
-        let config = UIImage.SymbolConfiguration(pointSize: 60, weight: .regular)
-        playPauseButton.setImage(UIImage(systemName: "play.circle.fill", withConfiguration: config), for: .normal)
-        let selectedName = isLive ? "stop.circle.fill" : "pause.circle.fill"
+        let config = UIImage.SymbolConfiguration(pointSize: 26, weight: .bold)
+        playPauseButton.setImage(UIImage(systemName: "play.fill", withConfiguration: config), for: .normal)
+        let selectedName = isLive ? "stop.fill" : "pause.fill"
         playPauseButton.setImage(UIImage(systemName: selectedName, withConfiguration: config), for: .selected)
     }
 
@@ -223,13 +428,32 @@ class ControlsView: UIView {
     }
 
     private func setupViews() {
-        let mainStackView = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel, sliderContainerView, buttonsStackView, menuStackView])
+        onAirStack.isAccessibilityElement = false
+        onAirStack.addArrangedSubview(onAirTitleMarquee)
+        onAirStack.addArrangedSubview(onAirTimeLabel)
+        onAirStack.addArrangedSubview(onAirUnavailableLabel)
+        onAirContainer.addSubview(onAirStack)
+
+        NSLayoutConstraint.activate([
+            onAirStack.topAnchor.constraint(equalTo: onAirContainer.topAnchor, constant: 8),
+            onAirStack.leadingAnchor.constraint(equalTo: onAirContainer.leadingAnchor, constant: 10),
+            onAirStack.trailingAnchor.constraint(equalTo: onAirContainer.trailingAnchor, constant: -10),
+            onAirStack.bottomAnchor.constraint(equalTo: onAirContainer.bottomAnchor, constant: -8),
+        ])
+
+        let onAirTap = UITapGestureRecognizer(target: self, action: #selector(onAirContainerTapped))
+        onAirContainer.addGestureRecognizer(onAirTap)
+        onAirContainer.isAccessibilityElement = true
+
+        let mainStackView = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel, onAirContainer, streamQualityButton, sliderContainerView, buttonsStackView, menuStackView])
         mainStackView.axis = .vertical
         mainStackView.spacing = 8
         mainStackView.alignment = .fill
 
         mainStackView.setCustomSpacing(4, after: titleLabel)
-        mainStackView.setCustomSpacing(20, after: subtitleLabel)
+        mainStackView.setCustomSpacing(10, after: subtitleLabel)
+        mainStackView.setCustomSpacing(6, after: onAirContainer)
+        mainStackView.setCustomSpacing(14, after: streamQualityButton)
 
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -287,7 +511,7 @@ class ControlsView: UIView {
     private var buttonsStackView: UIStackView {
         let hStackView = UIStackView(arrangedSubviews: [previousButton, playPauseButton, nextButton])
         hStackView.axis = .horizontal
-        hStackView.spacing = 40
+        hStackView.spacing = 28
         hStackView.alignment = .center
 
         playPauseButton.addTarget(self, action: #selector(playingPressed), for: .touchUpInside)
@@ -308,7 +532,7 @@ class ControlsView: UIView {
     private var menuStackView: UIStackView {
         let stackView = UIStackView(arrangedSubviews: [airPlayButton, moreButton])
         stackView.axis = .horizontal
-        stackView.spacing = 40
+        stackView.spacing = 20
         stackView.alignment = .center
         stackView.distribution = .fill
 

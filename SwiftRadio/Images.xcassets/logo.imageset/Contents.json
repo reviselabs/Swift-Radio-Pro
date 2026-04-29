@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "logo.png",
+      "filename" : "PLUSLOGO PNG.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "logo@2x.png",
+      "filename" : "PLUSLOGO PNG 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "logo@3x.png",
+      "filename" : "PLUSLOGO PNG 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -28,6 +28,7 @@ struct InfoSection {
 enum InfoItem {
     // Navigation (pushes to a screen)
     case features(title: String = "Features", icon: String? = nil)
+    case playbackSettings(title: String = "Playback", icon: String? = nil)
     case libraries(title: String = "Open Source Libraries", subtitle: String? = nil, icon: String? = nil)
     case credits(title: String = "Contributors", subtitle: String? = "Special Thanks", owner: String, repo: String, icon: String? = nil)
 
@@ -43,6 +44,7 @@ enum InfoItem {
     var title: String {
         switch self {
         case .features(let title, _): return title
+        case .playbackSettings(let title, _): return title
         case .libraries(let title, _, _): return title
         case .credits(let title, _, _, _, _): return title
         case .link(let title, _, _, _): return title
@@ -71,6 +73,7 @@ enum InfoItem {
         let customIcon: String?
         switch self {
         case .features(_, let icon): customIcon = icon
+        case .playbackSettings(_, let icon): customIcon = icon
         case .libraries(_, _, let icon): customIcon = icon
         case .credits(_, _, _, _, let icon): customIcon = icon
         case .link(_, _, _, let icon): customIcon = icon
@@ -85,6 +88,7 @@ enum InfoItem {
     private var defaultIcon: String {
         switch self {
         case .features: return "list.bullet"
+        case .playbackSettings: return "waveform"
         case .libraries: return "book"
         case .credits: return "heart"
         case .link: return "globe"

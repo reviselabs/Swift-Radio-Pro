@@ -33,11 +33,16 @@ class StationsManager {
     
     private(set) var currentStation: RadioStation? {
         didSet {
+            let station = currentStation
+            Task { @MainActor in
+                StationNowPlayingService.shared.bind(to: station)
+            }
+
             notifiyObservers { observer in
                 observer.stationsManager(self, stationDidChange: currentStation)
             }
-            
-            resetArtwork(with: currentStation)
+
+            reloadStationArtworkIntoLockScreen()
         }
     }
     
@@ -45,9 +50,40 @@ class StationsManager {
     
     private var observations = [ObjectIdentifier : Observation]()
     private let player = FRadioPlayer.shared
-    
+    private var playbackQualityObserver: NSObjectProtocol?
+    private var externalNowPlayingObserver: NSObjectProtocol?
+
     private init() {
         self.player.addObserver(self)
+        playbackQualityObserver = NotificationCenter.default.addObserver(
+            forName: .playbackQualityPreferenceDidChange,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            self?.applyCurrentStreamQualityIfNeeded()
+        }
+
+        externalNowPlayingObserver = NotificationCenter.default.addObserver(
+            forName: .externalNowPlayingMetadataDidUpdate,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            self?.updateNowPlayingMetadataAndTimingPreservingArtwork()
+        }
+    }
+
+    /// Re-applies the current station URL when the user changes stream quality in Settings.
+    func applyCurrentStreamQualityIfNeeded() {
+        guard let station = currentStation else { return }
+        applyStreamURL(for: station)
+    }
+
+    private func applyStreamURL(for station: RadioStation) {
+        let urlString = station.resolvedStreamURL(for: PlaybackPreferences.shared.streamQualityMode)
+        guard let url = URL(string: urlString) else { return }
+        if player.radioURL != url {
+            player.radioURL = url
+        }
     }
     
     @MainActor
@@ -74,22 +110,22 @@ class StationsManager {
             reset()
             return
         }
-        
+
         currentStation = station
-        player.radioURL = URL(string: station.streamURL)
+        applyStreamURL(for: station)
     }
-    
+
     func setNext() {
         guard let index = getIndex(of: currentStation) else { return }
         let station = (index + 1 == stations.count) ? stations[0] : stations[index + 1]
         currentStation = station
-        player.radioURL = URL(string: station.streamURL)
+        applyStreamURL(for: station)
     }
-    
+
     func setPrevious() {
         guard let index = getIndex(of: currentStation), let station = (index == 0) ? stations.last : stations[index - 1] else { return }
         currentStation = station
-        player.radioURL = URL(string: station.streamURL)
+        applyStreamURL(for: station)
     }
     
     func updateSearch(with filter: String) {
@@ -138,52 +174,77 @@ extension StationsManager {
     }
 }
 
-// MARK: - MPNowPlayingInfoCenter (Lock screen)
+// MARK: - MPNowPlayingInfoCenter (Lock screen / CarPlay)
 
 extension StationsManager {
-    
-    private func resetArtwork(with station: RadioStation?) {
-        
-        guard let station = station else {
-            updateLockScreen(with: nil)
+
+    /// Loads station branding artwork into Now Playing (station changes, or stream artwork cleared).
+    private func reloadStationArtworkIntoLockScreen() {
+        guard let station = currentStation else {
+            updateLockScreen(withArtwork: nil, rebuildFromScratch: true)
             return
         }
-        
+
         station.getImage { [weak self] image in
-            self?.updateLockScreen(with: image)
+            self?.updateLockScreen(withArtwork: image, rebuildFromScratch: true)
         }
     }
-    
-    private func updateLockScreen(with artworkImage: UIImage?) {
-        
-        // Define Now Playing Info
-        var nowPlayingInfo = [String : Any]()
-        
-        if let image = artworkImage {
-            nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size, requestHandler: { size -> UIImage in
-                return image
-            })
-        }
-        
-        if let artistName = currentStation?.artistName {
-            nowPlayingInfo[MPMediaItemPropertyArtist] = artistName
-        }
-        
-        if let trackName = currentStation?.trackName {
-            nowPlayingInfo[MPMediaItemPropertyTitle] = trackName
-        }
-        
-        let isLive = player.duration == 0
 
+    /// Updates title / artist / timing only — **does not** replace artwork. Prevents CarPlay / lock screen flipping between station logo and track art on each metadata packet.
+    private func updateNowPlayingMetadataAndTimingPreservingArtwork() {
+        var info = MPNowPlayingInfoCenter.default().nowPlayingInfo ?? [:]
+
+        if let station = currentStation {
+            info[MPMediaItemPropertyArtist] = station.artistName
+            info[MPMediaItemPropertyTitle] = station.trackName
+        }
+
+        let isLive = player.duration == 0
+        if isLive {
+            info[MPNowPlayingInfoPropertyIsLiveStream] = true
+            info.removeValue(forKey: MPNowPlayingInfoPropertyElapsedPlaybackTime)
+            info.removeValue(forKey: MPMediaItemPropertyPlaybackDuration)
+            info.removeValue(forKey: MPNowPlayingInfoPropertyPlaybackRate)
+        } else {
+            info.removeValue(forKey: MPNowPlayingInfoPropertyIsLiveStream)
+            info[MPNowPlayingInfoPropertyElapsedPlaybackTime] = player.currentTime
+            info[MPMediaItemPropertyPlaybackDuration] = player.duration
+            info[MPNowPlayingInfoPropertyPlaybackRate] = player.rate ?? 1
+        }
+
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = info
+        AudioSetupService.shared.updateLiveCommands(isLive: isLive)
+    }
+
+    private func updateLockScreen(withArtwork artworkImage: UIImage?, rebuildFromScratch: Bool) {
+        var nowPlayingInfo: [String: Any]
+        if rebuildFromScratch {
+            nowPlayingInfo = [:]
+            if let image = artworkImage {
+                nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size, requestHandler: { _ in image })
+            }
+        } else {
+            nowPlayingInfo = MPNowPlayingInfoCenter.default().nowPlayingInfo ?? [:]
+            if let image = artworkImage {
+                nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size, requestHandler: { _ in image })
+            }
+        }
+
+        if let station = currentStation {
+            nowPlayingInfo[MPMediaItemPropertyArtist] = station.artistName
+            nowPlayingInfo[MPMediaItemPropertyTitle] = station.trackName
+        }
+
+        let isLive = player.duration == 0
         if isLive {
             nowPlayingInfo[MPNowPlayingInfoPropertyIsLiveStream] = true
         } else {
+            nowPlayingInfo.removeValue(forKey: MPNowPlayingInfoPropertyIsLiveStream)
             nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = player.currentTime
             nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = player.duration
-            nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = player.rate
+            nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = player.rate ?? 1
         }
 
-        // Set the metadata
         MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
         AudioSetupService.shared.updateLiveCommands(isLive: isLive)
     }
@@ -192,24 +253,36 @@ extension StationsManager {
 // MARK: - FRadioPlayerObserver
 
 extension StationsManager: FRadioPlayerObserver {
-    
+
     func radioPlayer(_ player: FRadioPlayer, metadataDidChange metadata: FRadioPlayer.Metadata?) {
-        resetArtwork(with: currentStation)
+        updateNowPlayingMetadataAndTimingPreservingArtwork()
     }
-    
+
     func radioPlayer(_ player: FRadioPlayer, artworkDidChange artworkURL: URL?) {
         guard let artworkURL else {
-            resetArtwork(with: currentStation)
+            reloadStationArtworkIntoLockScreen()
             return
         }
 
         Task { [weak self] in
             guard let self else { return }
             guard let image = await NetworkService.fetchImage(from: artworkURL) else {
-                await MainActor.run { self.resetArtwork(with: self.currentStation) }
+                await MainActor.run { self.reloadStationArtworkIntoLockScreen() }
                 return
             }
-            await MainActor.run { self.updateLockScreen(with: image) }
+            await MainActor.run { self.updateLockScreen(withArtwork: image, rebuildFromScratch: true) }
         }
+    }
+
+    func radioPlayer(_ player: FRadioPlayer, playTimeDidChange currentTime: TimeInterval, duration: TimeInterval) {
+        guard duration != 0 else {
+            updateNowPlayingMetadataAndTimingPreservingArtwork()
+            return
+        }
+        var info = MPNowPlayingInfoCenter.default().nowPlayingInfo ?? [:]
+        info[MPNowPlayingInfoPropertyElapsedPlaybackTime] = currentTime
+        info[MPMediaItemPropertyPlaybackDuration] = duration
+        info[MPNowPlayingInfoPropertyPlaybackRate] = player.rate ?? 1
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = info
     }
 }

@@ -20,6 +20,7 @@ struct Content {
 
         struct Sections {
             static let features = String(localized: "about.sections.features")
+            static let settings = String(localized: "about.sections.settings")
             static let contact = String(localized: "about.sections.contact")
             static let support = String(localized: "about.sections.support")
             static let credits = String(localized: "about.sections.credits")
@@ -56,6 +57,23 @@ struct Content {
     struct Stations {
         static let title = String(localized: "stations.title")
         static let loadingMessage = String(localized: "stations.loadingMessage")
+        static let emptyFavorites = String(localized: "stations.emptyFavorites")
+        static let favoriteAccessibility = String(localized: "stations.favoriteAccessibility")
+    }
+
+    struct Tabs {
+        static let allStations = String(localized: "tabs.allStations")
+        static let favorites = String(localized: "tabs.favorites")
+    }
+
+    struct Settings {
+        static let playbackTitle = String(localized: "settings.playbackTitle")
+        static let playbackMenuTitle = String(localized: "settings.playbackMenuTitle")
+        static let streamQualityFooter = String(localized: "settings.streamQualityFooter")
+        static let qualityAuto = String(localized: "settings.quality.auto")
+        static let qualityLow = String(localized: "settings.quality.low")
+        static let qualityMedium = String(localized: "settings.quality.medium")
+        static let qualityHigh = String(localized: "settings.quality.high")
     }
 
     struct Loader {
@@ -71,13 +89,37 @@ struct Content {
 
     struct BottomSheet {
         static let aboutStation = String(localized: "bottomSheet.aboutStation")
+        static let showSchedule = String(localized: "bottomSheet.showSchedule")
         static let shareNowPlaying = String(localized: "bottomSheet.shareNowPlaying")
         static let stationWebsite = String(localized: "bottomSheet.stationWebsite")
         static let playInMusicApp = String(localized: "bottomSheet.playInMusicApp")
     }
 
+    struct StarterFMSchedule {
+        static let screenTitle = String(localized: "starterFMSchedule.screenTitle")
+        static let timezoneFooter = String(localized: "starterFMSchedule.timezoneFooter")
+        static let timezoneShort = String(localized: "starterFMSchedule.timezoneShort")
+        static let todaySectionSuffix = String(localized: "starterFMSchedule.todaySectionSuffix")
+    }
+
     struct Player {
         static let liveBadge = String(localized: "player.liveBadge")
+        /// Shown while adaptive bitrate isn’t known yet.
+        static let autoQualityShort = String(localized: "player.autoQualityShort")
+        /// First argument: measured bitrate in kbps (e.g. `Auto · %lld kbps`).
+        static let autoWithBitrate = String(localized: "player.autoWithBitrate")
+        static let tierLowTitle = String(localized: "player.tierLowTitle")
+        static let tierMidTitle = String(localized: "player.tierMidTitle")
+        static let tierHighTitle = String(localized: "player.tierHighTitle")
+        /// `%1$@` = tier title, `%2$@` = label from stations.json (e.g. `320 kbps`).
+        static let tierWithBitrateLabel = String(localized: "player.tierWithBitrateLabel")
+        static let streamQualityMenuTitle = String(localized: "player.streamQualityMenuTitle")
+        static let starterFMOnAirPrefix = String(localized: "player.starterFMOnAirPrefix")
+        static let starterFMScheduleUnavailable = String(localized: "player.starterFMScheduleUnavailable")
+    }
+
+    struct Accessibility {
+        static let starterFMOnAirHint = String(localized: "accessibility.starterFMOnAirHint")
     }
 
     struct Common {

@@ -13,14 +13,15 @@ class StationTableViewCell: UITableViewCell {
 
     // MARK: - UI
     private var representedStation: RadioStation?
+    private let accentColor = Config.tintColor
 
     private let cardBlurView: UIVisualEffectView = {
-        let blur = UIBlurEffect(style: .systemUltraThinMaterialDark)
+        let blur = UIBlurEffect(style: .systemThinMaterialDark)
         let view = UIVisualEffectView(effect: blur)
-        view.layer.cornerRadius = 14
+        view.layer.cornerRadius = 16
         view.clipsToBounds = true
-        view.layer.borderWidth = 0.5
-        view.layer.borderColor = UIColor.white.withAlphaComponent(0.12).cgColor
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.white.withAlphaComponent(0.09).cgColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -28,11 +29,11 @@ class StationTableViewCell: UITableViewCell {
     private let cardView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
-        view.layer.cornerRadius = 14
+        view.layer.cornerRadius = 16
         view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOpacity = 0.2
-        view.layer.shadowOffset = CGSize(width: 0, height: 2)
-        view.layer.shadowRadius = 8
+        view.layer.shadowOpacity = 0.35
+        view.layer.shadowOffset = CGSize(width: 0, height: 8)
+        view.layer.shadowRadius = 16
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -41,8 +42,8 @@ class StationTableViewCell: UITableViewCell {
         let view = UIView()
         view.layer.cornerRadius = 12
         view.layer.borderWidth = 2.5
-        view.layer.borderColor = UIColor.white.cgColor
-        view.layer.shadowColor = UIColor.white.cgColor
+        view.layer.borderColor = Config.tintColor.cgColor
+        view.layer.shadowColor = Config.tintColor.cgColor
         view.layer.shadowOpacity = 0.5
         view.layer.shadowOffset = .zero
         view.layer.shadowRadius = 6
@@ -73,7 +74,8 @@ class StationTableViewCell: UITableViewCell {
 
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .headline)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        label.textColor = .white
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -90,15 +92,15 @@ class StationTableViewCell: UITableViewCell {
 
     let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .subheadline)
-        label.textColor = .white.withAlphaComponent(0.55)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        label.textColor = .white.withAlphaComponent(0.7)
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     private let equalizerView: NVActivityIndicatorView = {
-        let view = NVActivityIndicatorView(frame: .zero, type: .audioEqualizer, color: .white, padding: nil)
+        let view = NVActivityIndicatorView(frame: .zero, type: .audioEqualizer, color: Config.tintColor, padding: nil)
         view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             view.widthAnchor.constraint(equalToConstant: 16),
@@ -126,6 +128,14 @@ class StationTableViewCell: UITableViewCell {
 
     private var isAnimatingPulse = false
 
+    private let favoriteButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
+    private var favoriteToggleHandler: (() -> Void)?
+
     // MARK: - Init
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -149,6 +159,7 @@ class StationTableViewCell: UITableViewCell {
         equalizerView.alpha = 0
         bufferingIndicator.stopAnimating()
         bufferingOverlay.alpha = 0
+        favoriteToggleHandler = nil
     }
 
     // MARK: - Highlight / Tap Feedback
@@ -193,8 +204,13 @@ class StationTableViewCell: UITableViewCell {
         vStackView.axis = .vertical
         vStackView.translatesAutoresizingMaskIntoConstraints = false
 
+        favoriteButton.accessibilityLabel = Content.Stations.favoriteAccessibility
+        favoriteButton.addAction(UIAction { [weak self] _ in
+            self?.favoriteToggleHandler?()
+        }, for: .touchUpInside)
+
         // Main horizontal stack
-        let hStackView = UIStackView(arrangedSubviews: [artworkContainer, vStackView])
+        let hStackView = UIStackView(arrangedSubviews: [artworkContainer, vStackView, favoriteButton])
         hStackView.spacing = 14
         hStackView.axis = .horizontal
         hStackView.alignment = .center
@@ -223,6 +239,9 @@ class StationTableViewCell: UITableViewCell {
             hStackView.bottomAnchor.constraint(equalTo: cardBlurView.contentView.bottomAnchor, constant: -12),
             hStackView.leadingAnchor.constraint(equalTo: cardBlurView.contentView.leadingAnchor, constant: 14),
             hStackView.trailingAnchor.constraint(equalTo: cardBlurView.contentView.trailingAnchor, constant: -14),
+
+            favoriteButton.widthAnchor.constraint(equalToConstant: 36),
+            favoriteButton.heightAnchor.constraint(equalToConstant: 36),
 
             // Artwork container size
             artworkContainer.widthAnchor.constraint(equalToConstant: artworkSize),
@@ -279,13 +298,15 @@ class StationTableViewCell: UITableViewCell {
             equalizerView.alpha = 0
             bufferingIndicator.startAnimating()
             bufferingOverlay.alpha = 1
+            cardBlurView.layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
         } else if isPlaying {
             // Pulse ring + equalizer
             bufferingIndicator.stopAnimating()
             bufferingOverlay.alpha = 0
             startPulseAnimation()
             equalizerView.startAnimating()
-            equalizerView.alpha = 0.7
+            equalizerView.alpha = 1
+            cardBlurView.layer.borderColor = accentColor.withAlphaComponent(0.8).cgColor
         } else {
             // Stopped — subtle indicators
             bufferingIndicator.stopAnimating()
@@ -295,6 +316,7 @@ class StationTableViewCell: UITableViewCell {
             pulseRingView.transform = .identity
             equalizerView.stopAnimating()
             equalizerView.alpha = 0.4
+            cardBlurView.layer.borderColor = accentColor.withAlphaComponent(0.35).cgColor
         }
     }
 
@@ -324,10 +346,15 @@ class StationTableViewCell: UITableViewCell {
 // MARK: - Configuration
 
 extension StationTableViewCell {
-    func configureStationCell(station: RadioStation) {
+    func configureStationCell(station: RadioStation, isFavorite: Bool, onFavoriteToggle: @escaping () -> Void) {
         representedStation = station
         titleLabel.text = station.name
         subtitleLabel.text = station.desc
+        favoriteToggleHandler = onFavoriteToggle
+
+        let starName = isFavorite ? "star.fill" : "star"
+        favoriteButton.setImage(UIImage(systemName: starName), for: .normal)
+        favoriteButton.tintColor = isFavorite ? accentColor : UIColor.white.withAlphaComponent(0.55)
 
         station.getImage { [weak self] image in
             guard let self = self, self.representedStation == station else { return }

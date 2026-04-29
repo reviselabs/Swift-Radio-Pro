@@ -35,6 +35,10 @@ extension AboutCoordinator: AboutViewControllerDelegate {
             let featuresVC = FeaturesViewController()
             navigationController.pushViewController(featuresVC, animated: true)
 
+        case .playbackSettings:
+            let playbackSettingsVC = PlaybackSettingsViewController()
+            navigationController.pushViewController(playbackSettingsVC, animated: true)
+
         case .libraries:
             let librariesVC = LibrariesViewController()
             navigationController.pushViewController(librariesVC, animated: true)

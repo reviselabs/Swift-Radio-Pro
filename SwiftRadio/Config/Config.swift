@@ -13,15 +13,15 @@ struct Config {
     static let debugLog = true
 
     // Tint color used across the app (navigation bar, controls, etc.)
-    static let tintColor: UIColor = .white
+    static let tintColor = UIColor(red: 52 / 255, green: 211 / 255, blue: 153 / 255, alpha: 1)
 
     // Gradient background color (independent from tintColor)
-    static let gradientColor: UIColor = .white
+    static let gradientColor = UIColor(red: 66 / 255, green: 86 / 255, blue: 141 / 255, alpha: 1)
 
     // If this is set to "true", it will use the JSON file in the app
     // Set it to "false" to use the JSON file at the stationDataURL
     static let useLocalStations = true
-    static let stationsURL = "https://fethica.com/assets/swift-radio/stations.json"
+    static let stationsURL = "https://8880.cloud/app/stations.json"
 
     // Set this to "true" to enable the search bar
     static let searchable = false
@@ -62,6 +62,9 @@ struct Config {
         static let sections: [InfoSection] = [
             InfoSection(title: Content.About.Sections.features, items: [
                 .features(title: Content.About.Items.features)
+            ]),
+            InfoSection(title: Content.About.Sections.settings, items: [
+                .playbackSettings(title: Content.Settings.playbackMenuTitle)
             ]),
             InfoSection(title: Content.About.Sections.contact, items: [
                 .email(title: Content.About.Items.email, address: Config.email),
