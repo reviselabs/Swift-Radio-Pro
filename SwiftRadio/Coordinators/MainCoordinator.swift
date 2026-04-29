@@ -41,8 +41,16 @@ class MainCoordinator: NavigationCoordinator {
     private let player = FRadioPlayer.shared
     private var isPopupBarPresented = false
 
+    /// After pushing a detail screen from the player (with popup closed), re-open the mini/full player when the user pops back to the stations root.
+    private var reopenPlayerAfterPoppingToStationsRoot = false
+    /// Avoids reopening the player when another tab’s nav stack shows its root `StationsViewController`.
+    private weak var navigationControllerAwaitingPlayerReopen: UINavigationController?
+
+    private let popupReopenNavigationDelegate = PopupReopenNavigationDelegate()
+
     init(window: UIWindow) {
         self.window = window
+        popupReopenNavigationDelegate.coordinator = self
     }
 
     func start() {
@@ -113,6 +121,8 @@ extension MainCoordinator: LoaderControllerDelegate {
 
         stationsNavAll.setViewControllers([allVC], animated: false)
         stationsNavFavorites.setViewControllers([favVC], animated: false)
+        stationsNavAll.delegate = popupReopenNavigationDelegate
+        stationsNavFavorites.delegate = popupReopenNavigationDelegate
 
         stationsNavAll.tabBarItem = UITabBarItem(
             title: Content.Tabs.allStations,
@@ -166,9 +176,13 @@ extension MainCoordinator: NowPlayingViewControllerDelegate {
 
         switch option {
         case .info:
+            let nav = navigationController
+            reopenPlayerAfterPoppingToStationsRoot = true
+            navigationControllerAwaitingPlayerReopen = nav
             let infoController = InfoDetailViewController(station: station)
-            navigationController.pushViewController(infoController, animated: true)
-            tabBarController.closePopup(animated: true)
+            tabBarController.closePopup(animated: true) { [weak self] in
+                self?.navigationController.pushViewController(infoController, animated: true)
+            }
         case .website:
             if let website = station.website, let url = URL(string: website) {
                 let safariVC = SFSafariViewController(url: url)
@@ -195,6 +209,9 @@ extension MainCoordinator: NowPlayingViewControllerDelegate {
 
     private func pushStarterFMScheduleFromPlayer() {
         guard StationsManager.shared.currentStation?.showsStarterFMShowSchedule == true else { return }
+        let nav = navigationController
+        reopenPlayerAfterPoppingToStationsRoot = true
+        navigationControllerAwaitingPlayerReopen = nav
         tabBarController.closePopup(animated: true) { [weak self] in
             guard let self else { return }
             let scheduleVC = StarterFMScheduleViewController()
@@ -203,5 +220,28 @@ extension MainCoordinator: NowPlayingViewControllerDelegate {
                 self.navigationController.pushViewController(scheduleVC, animated: true)
             }
         }
+    }
+}
+
+// MARK: - Navigation (re-open player after subpages)
+
+extension MainCoordinator {
+    fileprivate func handleNavigationDidShowRootStations(_ viewController: UIViewController, in navigationController: UINavigationController) {
+        guard reopenPlayerAfterPoppingToStationsRoot else { return }
+        guard navigationController === navigationControllerAwaitingPlayerReopen,
+              navigationController.viewControllers.count == 1,
+              viewController is StationsViewController,
+              StationsManager.shared.currentStation != nil else { return }
+        reopenPlayerAfterPoppingToStationsRoot = false
+        navigationControllerAwaitingPlayerReopen = nil
+        tabBarController.openPopup(animated: true)
+    }
+}
+
+private final class PopupReopenNavigationDelegate: NSObject, UINavigationControllerDelegate {
+    weak var coordinator: MainCoordinator?
+
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        coordinator?.handleNavigationDidShowRootStations(viewController, in: navigationController)
     }
 }

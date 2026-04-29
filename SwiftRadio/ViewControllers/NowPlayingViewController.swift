@@ -88,6 +88,9 @@ class NowPlayingViewController: UIViewController {
     private var lastStreamQualityTitleKey: String = ""
     private var lastStreamQualityMenuKey: String = ""
 
+    /// Fixed stream mounts often clear `currentArtworkURL` briefly (or never re-send art) while `trackName`/`artistName` stay the same — reuse last stream art instead of dropping to the station logo.
+    private var cachedStreamTrackArtwork: (image: UIImage, trackIdentity: String)?
+
     // MARK: - Lifecycle Methods
 
     override func viewDidLoad() {
@@ -223,14 +226,16 @@ class NowPlayingViewController: UIViewController {
         let station = manager.currentStation
         let mode = PlaybackPreferences.shared.streamQualityMode
         let measured = mode == .auto ? StreamBitrateTracker.shared.measuredBitrateKbps : nil
+        let effective = station?.effectiveStreamQuality(for: mode) ?? mode
         let text = StreamQualityStatusFormatting.statusLine(
             station: station,
             mode: mode,
             measuredKbps: measured
         )
         let isHidden = station == nil
-        let titleKey = "\(isHidden)|\(station?.streamURL ?? "")|\(mode.rawValue)|\(measured ?? -999)|\(text)"
-        let menuKey = "\(isHidden)|\(station?.streamURL ?? "")|\(mode.rawValue)"
+        let menuModesKey = RadioStation.streamQualityModesForPlayerMenu(station: station).map(\.rawValue).joined(separator: ",")
+        let titleKey = "\(isHidden)|\(station?.streamURL ?? "")|\(mode.rawValue)|\(effective.rawValue)|\(measured ?? -999)|\(text)"
+        let menuKey = "\(isHidden)|\(station?.streamURL ?? "")|\(mode.rawValue)|\(menuModesKey)"
         let titleChanged = titleKey != lastStreamQualityTitleKey
         let menuChanged = menuKey != lastStreamQualityMenuKey
         guard titleChanged || menuChanged else { return }
@@ -241,11 +246,14 @@ class NowPlayingViewController: UIViewController {
     }
 
     private func makeStreamQualityMenu() -> UIMenu {
-        let current = PlaybackPreferences.shared.streamQualityMode
-        let actions = StreamQualityMode.allCases.map { mode -> UIAction in
+        let station = manager.currentStation
+        let preference = PlaybackPreferences.shared.streamQualityMode
+        let displaySelection = RadioStation.streamQualityMenuDisplaySelection(station: station, preference: preference)
+        let modes = RadioStation.streamQualityModesForPlayerMenu(station: station)
+        let actions = modes.map { mode -> UIAction in
             UIAction(
                 title: streamQualityMenuTitle(for: mode),
-                state: mode == current ? .on : .off
+                state: mode == displaySelection ? .on : .off
             ) { [weak self] _ in
                 guard PlaybackPreferences.shared.streamQualityMode != mode else { return }
                 PlaybackPreferences.shared.streamQualityMode = mode
@@ -285,6 +293,7 @@ class NowPlayingViewController: UIViewController {
     func stationDidChange() {
         lastStreamQualityTitleKey = ""
         lastStreamQualityMenuKey = ""
+        cachedStreamTrackArtwork = nil
         StreamBitrateTracker.shared.stop()
         syncBitrateTracking()
 
@@ -487,16 +496,56 @@ class NowPlayingViewController: UIViewController {
         }
     }
 
+    /// Stable across stream-quality URL changes for the same station (uses merged title/artist from `RadioStation`).
+    private func trackArtworkCacheIdentity() -> String {
+        guard let station = manager.currentStation else { return "" }
+        return "\(station.trackName)|\(station.artistName)"
+    }
+
+    private func cachedStreamArtworkIfSameTrack() -> UIImage? {
+        guard let pair = cachedStreamTrackArtwork else { return nil }
+        return pair.trackIdentity == trackArtworkCacheIdentity() ? pair.image : nil
+    }
+
+    private func noteSuccessfulStreamArtworkCache(_ image: UIImage) {
+        let id = trackArtworkCacheIdentity()
+        guard !id.isEmpty else { return }
+        cachedStreamTrackArtwork = (image, id)
+    }
+
     private func getTrackArtwork(completion: @escaping (UIImage?) -> Void) {
+        func stationBranding(_ done: @escaping (UIImage?) -> Void) {
+            guard let station = manager.currentStation else {
+                done(nil)
+                return
+            }
+            station.getImage { done($0) }
+        }
+
+        let sameTrackFallback = cachedStreamArtworkIfSameTrack()
+
         guard let artworkURL = player.currentArtworkURL else {
-            manager.currentStation?.getImage { image in
-                completion(image)
+            if let sameTrackFallback {
+                completion(sameTrackFallback)
+            } else {
+                stationBranding(completion)
             }
             return
         }
 
-        UIImage.image(from: artworkURL) { image in
-            completion(image)
+        UIImage.image(from: artworkURL) { [weak self] image in
+            guard let self else {
+                completion(image)
+                return
+            }
+            if let image {
+                self.noteSuccessfulStreamArtworkCache(image)
+                completion(image)
+            } else if let fallback = self.cachedStreamArtworkIfSameTrack() {
+                completion(fallback)
+            } else {
+                stationBranding(completion)
+            }
         }
     }
 
@@ -603,6 +652,8 @@ extension NowPlayingViewController: FRadioPlayerObserver {
         StreamBitrateTracker.shared.resetMeasuredBitrate()
         syncBitrateTracking()
         refreshStreamQualityStatus()
+        // New stream URL (e.g. quality tier) may clear ICY artwork before metadata arrives — refresh so station art shows until new art loads.
+        updateTrackArtwork()
     }
 
     func radioPlayer(_ player: FRadioPlayer, playTimeDidChange currentTime: TimeInterval, duration: TimeInterval) {

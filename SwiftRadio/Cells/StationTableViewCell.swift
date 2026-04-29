@@ -15,13 +15,16 @@ class StationTableViewCell: UITableViewCell {
     private var representedStation: RadioStation?
     private let accentColor = Config.tintColor
 
+    /// Idle card outline (must match initial `cardBlurView` border).
+    private static let idleCardBorderColor = UIColor.white.withAlphaComponent(0.09).cgColor
+
     private let cardBlurView: UIVisualEffectView = {
         let blur = UIBlurEffect(style: .systemThinMaterialDark)
         let view = UIVisualEffectView(effect: blur)
         view.layer.cornerRadius = 16
         view.clipsToBounds = true
         view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.white.withAlphaComponent(0.09).cgColor
+        view.layer.borderColor = StationTableViewCell.idleCardBorderColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -160,6 +163,7 @@ class StationTableViewCell: UITableViewCell {
         bufferingIndicator.stopAnimating()
         bufferingOverlay.alpha = 0
         favoriteToggleHandler = nil
+        cardBlurView.layer.borderColor = Self.idleCardBorderColor
     }
 
     // MARK: - Highlight / Tap Feedback
@@ -287,6 +291,7 @@ class StationTableViewCell: UITableViewCell {
             equalizerView.alpha = 0
             bufferingIndicator.stopAnimating()
             bufferingOverlay.alpha = 0
+            cardBlurView.layer.borderColor = Self.idleCardBorderColor
             return
         }
 

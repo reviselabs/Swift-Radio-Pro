@@ -35,12 +35,35 @@ class ControlsView: UIView {
         case unavailable(message: String)
     }
 
-    /// Stream quality + bitrate row (tap opens menu from `NowPlayingViewController`).
-    private let streamQualityButton: UIButton = {
+    /// Status text updates often (bitrate); the chevron uses a **separate** button + `UIMenu` so `UIButton.Configuration` title updates cannot strip the menu.
+    private let streamQualityContainer: UIView = {
+        let v = UIView()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.isHidden = true
+        return v
+    }()
+
+    private let streamQualityLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+        label.textColor = UIColor.white.withAlphaComponent(0.82)
+        label.numberOfLines = 2
+        label.lineBreakMode = .byTruncatingTail
+        label.adjustsFontForContentSizeCategory = true
+        label.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        label.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        label.isAccessibilityElement = false
+        label.isUserInteractionEnabled = true
+        return label
+    }()
+
+    private let streamQualityMenuButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.contentHorizontalAlignment = .center
-        button.isHidden = true
+        button.showsMenuAsPrimaryAction = true
+        button.setContentHuggingPriority(.required, for: .horizontal)
+        button.setContentCompressionResistancePriority(.required, for: .horizontal)
         return button
     }()
 
@@ -286,6 +309,7 @@ class ControlsView: UIView {
         onAirUnavailableLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: UIFont.systemFont(ofSize: 13, weight: .medium))
         currentTimeLabel.font = UIFontMetrics(forTextStyle: .caption2).scaledFont(for: UIFont.systemFont(ofSize: 10, weight: .medium))
         totalTimeLabel.font = UIFontMetrics(forTextStyle: .caption2).scaledFont(for: UIFont.systemFont(ofSize: 10, weight: .medium))
+        streamQualityLabel.font = UIFontMetrics(forTextStyle: .caption1).scaledFont(for: UIFont.systemFont(ofSize: 12, weight: .semibold))
         titleLabel.restartLabel()
         onAirTitleMarquee.restartLabel()
     }
@@ -382,33 +406,38 @@ class ControlsView: UIView {
         onAirScheduleTapAction?()
     }
 
-    /// - Parameter menu: Pass `nil` to keep the existing menu (e.g. bitrate text changed). Pass a new menu when mode/station changes so an opening menu is not replaced mid‑gesture.
+    @objc private func streamQualityLabelTapped() {
+        guard streamQualityMenuButton.menu != nil else { return }
+        // `showsMenuAsPrimaryAction` is driven by primary action, not always `touchUpInside`.
+        streamQualityMenuButton.sendActions(for: .primaryActionTriggered)
+    }
+
+    /// - Parameter menu: Pass `nil` to keep the existing menu when only the status line changed. Pass a new menu when mode/station changes.
     func setStreamQuality(text: String, menu: UIMenu?, isHidden: Bool) {
-        streamQualityButton.isHidden = isHidden
+        streamQualityContainer.isHidden = isHidden
         if isHidden {
-            streamQualityButton.menu = nil
-            streamQualityButton.showsMenuAsPrimaryAction = false
+            streamQualityMenuButton.menu = nil
+            streamQualityLabel.text = nil
             return
         }
 
-        var config = streamQualityButton.configuration ?? UIButton.Configuration.plain()
-        config.title = text
-        if config.image == nil {
-            config.image = UIImage(systemName: "chevron.up.chevron.down")
-            config.imagePlacement = .trailing
-            config.imagePadding = 6
-            config.baseForegroundColor = UIColor.white.withAlphaComponent(0.82)
-            config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
-                var out = incoming
-                out.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
-                return out
-            }
-        }
-        streamQualityButton.configuration = config
+        streamQualityLabel.text = text
         if let menu {
-            streamQualityButton.menu = menu
-            streamQualityButton.showsMenuAsPrimaryAction = true
+            streamQualityMenuButton.menu = menu
         }
+        streamQualityMenuButton.showsMenuAsPrimaryAction = (streamQualityMenuButton.menu != nil)
+        let summary = Content.Player.streamQualityMenuTitle
+        streamQualityMenuButton.accessibilityLabel = "\(summary). \(text)"
+    }
+
+    private func applyStreamQualityMenuButtonChrome() {
+        var cfg = UIButton.Configuration.plain()
+        let sym = UIImage.SymbolConfiguration(pointSize: 12, weight: .semibold)
+        cfg.image = UIImage(systemName: "chevron.up.chevron.down", withConfiguration: sym)
+        cfg.preferredSymbolConfigurationForImage = sym
+        cfg.baseForegroundColor = UIColor.white.withAlphaComponent(0.82)
+        cfg.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 10, bottom: 8, trailing: 10)
+        streamQualityMenuButton.configuration = cfg
     }
 
     // MARK: - Private
@@ -445,7 +474,25 @@ class ControlsView: UIView {
         onAirContainer.addGestureRecognizer(onAirTap)
         onAirContainer.isAccessibilityElement = true
 
-        let mainStackView = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel, onAirContainer, streamQualityButton, sliderContainerView, buttonsStackView, menuStackView])
+        let streamQualityInner = UIStackView(arrangedSubviews: [streamQualityLabel, streamQualityMenuButton])
+        streamQualityInner.axis = .horizontal
+        streamQualityInner.alignment = .center
+        streamQualityInner.spacing = 6
+        streamQualityInner.translatesAutoresizingMaskIntoConstraints = false
+
+        streamQualityContainer.addSubview(streamQualityInner)
+        NSLayoutConstraint.activate([
+            streamQualityInner.centerXAnchor.constraint(equalTo: streamQualityContainer.centerXAnchor),
+            streamQualityInner.topAnchor.constraint(equalTo: streamQualityContainer.topAnchor),
+            streamQualityInner.bottomAnchor.constraint(equalTo: streamQualityContainer.bottomAnchor),
+            streamQualityInner.leadingAnchor.constraint(greaterThanOrEqualTo: streamQualityContainer.leadingAnchor),
+            streamQualityInner.trailingAnchor.constraint(lessThanOrEqualTo: streamQualityContainer.trailingAnchor),
+        ])
+        applyStreamQualityMenuButtonChrome()
+        let labelTap = UITapGestureRecognizer(target: self, action: #selector(streamQualityLabelTapped))
+        streamQualityLabel.addGestureRecognizer(labelTap)
+
+        let mainStackView = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel, onAirContainer, streamQualityContainer, sliderContainerView, buttonsStackView, menuStackView])
         mainStackView.axis = .vertical
         mainStackView.spacing = 8
         mainStackView.alignment = .fill
@@ -453,7 +500,7 @@ class ControlsView: UIView {
         mainStackView.setCustomSpacing(4, after: titleLabel)
         mainStackView.setCustomSpacing(10, after: subtitleLabel)
         mainStackView.setCustomSpacing(6, after: onAirContainer)
-        mainStackView.setCustomSpacing(14, after: streamQualityButton)
+        mainStackView.setCustomSpacing(14, after: streamQualityContainer)
 
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
 

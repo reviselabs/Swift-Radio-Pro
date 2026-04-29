@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9409E1151ABF6FEA00312E2B"
-               BuildableName = "SwiftRadio.app"
-               BlueprintName = "SwiftRadio"
+               BlueprintIdentifier = "CE6A3E2B291F376D0058C82A"
+               BuildableName = "SwiftRadio-CarPlay.app"
+               BlueprintName = "SwiftRadio-CarPlay"
                ReferencedContainer = "container:SwiftRadio.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -30,9 +30,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9409E1151ABF6FEA00312E2B"
-            BuildableName = "SwiftRadio.app"
-            BlueprintName = "SwiftRadio"
+            BlueprintIdentifier = "CE6A3E2B291F376D0058C82A"
+            BuildableName = "SwiftRadio-CarPlay.app"
+            BlueprintName = "SwiftRadio-CarPlay"
             ReferencedContainer = "container:SwiftRadio.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,9 +63,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9409E1151ABF6FEA00312E2B"
-            BuildableName = "SwiftRadio.app"
-            BlueprintName = "SwiftRadio"
+            BlueprintIdentifier = "CE6A3E2B291F376D0058C82A"
+            BuildableName = "SwiftRadio-CarPlay.app"
+            BlueprintName = "SwiftRadio-CarPlay"
             ReferencedContainer = "container:SwiftRadio.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -80,9 +80,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9409E1151ABF6FEA00312E2B"
-            BuildableName = "SwiftRadio.app"
-            BlueprintName = "SwiftRadio"
+            BlueprintIdentifier = "CE6A3E2B291F376D0058C82A"
+            BuildableName = "SwiftRadio-CarPlay.app"
+            BlueprintName = "SwiftRadio-CarPlay"
             ReferencedContainer = "container:SwiftRadio.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

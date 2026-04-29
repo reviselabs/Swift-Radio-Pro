@@ -8,84 +8,39 @@
 
 /* Begin PBXBuildFile section */
 		2C5545BD1C1124DE00728469 /* SwiftRadioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5545BC1C1124DE00728469 /* SwiftRadioUITests.swift */; };
-		53113F39230C720900462C0E /* ShareActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53113F38230C720900462C0E /* ShareActivity.swift */; };
-		6258DCD822D93A3500166C65 /* LogoShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6258DCD722D93A3500166C65 /* LogoShareView.swift */; };
-		6258DCDA22D93A5400166C65 /* LogoShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6258DCD922D93A5400166C65 /* LogoShareView.xib */; };
-		9409E11C1ABF6FEA00312E2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9409E11B1ABF6FEA00312E2B /* AppDelegate.swift */; };
-		9409E1261ABF6FEA00312E2B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9409E1251ABF6FEA00312E2B /* Images.xcassets */; };
-		94452E551AD7086800BFE7A5 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94452E541AD7086800BFE7A5 /* AboutViewController.swift */; };
-		945DB3C21AD58E3A00495EBB /* stations.json in Resources */ = {isa = PBXBuildFile; fileRef = 945DB3C11AD58E3A00495EBB /* stations.json */; };
-		945DB3C51AD5A6E200495EBB /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 945DB3C41AD5A6E200495EBB /* NothingFoundCell.xib */; };
-		94AC70AE1AD05C6200652982 /* RadioStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AC70AD1AD05C6200652982 /* RadioStation.swift */; };
-		94D1D0A51AD6D6230022CA11 /* InfoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D1D0A41AD6D6230022CA11 /* InfoDetailViewController.swift */; };
-		94D260911B45D20000DE671C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D260901B45D20000DE671C /* Config.swift */; };
-		94E9761C1B1A8F3200F52B1E /* UIImage+DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9761B1B1A8F3200F52B1E /* UIImage+DropShadow.swift */; };
-		AA0000011ACC9DEE005B7C26 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000001ACC9DEE005B7C26 /* NetworkService.swift */; };
 		AA000002291F376D0058C82A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000001ACC9DEE005B7C26 /* NetworkService.swift */; };
-		AA0000101ACC9DEE005B7C26 /* LNPopupController in Frameworks */ = {isa = PBXBuildFile; productRef = AA0000111ACC9DEE005B7C26 /* LNPopupController */; };
 		AA0000121ACC9DEE005B7C26 /* LNPopupController in Frameworks */ = {isa = PBXBuildFile; productRef = AA0000131ACC9DEE005B7C26 /* LNPopupController */; };
 		CA142F672D3D8E2F0071A388 /* NSLayoutConstraint+with.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA142F662D3D8E280071A388 /* NSLayoutConstraint+with.swift */; };
-		CA142F682D3D8E2F0071A388 /* NSLayoutConstraint+with.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA142F662D3D8E280071A388 /* NSLayoutConstraint+with.swift */; };
-		CA142F6A2D3D9A0D0071A388 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA142F692D3D9A0D0071A388 /* BottomSheetViewController.swift */; };
 		CA142F6B2D3D9A0D0071A388 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA142F692D3D9A0D0071A388 /* BottomSheetViewController.swift */; };
-		CA142F6D2D3D9DFB0071A388 /* BottomSheetHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA142F6C2D3D9DFB0071A388 /* BottomSheetHandler.swift */; };
 		CA142F6E2D3D9DFB0071A388 /* BottomSheetHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA142F6C2D3D9DFB0071A388 /* BottomSheetHandler.swift */; };
-		CA2511B32D4E100000111003 /* AboutCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2511B22D4E100000111003 /* AboutCoordinator.swift */; };
 		CA2511B32D4E100000111004 /* AboutCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2511B22D4E100000111003 /* AboutCoordinator.swift */; };
-		CA2511B52D458033006D1A99 /* AudioSetupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2511B42D458033006D1A99 /* AudioSetupService.swift */; };
-		CA7F05012F53000100000002 /* StreamBitrateTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05002F53000100000001 /* StreamBitrateTracker.swift */; };
-		CA7F05022F53000100000003 /* StreamBitrateTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05002F53000100000001 /* StreamBitrateTracker.swift */; };
-		CA7F05112F54000200000001 /* StationNowPlayingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05102F54000200000000 /* StationNowPlayingService.swift */; };
-		CA7F05122F54000200000002 /* StationNowPlayingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05102F54000200000000 /* StationNowPlayingService.swift */; };
-		CA7F05252F55000100000006 /* StarterFMSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05202F55000100000001 /* StarterFMSchedule.swift */; };
-		CA7F05262F55000100000007 /* StarterFMSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05202F55000100000001 /* StarterFMSchedule.swift */; };
-		CA7F05272F55000100000008 /* StarterFMScheduleEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05212F55000100000002 /* StarterFMScheduleEngine.swift */; };
-		CA7F05282F55000100000009 /* StarterFMScheduleEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05212F55000100000002 /* StarterFMScheduleEngine.swift */; };
-		CA7F05292F5500010000000A /* StarterFMScheduleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05222F55000100000003 /* StarterFMScheduleStore.swift */; };
-		CA7F052A2F5500010000000B /* StarterFMScheduleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05222F55000100000003 /* StarterFMScheduleStore.swift */; };
-		CA7F052B2F5500010000000C /* StarterFMScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05232F55000100000004 /* StarterFMScheduleViewController.swift */; };
-		CA7F052C2F5500010000000D /* StarterFMScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05232F55000100000004 /* StarterFMScheduleViewController.swift */; };
-		CA7F052D2F5500010000000E /* StarterFMSchedule.json in Resources */ = {isa = PBXBuildFile; fileRef = CA7F05242F55000100000005 /* StarterFMSchedule.json */; };
-		CA7F052E2F5500010000000F /* StarterFMSchedule.json in Resources */ = {isa = PBXBuildFile; fileRef = CA7F05242F55000100000005 /* StarterFMSchedule.json */; };
 		CA2511B62D458033006D1A99 /* AudioSetupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2511B42D458033006D1A99 /* AudioSetupService.swift */; };
 		CA2511B82D45B1B6006D1A99 /* FeaturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2511B72D45B1B6006D1A99 /* FeaturesViewController.swift */; };
-		CA2511B92D45B1B6006D1A99 /* FeaturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2511B72D45B1B6006D1A99 /* FeaturesViewController.swift */; };
 		CA2511BB2D45C2D1006D1A99 /* LibrariesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2511BA2D45C2CA006D1A99 /* LibrariesViewController.swift */; };
-		CA2511BC2D45C2D1006D1A99 /* LibrariesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2511BA2D45C2CA006D1A99 /* LibrariesViewController.swift */; };
 		CA2511BE2D45CD13006D1A99 /* ContributorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2511BD2D45CD11006D1A99 /* ContributorsViewController.swift */; };
-		CA2511BF2D45CD13006D1A99 /* ContributorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2511BD2D45CD11006D1A99 /* ContributorsViewController.swift */; };
 		CA2B6C6F2F31B769000CB4D4 /* MarqueeLabel in Frameworks */ = {isa = PBXBuildFile; productRef = CA2B6C6E2F31B769000CB4D4 /* MarqueeLabel */; };
 		CA2B6C702F327016000CB4D4 /* LNPopupController in Embed Frameworks */ = {isa = PBXBuildFile; productRef = AA0000131ACC9DEE005B7C26 /* LNPopupController */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		CA2B6C722F327107000CB4D4 /* LNPopupController in Embed Frameworks */ = {isa = PBXBuildFile; productRef = AA0000111ACC9DEE005B7C26 /* LNPopupController */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		CA3A11012D4E000000111001 /* InfoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3A11002D4E000000111001 /* InfoSection.swift */; };
 		CA3A11022D4E000000111001 /* InfoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3A11002D4E000000111001 /* InfoSection.swift */; };
-		CA3A11042D4E000000111002 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3A11032D4E000000111002 /* Content.swift */; };
 		CA3A11052D4E000000111002 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3A11032D4E000000111002 /* Content.swift */; };
 		CA58087D2D40BAC000F8082B /* CarPlaySceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA58087B2D40BAC000F8082B /* CarPlaySceneDelegate.swift */; };
-		CA5F00022F40A00000000002 /* GradientBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5F00012F40A00000000001 /* GradientBackgroundView.swift */; };
 		CA5F00032F40A00000000003 /* GradientBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5F00012F40A00000000001 /* GradientBackgroundView.swift */; };
-		CA5F00042F41000000000001 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = CA5F00062F41000000000003 /* Localizable.xcstrings */; };
 		CA5F00052F41000000000002 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = CA5F00062F41000000000003 /* Localizable.xcstrings */; };
-		CA7F03042F51C00100000004 /* FavoriteStationsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F03012F51C00100000001 /* FavoriteStationsStore.swift */; };
 		CA7F03052F51C00100000005 /* FavoriteStationsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F03012F51C00100000001 /* FavoriteStationsStore.swift */; };
-		CA7F03062F51C00100000006 /* PlaybackPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F03022F51C00100000002 /* PlaybackPreferences.swift */; };
 		CA7F03072F51C00100000007 /* PlaybackPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F03022F51C00100000002 /* PlaybackPreferences.swift */; };
-		CA7F03082F51C00100000008 /* PlaybackSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F03032F51C00100000003 /* PlaybackSettingsViewController.swift */; };
 		CA7F03092F51C00100000009 /* PlaybackSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F03032F51C00100000003 /* PlaybackSettingsViewController.swift */; };
-		CA900001200000000000000A /* MarqueeLabel in Frameworks */ = {isa = PBXBuildFile; productRef = CA900002200000000000000A /* MarqueeLabel */; };
+		CA7F05022F53000100000003 /* StreamBitrateTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05002F53000100000001 /* StreamBitrateTracker.swift */; };
+		CA7F05122F54000200000002 /* StationNowPlayingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05102F54000200000000 /* StationNowPlayingService.swift */; };
+		CA7F05262F55000100000007 /* StarterFMSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05202F55000100000001 /* StarterFMSchedule.swift */; };
+		CA7F05282F55000100000009 /* StarterFMScheduleEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05212F55000100000002 /* StarterFMScheduleEngine.swift */; };
+		CA7F052A2F5500010000000B /* StarterFMScheduleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05222F55000100000003 /* StarterFMScheduleStore.swift */; };
+		CA7F052C2F5500010000000D /* StarterFMScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F05232F55000100000004 /* StarterFMScheduleViewController.swift */; };
+		CA7F052E2F5500010000000F /* StarterFMSchedule.json in Resources */ = {isa = PBXBuildFile; fileRef = CA7F05242F55000100000005 /* StarterFMSchedule.json */; };
+		CA8F00132F60428D00000001 /* UIImage+Downsample.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8F00102F60428D00000001 /* UIImage+Downsample.swift */; };
 		CAB4E8292D3D7DC7001282E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB4E8282D3D7DC7001282E9 /* SceneDelegate.swift */; };
-		CAB4E82A2D3D7DC7001282E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB4E8282D3D7DC7001282E9 /* SceneDelegate.swift */; };
-		CE321FF329371140001572BD /* Bundle+appName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE321FF229371140001572BD /* Bundle+appName.swift */; };
 		CE321FF429371140001572BD /* Bundle+appName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE321FF229371140001572BD /* Bundle+appName.swift */; };
-		CE37D7B7290F4A9700B0933B /* FRadioPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = CE37D7B6290F4A9700B0933B /* FRadioPlayer */; };
-		CE6036132A47A87A00E15E15 /* StationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6036122A47A87A00E15E15 /* StationsViewController.swift */; };
 		CE6036142A47A87A00E15E15 /* StationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6036122A47A87A00E15E15 /* StationsViewController.swift */; };
-		CE6036162A47B88600E15E15 /* StationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6036152A47B88600E15E15 /* StationTableViewCell.swift */; };
 		CE6036172A47B88600E15E15 /* StationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6036152A47B88600E15E15 /* StationTableViewCell.swift */; };
-		CE6036192A48BA2500E15E15 /* UITableViewCell+reuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6036182A48BA2500E15E15 /* UITableViewCell+reuseIdentifier.swift */; };
 		CE60361A2A48BA2500E15E15 /* UITableViewCell+reuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6036182A48BA2500E15E15 /* UITableViewCell+reuseIdentifier.swift */; };
-		CE6036212A48C51A00E15E15 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = CE6036202A48C51A00E15E15 /* NVActivityIndicatorView */; };
-		CE6036232A48C51A00E15E15 /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = CE6036222A48C51A00E15E15 /* NVActivityIndicatorViewExtended */; };
 		CE6036282A48F70A00E15E15 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = CE6036272A48F70A00E15E15 /* NVActivityIndicatorView */; };
 		CE60362A2A48F70A00E15E15 /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = CE6036292A48F70A00E15E15 /* NVActivityIndicatorViewExtended */; };
 		CE6A3E31291F376D0058C82A /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D260901B45D20000DE671C /* Config.swift */; };
@@ -104,38 +59,24 @@
 		CE6A3E47291F376D0058C82A /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 945DB3C41AD5A6E200495EBB /* NothingFoundCell.xib */; };
 		CE6A3E48291F376D0058C82A /* LogoShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6258DCD922D93A5400166C65 /* LogoShareView.xib */; };
 		CE6A3E4B291F376D0058C82A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9409E1251ABF6FEA00312E2B /* Images.xcassets */; };
-		CE6ECCFA292F13DF008B3C16 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6ECCF9292F13DF008B3C16 /* Coordinator.swift */; };
 		CE6ECCFB292F13E6008B3C16 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6ECCF9292F13DF008B3C16 /* Coordinator.swift */; };
-		CE6ECCFD292F1445008B3C16 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6ECCFC292F1445008B3C16 /* MainCoordinator.swift */; };
 		CE6ECCFE292F1448008B3C16 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6ECCFC292F1445008B3C16 /* MainCoordinator.swift */; };
-		CE6ECD03292F358C008B3C16 /* UIViewController+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6ECD02292F358C008B3C16 /* UIViewController+Email.swift */; };
 		CE6ECD04292F358C008B3C16 /* UIViewController+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6ECD02292F358C008B3C16 /* UIViewController+Email.swift */; };
-		CE963ECC29135A6F004F299E /* StationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE963ECB29135A6F004F299E /* StationsManager.swift */; };
-		CE9EE8DE293BB41300F62041 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9EE8DD293BB41300F62041 /* BaseController.swift */; };
 		CE9EE8DF293BB41300F62041 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9EE8DD293BB41300F62041 /* BaseController.swift */; };
-		CE9EE8E1293C048A00F62041 /* LoaderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9EE8E0293C048A00F62041 /* LoaderController.swift */; };
 		CE9EE8E2293C048A00F62041 /* LoaderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9EE8E0293C048A00F62041 /* LoaderController.swift */; };
-		CED6353B293081ED002B216F /* Handoffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6353A293081ED002B216F /* Handoffable.swift */; };
 		CED6353C293081ED002B216F /* Handoffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6353A293081ED002B216F /* Handoffable.swift */; };
-		CEDABBEB291217AF00C0367F /* UIImageView+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDABBEA291217AF00C0367F /* UIImageView+Cache.swift */; };
-		CEDABBED29121BBA00C0367F /* UIImage+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDABBEC29121BBA00C0367F /* UIImage+Cache.swift */; };
-		CA8F00112F60428D00000001 /* UIImage+Downsample.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8F00102F60428D00000001 /* UIImage+Downsample.swift */; };
-		CA8F00132F60428D00000001 /* UIImage+Downsample.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8F00102F60428D00000001 /* UIImage+Downsample.swift */; };
-		CEE9A2782B5345C30018FE68 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9A2772B5345C30018FE68 /* NowPlayingViewController.swift */; };
 		CEE9A2792B5345C30018FE68 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9A2772B5345C30018FE68 /* NowPlayingViewController.swift */; };
-		CEE9A27B2B535C780018FE68 /* AlbumArtworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9A27A2B535C780018FE68 /* AlbumArtworkView.swift */; };
 		CEE9A27C2B535C780018FE68 /* AlbumArtworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9A27A2B535C780018FE68 /* AlbumArtworkView.swift */; };
-		CEE9A27E2B54A5520018FE68 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9A27D2B54A5520018FE68 /* ControlsView.swift */; };
 		CEE9A27F2B54A5520018FE68 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9A27D2B54A5520018FE68 /* ControlsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2C5545BF1C1124DE00728469 /* PBXContainerItemProxy */ = {
+		CA7F09912F900001000000AA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9409E10E1ABF6FE900312E2B /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 9409E1151ABF6FEA00312E2B;
-			remoteInfo = SwiftRadio;
+			remoteGlobalIDString = CE6A3E2B291F376D0058C82A;
+			remoteInfo = "SwiftRadio-CarPlay";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -151,17 +92,6 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CA2B6C732F327107000CB4D4 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				CA2B6C722F327107000CB4D4 /* LNPopupController in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -171,8 +101,6 @@
 		53113F38230C720900462C0E /* ShareActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareActivity.swift; sourceTree = "<group>"; };
 		6258DCD722D93A3500166C65 /* LogoShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoShareView.swift; sourceTree = "<group>"; };
 		6258DCD922D93A5400166C65 /* LogoShareView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoShareView.xib; sourceTree = "<group>"; };
-		9409E1161ABF6FEA00312E2B /* SwiftRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9409E11A1ABF6FEA00312E2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9409E11B1ABF6FEA00312E2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9409E1251ABF6FEA00312E2B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		94452E541AD7086800BFE7A5 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -188,13 +116,6 @@
 		CA142F6C2D3D9DFB0071A388 /* BottomSheetHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetHandler.swift; sourceTree = "<group>"; };
 		CA2511B22D4E100000111003 /* AboutCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCoordinator.swift; sourceTree = "<group>"; };
 		CA2511B42D458033006D1A99 /* AudioSetupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSetupService.swift; sourceTree = "<group>"; };
-		CA7F05002F53000100000001 /* StreamBitrateTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamBitrateTracker.swift; sourceTree = "<group>"; };
-		CA7F05102F54000200000000 /* StationNowPlayingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationNowPlayingService.swift; sourceTree = "<group>"; };
-		CA7F05202F55000100000001 /* StarterFMSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterFMSchedule.swift; sourceTree = "<group>"; };
-		CA7F05212F55000100000002 /* StarterFMScheduleEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterFMScheduleEngine.swift; sourceTree = "<group>"; };
-		CA7F05222F55000100000003 /* StarterFMScheduleStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterFMScheduleStore.swift; sourceTree = "<group>"; };
-		CA7F05232F55000100000004 /* StarterFMScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterFMScheduleViewController.swift; sourceTree = "<group>"; };
-		CA7F05242F55000100000005 /* StarterFMSchedule.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StarterFMSchedule.json; sourceTree = "<group>"; };
 		CA2511B72D45B1B6006D1A99 /* FeaturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturesViewController.swift; sourceTree = "<group>"; };
 		CA2511BA2D45C2CA006D1A99 /* LibrariesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariesViewController.swift; sourceTree = "<group>"; };
 		CA2511BD2D45CD11006D1A99 /* ContributorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributorsViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +124,17 @@
 		CA58087B2D40BAC000F8082B /* CarPlaySceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPlaySceneDelegate.swift; sourceTree = "<group>"; };
 		CA5F00012F40A00000000001 /* GradientBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundView.swift; sourceTree = "<group>"; };
 		CA5F00062F41000000000003 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		CA7F03012F51C00100000001 /* FavoriteStationsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStationsStore.swift; sourceTree = "<group>"; };
+		CA7F03022F51C00100000002 /* PlaybackPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackPreferences.swift; sourceTree = "<group>"; };
+		CA7F03032F51C00100000003 /* PlaybackSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackSettingsViewController.swift; sourceTree = "<group>"; };
+		CA7F05002F53000100000001 /* StreamBitrateTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamBitrateTracker.swift; sourceTree = "<group>"; };
+		CA7F05102F54000200000000 /* StationNowPlayingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationNowPlayingService.swift; sourceTree = "<group>"; };
+		CA7F05202F55000100000001 /* StarterFMSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterFMSchedule.swift; sourceTree = "<group>"; };
+		CA7F05212F55000100000002 /* StarterFMScheduleEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterFMScheduleEngine.swift; sourceTree = "<group>"; };
+		CA7F05222F55000100000003 /* StarterFMScheduleStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterFMScheduleStore.swift; sourceTree = "<group>"; };
+		CA7F05232F55000100000004 /* StarterFMScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterFMScheduleViewController.swift; sourceTree = "<group>"; };
+		CA7F05242F55000100000005 /* StarterFMSchedule.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StarterFMSchedule.json; sourceTree = "<group>"; };
+		CA8F00102F60428D00000001 /* UIImage+Downsample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Downsample.swift"; sourceTree = "<group>"; };
 		CAB4E8282D3D7DC7001282E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CE0A4994291F3A220071C0CC /* SwiftRadio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftRadio.entitlements; sourceTree = "<group>"; };
 		CE321FF229371140001572BD /* Bundle+appName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+appName.swift"; sourceTree = "<group>"; };
@@ -214,16 +146,12 @@
 		CE6ECCFC292F1445008B3C16 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		CE6ECD02292F358C008B3C16 /* UIViewController+Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Email.swift"; sourceTree = "<group>"; };
 		CE963ECB29135A6F004F299E /* StationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsManager.swift; sourceTree = "<group>"; };
-		CA7F03012F51C00100000001 /* FavoriteStationsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStationsStore.swift; sourceTree = "<group>"; };
-		CA7F03022F51C00100000002 /* PlaybackPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackPreferences.swift; sourceTree = "<group>"; };
-		CA7F03032F51C00100000003 /* PlaybackSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackSettingsViewController.swift; sourceTree = "<group>"; };
 		CE9EE8DD293BB41300F62041 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		CE9EE8E0293C048A00F62041 /* LoaderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderController.swift; sourceTree = "<group>"; };
 		CEA82F492921F260009E9FA0 /* Info-CarPlay.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-CarPlay.plist"; sourceTree = "<group>"; };
 		CED6353A293081ED002B216F /* Handoffable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handoffable.swift; sourceTree = "<group>"; };
 		CEDABBEA291217AF00C0367F /* UIImageView+Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Cache.swift"; sourceTree = "<group>"; };
 		CEDABBEC29121BBA00C0367F /* UIImage+Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Cache.swift"; sourceTree = "<group>"; };
-		CA8F00102F60428D00000001 /* UIImage+Downsample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Downsample.swift"; sourceTree = "<group>"; };
 		CEE9A2772B5345C30018FE68 /* NowPlayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
 		CEE9A27A2B535C780018FE68 /* AlbumArtworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumArtworkView.swift; sourceTree = "<group>"; };
 		CEE9A27D2B54A5520018FE68 /* ControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
@@ -234,18 +162,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9409E1131ABF6FEA00312E2B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CE37D7B7290F4A9700B0933B /* FRadioPlayer in Frameworks */,
-				CE6036232A48C51A00E15E15 /* NVActivityIndicatorViewExtended in Frameworks */,
-				CE6036212A48C51A00E15E15 /* NVActivityIndicatorView in Frameworks */,
-				AA0000101ACC9DEE005B7C26 /* LNPopupController in Frameworks */,
-				CA900001200000000000000A /* MarqueeLabel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +202,6 @@
 		9409E1171ABF6FEA00312E2B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9409E1161ABF6FEA00312E2B /* SwiftRadio.app */,
 				2C5545BA1C1124DE00728469 /* SwiftRadioUITests.xctest */,
 				CE6A3E4F291F376D0058C82A /* SwiftRadio-CarPlay.app */,
 			);
@@ -311,7 +226,6 @@
 				BB0000022D4E000000000002 /* Config */,
 				9409E1251ABF6FEA00312E2B /* Images.xcassets */,
 				CA5F00062F41000000000003 /* Localizable.xcstrings */,
-				9409E11A1ABF6FEA00312E2B /* Info.plist */,
 				CEA82F492921F260009E9FA0 /* Info-CarPlay.plist */,
 			);
 			path = SwiftRadio;
@@ -474,37 +388,12 @@
 			buildRules = (
 			);
 			dependencies = (
-				2C5545C01C1124DE00728469 /* PBXTargetDependency */,
+				CA7F09922F900001000000AA /* PBXTargetDependency */,
 			);
 			name = SwiftRadioUITests;
 			productName = SwiftRadioUITests;
 			productReference = 2C5545BA1C1124DE00728469 /* SwiftRadioUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-		9409E1151ABF6FEA00312E2B /* SwiftRadio */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9409E1381ABF6FEA00312E2B /* Build configuration list for PBXNativeTarget "SwiftRadio" */;
-			buildPhases = (
-				9409E1121ABF6FEA00312E2B /* Sources */,
-				9409E1131ABF6FEA00312E2B /* Frameworks */,
-				9409E1141ABF6FEA00312E2B /* Resources */,
-				CA2B6C732F327107000CB4D4 /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SwiftRadio;
-			packageProductDependencies = (
-				CE37D7B6290F4A9700B0933B /* FRadioPlayer */,
-				CE6036202A48C51A00E15E15 /* NVActivityIndicatorView */,
-				CE6036222A48C51A00E15E15 /* NVActivityIndicatorViewExtended */,
-				AA0000111ACC9DEE005B7C26 /* LNPopupController */,
-				CA900002200000000000000A /* MarqueeLabel */,
-			);
-			productName = RadioPro;
-			productReference = 9409E1161ABF6FEA00312E2B /* SwiftRadio.app */;
-			productType = "com.apple.product-type.application";
 		};
 		CE6A3E2B291F376D0058C82A /* SwiftRadio-CarPlay */ = {
 			isa = PBXNativeTarget;
@@ -546,16 +435,7 @@
 					2C5545B91C1124DE00728469 = {
 						CreatedOnToolsVersion = 7.1;
 						LastSwiftMigration = 1020;
-						TestTargetID = 9409E1151ABF6FEA00312E2B;
-					};
-					9409E1151ABF6FEA00312E2B = {
-						CreatedOnToolsVersion = 6.2;
-						LastSwiftMigration = 1020;
-						SystemCapabilities = {
-							com.apple.BackgroundModes = {
-								enabled = 1;
-							};
-						};
+						TestTargetID = CE6A3E2B291F376D0058C82A;
 					};
 				};
 			};
@@ -578,7 +458,6 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9409E1151ABF6FEA00312E2B /* SwiftRadio */,
 				CE6A3E2B291F376D0058C82A /* SwiftRadio-CarPlay */,
 				2C5545B91C1124DE00728469 /* SwiftRadioUITests */,
 			);
@@ -590,19 +469,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9409E1141ABF6FEA00312E2B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				945DB3C21AD58E3A00495EBB /* stations.json in Resources */,
-				CA7F052D2F5500010000000E /* StarterFMSchedule.json in Resources */,
-				945DB3C51AD5A6E200495EBB /* NothingFoundCell.xib in Resources */,
-				6258DCDA22D93A5400166C65 /* LogoShareView.xib in Resources */,
-				9409E1261ABF6FEA00312E2B /* Images.xcassets in Resources */,
-				CA5F00042F41000000000001 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,60 +493,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C5545BD1C1124DE00728469 /* SwiftRadioUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9409E1121ABF6FEA00312E2B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CA2511BF2D45CD13006D1A99 /* ContributorsViewController.swift in Sources */,
-				CA2511BC2D45C2D1006D1A99 /* LibrariesViewController.swift in Sources */,
-				CA2511B92D45B1B6006D1A99 /* FeaturesViewController.swift in Sources */,
-				94D260911B45D20000DE671C /* Config.swift in Sources */,
-				CA3A11012D4E000000111001 /* InfoSection.swift in Sources */,
-				CA3A11042D4E000000111002 /* Content.swift in Sources */,
-				CE6036192A48BA2500E15E15 /* UITableViewCell+reuseIdentifier.swift in Sources */,
-				CE6036162A47B88600E15E15 /* StationTableViewCell.swift in Sources */,
-				CE9EE8DE293BB41300F62041 /* BaseController.swift in Sources */,
-				CA142F6D2D3D9DFB0071A388 /* BottomSheetHandler.swift in Sources */,
-				CEE9A2782B5345C30018FE68 /* NowPlayingViewController.swift in Sources */,
-				53113F39230C720900462C0E /* ShareActivity.swift in Sources */,
-				CA142F682D3D8E2F0071A388 /* NSLayoutConstraint+with.swift in Sources */,
-				CE963ECC29135A6F004F299E /* StationsManager.swift in Sources */,
-				CE321FF329371140001572BD /* Bundle+appName.swift in Sources */,
-				CE6ECCFA292F13DF008B3C16 /* Coordinator.swift in Sources */,
-				94D1D0A51AD6D6230022CA11 /* InfoDetailViewController.swift in Sources */,
-				6258DCD822D93A3500166C65 /* LogoShareView.swift in Sources */,
-				AA0000011ACC9DEE005B7C26 /* NetworkService.swift in Sources */,
-				94E9761C1B1A8F3200F52B1E /* UIImage+DropShadow.swift in Sources */,
-				94452E551AD7086800BFE7A5 /* AboutViewController.swift in Sources */,
-				CED6353B293081ED002B216F /* Handoffable.swift in Sources */,
-				CEE9A27B2B535C780018FE68 /* AlbumArtworkView.swift in Sources */,
-				CE6ECCFD292F1445008B3C16 /* MainCoordinator.swift in Sources */,
-				CA2511B32D4E100000111003 /* AboutCoordinator.swift in Sources */,
-				9409E11C1ABF6FEA00312E2B /* AppDelegate.swift in Sources */,
-				CA2511B52D458033006D1A99 /* AudioSetupService.swift in Sources */,
-				CA7F05012F53000100000002 /* StreamBitrateTracker.swift in Sources */,
-				CA7F05112F54000200000001 /* StationNowPlayingService.swift in Sources */,
-				CA7F05272F55000100000008 /* StarterFMScheduleEngine.swift in Sources */,
-				CA7F05292F5500010000000A /* StarterFMScheduleStore.swift in Sources */,
-				CAB4E82A2D3D7DC7001282E9 /* SceneDelegate.swift in Sources */,
-				CE6ECD03292F358C008B3C16 /* UIViewController+Email.swift in Sources */,
-				CEDABBED29121BBA00C0367F /* UIImage+Cache.swift in Sources */,
-				CA8F00112F60428D00000001 /* UIImage+Downsample.swift in Sources */,
-				94AC70AE1AD05C6200652982 /* RadioStation.swift in Sources */,
-				CA7F05252F55000100000006 /* StarterFMSchedule.swift in Sources */,
-				CA142F6A2D3D9A0D0071A388 /* BottomSheetViewController.swift in Sources */,
-				CE9EE8E1293C048A00F62041 /* LoaderController.swift in Sources */,
-				CEE9A27E2B54A5520018FE68 /* ControlsView.swift in Sources */,
-				CA5F00022F40A00000000002 /* GradientBackgroundView.swift in Sources */,
-				CEDABBEB291217AF00C0367F /* UIImageView+Cache.swift in Sources */,
-				CE6036132A47A87A00E15E15 /* StationsViewController.swift in Sources */,
-				CA7F052B2F5500010000000C /* StarterFMScheduleViewController.swift in Sources */,
-				CA7F03042F51C00100000004 /* FavoriteStationsStore.swift in Sources */,
-				CA7F03062F51C00100000006 /* PlaybackPreferences.swift in Sources */,
-				CA7F03082F51C00100000008 /* PlaybackSettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -742,10 +554,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2C5545C01C1124DE00728469 /* PBXTargetDependency */ = {
+		CA7F09922F900001000000AA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9409E1151ABF6FEA00312E2B /* SwiftRadio */;
-			targetProxy = 2C5545BF1C1124DE00728469 /* PBXContainerItemProxy */;
+			target = CE6A3E2B291F376D0058C82A /* SwiftRadio-CarPlay */;
+			targetProxy = CA7F09912F900001000000AA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -766,7 +578,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = daniel.SwiftRadioUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = SwiftRadio;
+				TEST_TARGET_NAME = "SwiftRadio-CarPlay";
 				USES_XCTRUNNER = YES;
 			};
 			name = Debug;
@@ -787,7 +599,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = daniel.SwiftRadioUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = SwiftRadio;
+				TEST_TARGET_NAME = "SwiftRadio-CarPlay";
 				USES_XCTRUNNER = YES;
 			};
 			name = Release;
@@ -904,70 +716,6 @@
 			};
 			name = Release;
 		};
-		9409E1391ABF6FEA00312E2B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 99QQSJ2EJ7;
-				ENABLE_MODULE_VERIFIER = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/SwiftRadio",
-				);
-				INFOPLIST_FILE = SwiftRadio/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 3.0.0;
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.radiocorp-starterplus";
-				PRODUCT_NAME = SwiftRadio;
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		9409E13A1ABF6FEA00312E2B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 99QQSJ2EJ7;
-				ENABLE_MODULE_VERIFIER = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/SwiftRadio",
-				);
-				INFOPLIST_FILE = SwiftRadio/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 3.0.0;
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.radiocorp-starterplus";
-				PRODUCT_NAME = SwiftRadio;
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		CE6A3E4D291F376D0058C82A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1061,15 +809,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9409E1381ABF6FEA00312E2B /* Build configuration list for PBXNativeTarget "SwiftRadio" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9409E1391ABF6FEA00312E2B /* Debug */,
-				9409E13A1ABF6FEA00312E2B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		CE6A3E4C291F376D0058C82A /* Build configuration list for PBXNativeTarget "SwiftRadio-CarPlay" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1125,11 +864,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		AA0000111ACC9DEE005B7C26 /* LNPopupController */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AA0000141ACC9DEE005B7C26 /* XCRemoteSwiftPackageReference "LNPopupController" */;
-			productName = LNPopupController;
-		};
 		AA0000131ACC9DEE005B7C26 /* LNPopupController */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AA0000141ACC9DEE005B7C26 /* XCRemoteSwiftPackageReference "LNPopupController" */;
@@ -1139,26 +873,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CA900003200000000000000A /* XCRemoteSwiftPackageReference "MarqueeLabel" */;
 			productName = MarqueeLabel;
-		};
-		CA900002200000000000000A /* MarqueeLabel */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CA900003200000000000000A /* XCRemoteSwiftPackageReference "MarqueeLabel" */;
-			productName = MarqueeLabel;
-		};
-		CE37D7B6290F4A9700B0933B /* FRadioPlayer */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CE37D7B5290F4A9700B0933B /* XCRemoteSwiftPackageReference "FRadioPlayer" */;
-			productName = FRadioPlayer;
-		};
-		CE6036202A48C51A00E15E15 /* NVActivityIndicatorView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CE60361F2A48C51A00E15E15 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
-			productName = NVActivityIndicatorView;
-		};
-		CE6036222A48C51A00E15E15 /* NVActivityIndicatorViewExtended */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CE60361F2A48C51A00E15E15 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
-			productName = NVActivityIndicatorViewExtended;
 		};
 		CE6036272A48F70A00E15E15 /* NVActivityIndicatorView */ = {
 			isa = XCSwiftPackageProductDependency;

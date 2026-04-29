@@ -104,21 +104,71 @@ extension RadioStation: Equatable {
 
 extension RadioStation {
 
-    func resolvedStreamURL(for mode: StreamQualityMode) -> String {
-        func nonEmpty(_ s: String?) -> String? {
-            guard let s = s, !s.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return nil }
-            return s
-        }
+    fileprivate static func nonEmptyStreamURL(_ s: String?) -> String? {
+        guard let s = s?.trimmingCharacters(in: .whitespacesAndNewlines), !s.isEmpty else { return nil }
+        return s
+    }
 
+    /// `Auto` plus only tiers that have a dedicated URL (non-empty) in the station model.
+    static func streamQualityModesForPlayerMenu(station: RadioStation?) -> [StreamQualityMode] {
+        guard let station else { return [.auto] }
+        var modes: [StreamQualityMode] = [.auto]
+        if nonEmptyStreamURL(station.streamURLlow) != nil { modes.append(.low) }
+        if nonEmptyStreamURL(station.streamURLmid) != nil { modes.append(.medium) }
+        if nonEmptyStreamURL(station.streamURLhigh) != nil { modes.append(.high) }
+        return modes
+    }
+
+    /// Checkmark target when the saved preference is not offered by this station (e.g. global High, station has no High URL).
+    static func streamQualityMenuDisplaySelection(station: RadioStation?, preference: StreamQualityMode) -> StreamQualityMode {
+        guard let station else { return preference }
+        let modes = streamQualityModesForPlayerMenu(station: station)
+        if modes.contains(preference) { return preference }
+        return station.effectiveStreamQuality(for: preference)
+    }
+
+    /// Which tier’s URL is actually used for `preference` after cascading missing tiers to the next available stream.
+    func effectiveStreamQuality(for preference: StreamQualityMode) -> StreamQualityMode {
+        switch preference {
+        case .auto:
+            return .auto
+        case .low:
+            if Self.nonEmptyStreamURL(streamURLlow) != nil { return .low }
+            if Self.nonEmptyStreamURL(streamURLmid) != nil { return .medium }
+            if Self.nonEmptyStreamURL(streamURLhigh) != nil { return .high }
+            return .auto
+        case .medium:
+            if Self.nonEmptyStreamURL(streamURLmid) != nil { return .medium }
+            if Self.nonEmptyStreamURL(streamURLhigh) != nil { return .high }
+            if Self.nonEmptyStreamURL(streamURLlow) != nil { return .low }
+            return .auto
+        case .high:
+            if Self.nonEmptyStreamURL(streamURLhigh) != nil { return .high }
+            if Self.nonEmptyStreamURL(streamURLmid) != nil { return .medium }
+            if Self.nonEmptyStreamURL(streamURLlow) != nil { return .low }
+            return .auto
+        }
+    }
+
+    func resolvedStreamURL(for mode: StreamQualityMode) -> String {
         switch mode {
         case .auto:
             return streamURL
         case .low:
-            return nonEmpty(streamURLlow) ?? streamURL
+            return Self.nonEmptyStreamURL(streamURLlow)
+                ?? Self.nonEmptyStreamURL(streamURLmid)
+                ?? Self.nonEmptyStreamURL(streamURLhigh)
+                ?? streamURL
         case .medium:
-            return nonEmpty(streamURLmid) ?? streamURL
+            return Self.nonEmptyStreamURL(streamURLmid)
+                ?? Self.nonEmptyStreamURL(streamURLhigh)
+                ?? Self.nonEmptyStreamURL(streamURLlow)
+                ?? streamURL
         case .high:
-            return nonEmpty(streamURLhigh) ?? streamURL
+            return Self.nonEmptyStreamURL(streamURLhigh)
+                ?? Self.nonEmptyStreamURL(streamURLmid)
+                ?? Self.nonEmptyStreamURL(streamURLlow)
+                ?? streamURL
         }
     }
 
