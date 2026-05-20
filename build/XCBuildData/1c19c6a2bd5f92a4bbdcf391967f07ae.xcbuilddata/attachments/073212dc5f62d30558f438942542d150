@@ -1,0 +1,4 @@
+module LNPopupController_SwiftPrivate {
+header "LNPopupController-SwiftPrivate-Swift.h"
+export *
+}

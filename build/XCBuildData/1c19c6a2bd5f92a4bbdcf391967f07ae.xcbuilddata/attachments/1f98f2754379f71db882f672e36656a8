@@ -1,0 +1,61 @@
+{
+  "" : {
+    "const-values" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioPlayer-primary.swiftconstvalues",
+    "dependencies" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioPlayer-primary.d",
+    "diagnostics" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioPlayer-primary.dia",
+    "emit-module-dependencies" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioPlayer-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioPlayer-primary-emit-module.dia",
+    "pch" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioPlayer-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioPlayer-primary.swiftdeps"
+  },
+  "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/Sources/FRadioPlayer/FRadioArtworkAPI+iTunes.swift" : {
+    "index-unit-output-path" : "/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioArtworkAPI+iTunes.o",
+    "llvm-bc" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioArtworkAPI+iTunes.bc",
+    "object" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioArtworkAPI+iTunes.o"
+  },
+  "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/Sources/FRadioPlayer/FRadioArtworkAPI.swift" : {
+    "index-unit-output-path" : "/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioArtworkAPI.o",
+    "llvm-bc" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioArtworkAPI.bc",
+    "object" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioArtworkAPI.o"
+  },
+  "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/Sources/FRadioPlayer/FRadioMetadataExtractor.swift" : {
+    "index-unit-output-path" : "/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioMetadataExtractor.o",
+    "llvm-bc" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioMetadataExtractor.bc",
+    "object" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioMetadataExtractor.o"
+  },
+  "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/Sources/FRadioPlayer/FRadioPlayer+Metadata.swift" : {
+    "index-unit-output-path" : "/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioPlayer+Metadata.o",
+    "llvm-bc" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioPlayer+Metadata.bc",
+    "object" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioPlayer+Metadata.o"
+  },
+  "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/Sources/FRadioPlayer/FRadioPlayer+Observation.swift" : {
+    "index-unit-output-path" : "/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioPlayer+Observation.o",
+    "llvm-bc" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioPlayer+Observation.bc",
+    "object" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioPlayer+Observation.o"
+  },
+  "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/Sources/FRadioPlayer/FRadioPlayer+PlaybackState.swift" : {
+    "index-unit-output-path" : "/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioPlayer+PlaybackState.o",
+    "llvm-bc" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioPlayer+PlaybackState.bc",
+    "object" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioPlayer+PlaybackState.o"
+  },
+  "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/Sources/FRadioPlayer/FRadioPlayer+State.swift" : {
+    "index-unit-output-path" : "/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioPlayer+State.o",
+    "llvm-bc" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioPlayer+State.bc",
+    "object" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioPlayer+State.o"
+  },
+  "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/Sources/FRadioPlayer/FRadioPlayer.swift" : {
+    "index-unit-output-path" : "/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioPlayer.o",
+    "llvm-bc" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioPlayer.bc",
+    "object" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioPlayer.o"
+  },
+  "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/Sources/FRadioPlayer/FRadioPlayerObserver.swift" : {
+    "index-unit-output-path" : "/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioPlayerObserver.o",
+    "llvm-bc" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioPlayerObserver.bc",
+    "object" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/FRadioPlayerObserver.o"
+  },
+  "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/Sources/FRadioPlayer/Reachability.swift" : {
+    "index-unit-output-path" : "/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/Reachability.o",
+    "llvm-bc" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/Reachability.bc",
+    "object" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/FRadioPlayer/build/FRadioPlayer.build/Release-iphoneos/FRadioPlayer.build/Objects-normal/arm64/Reachability.o"
+  }
+}

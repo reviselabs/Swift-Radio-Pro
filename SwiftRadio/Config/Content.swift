@@ -64,6 +64,36 @@ struct Content {
     struct Tabs {
         static let allStations = String(localized: "tabs.allStations")
         static let favorites = String(localized: "tabs.favorites")
+        static let podcasts = String(localized: "tabs.podcasts")
+        static let home = String(localized: "tabs.home")
+    }
+
+    struct Podcasts {
+        static let openEpisodes = String(localized: "podcasts.openEpisodes")
+        static let loading = String(localized: "podcasts.loading")
+        static let noEpisodes = String(localized: "podcasts.noEpisodes")
+        static let loadError = String(localized: "podcasts.loadError")
+        static let addToHome = String(localized: "podcasts.addToHome")
+        static let removeFromHome = String(localized: "podcasts.removeFromHome")
+
+        static func removeFromHomeMessage(_ podcastTitle: String) -> String {
+            String(format: String(localized: "podcasts.removeFromHomeMessage"), podcastTitle)
+        }
+    }
+
+    struct Home {
+        static let favoritesSection = String(localized: "home.favoritesSection")
+        static let podcastsSection = String(localized: "home.podcastsSection")
+        static let emptyFavorites = String(localized: "home.emptyFavorites")
+        static let emptyPodcasts = String(localized: "home.emptyPodcasts")
+    }
+
+    struct PodcastEpisodeDetail {
+        static let title = String(localized: "podcastEpisodeDetail.title")
+        static let playEpisode = String(localized: "podcastEpisodeDetail.playEpisode")
+        static let pauseEpisode = String(localized: "podcastEpisodeDetail.pauseEpisode")
+        static let resumeEpisode = String(localized: "podcastEpisodeDetail.resumeEpisode")
+        static let noDescription = String(localized: "podcastEpisodeDetail.noDescription")
     }
 
     struct Settings {

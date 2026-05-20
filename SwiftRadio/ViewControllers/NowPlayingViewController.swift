@@ -77,6 +77,7 @@ class NowPlayingViewController: UIViewController {
     private var streamBitrateObserver: NSObjectProtocol?
     private var playbackQualityObserver: NSObjectProtocol?
     private var externalNowPlayingObserver: NSObjectProtocol?
+    private var podcastPlaybackObserver: NSObjectProtocol?
     private var starterFMScheduleObserver: NSObjectProtocol?
     private var appResignActiveObserver: NSObjectProtocol?
     private var appDidBecomeActiveObserver: NSObjectProtocol?
@@ -102,6 +103,7 @@ class NowPlayingViewController: UIViewController {
         setupViews()
         setupStreamQualityObservers()
         setupExternalNowPlayingObserver()
+        setupPodcastPlaybackObserver()
         setupStarterFMScheduleObserver()
         stationDidChange()
         isPlayingDidChange(player.isPlaying)
@@ -143,6 +145,9 @@ class NowPlayingViewController: UIViewController {
         }
         if let externalNowPlayingObserver {
             NotificationCenter.default.removeObserver(externalNowPlayingObserver)
+        }
+        if let podcastPlaybackObserver {
+            NotificationCenter.default.removeObserver(podcastPlaybackObserver)
         }
         if let starterFMScheduleObserver {
             NotificationCenter.default.removeObserver(starterFMScheduleObserver)
@@ -203,6 +208,22 @@ class NowPlayingViewController: UIViewController {
         }
     }
 
+    private func setupPodcastPlaybackObserver() {
+        podcastPlaybackObserver = NotificationCenter.default.addObserver(
+            forName: .podcastPlaybackDidChange,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            guard let self else { return }
+            self.lastStreamQualityTitleKey = ""
+            self.lastStreamQualityMenuKey = ""
+            self.updateTrackArtwork()
+            self.updateLabels()
+            self.updatePopupBarMetadata()
+            self.refreshStreamQualityStatus()
+        }
+    }
+
     /// Uses stream ICY metadata and/or `nowPlayingURL` JSON when deciding to show the song row.
     private func displayedSongLine() -> (song: String, artist: String)? {
         guard let station = manager.currentStation else { return nil }
@@ -213,6 +234,10 @@ class NowPlayingViewController: UIViewController {
     }
 
     private func syncBitrateTracking() {
+        guard !PodcastPlaybackService.shared.isPodcastMode else {
+            StreamBitrateTracker.shared.stop()
+            return
+        }
         let mode = PlaybackPreferences.shared.streamQualityMode
         if mode == .auto, manager.currentStation != nil {
             StreamBitrateTracker.shared.stop()
@@ -223,6 +248,10 @@ class NowPlayingViewController: UIViewController {
     }
 
     private func refreshStreamQualityStatus() {
+        if PodcastPlaybackService.shared.isPodcastMode {
+            controlsView.setStreamQuality(text: "", menu: nil, isHidden: true)
+            return
+        }
         let station = manager.currentStation
         let mode = PlaybackPreferences.shared.streamQualityMode
         let measured = mode == .auto ? StreamBitrateTracker.shared.measuredBitrateKbps : nil
@@ -312,6 +341,16 @@ class NowPlayingViewController: UIViewController {
     }
 
     func updateLabels() {
+        if let episode = PodcastPlaybackService.shared.currentEpisode, PodcastPlaybackService.shared.isPodcastMode {
+            controlsView.updateNowPlaying(
+                song: episode.title,
+                artist: episode.artist,
+                stationName: Content.Tabs.podcasts,
+                stationDesc: nil
+            )
+            controlsView.setOnAirSchedule(.hidden)
+            return
+        }
         guard let station = manager.currentStation else {
             controlsView.updateNowPlaying(song: nil, artist: nil, stationName: nil, stationDesc: nil)
             updateStarterFMOnAirLine()
@@ -430,6 +469,10 @@ class NowPlayingViewController: UIViewController {
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
 
         controlsView.playingAction = { [unowned self] in
+            if PodcastPlaybackService.shared.isPodcastMode {
+                player.togglePlaying()
+                return
+            }
             if player.isPlaying, player.duration == 0 {
                 player.stop()
             } else {
@@ -504,6 +547,16 @@ class NowPlayingViewController: UIViewController {
 
     private func cachedStreamArtworkIfSameTrack() -> UIImage? {
         guard let pair = cachedStreamTrackArtwork else { return nil }
+        // When there is no current track metadata (no ICY from the new stream tier and no external
+        // nowPlayingURL data), we cannot confirm the track has changed, so preserve the cached artwork
+        // rather than dropping back to the station logo. This keeps artwork visible when switching
+        // to a stream tier that does not deliver ICY metadata.
+        let hasICY = player.currentMetadata?.isEmpty == false
+        let hasExternal: Bool = {
+            guard let st = manager.currentStation else { return false }
+            return st.nowPlayingURL != nil && StationNowPlayingService.shared.hasExternalMetadata(for: st)
+        }()
+        guard hasICY || hasExternal else { return pair.image }
         return pair.trackIdentity == trackArtworkCacheIdentity() ? pair.image : nil
     }
 
@@ -514,6 +567,11 @@ class NowPlayingViewController: UIViewController {
     }
 
     private func getTrackArtwork(completion: @escaping (UIImage?) -> Void) {
+        if let episode = PodcastPlaybackService.shared.currentEpisode, PodcastPlaybackService.shared.isPodcastMode {
+            UIImage.image(from: episode.artworkURL, completion: completion)
+            return
+        }
+
         func stationBranding(_ done: @escaping (UIImage?) -> Void) {
             guard let station = manager.currentStation else {
                 done(nil)
@@ -578,6 +636,11 @@ class NowPlayingViewController: UIViewController {
     // MARK: - Popup Bar
 
     private func updatePopupBarMetadata() {
+        if let episode = PodcastPlaybackService.shared.currentEpisode, PodcastPlaybackService.shared.isPodcastMode {
+            popupItem.title = [episode.title, episode.artist].joined(separator: " — ")
+            popupItem.subtitle = Content.Tabs.podcasts
+            return
+        }
         guard let station = manager.currentStation else {
             popupItem.title = nil
             popupItem.subtitle = nil
@@ -610,12 +673,16 @@ class NowPlayingViewController: UIViewController {
     }
 
     private func updatePopupBarPlayPauseButton(isPlaying: Bool) {
-        let isLive = player.duration == 0
+        let isLive = player.duration == 0 && !PodcastPlaybackService.shared.isPodcastMode
         let imageName = isPlaying ? (isLive ? "stop.fill" : "pause.fill") : "play.fill"
         playPauseButton.image = UIImage(systemName: imageName)
     }
 
     @objc private func popupBarPlayPauseTapped() {
+        if PodcastPlaybackService.shared.isPodcastMode {
+            player.togglePlaying()
+            return
+        }
         if player.isPlaying, player.duration == 0 {
             player.stop()
         } else {

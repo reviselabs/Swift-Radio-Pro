@@ -39,6 +39,11 @@ final class StationNowPlayingService {
         overrideArtist = nil
         stateLock.unlock()
 
+        guard !PodcastPlaybackService.shared.isPodcastMode else {
+            postUpdate()
+            return
+        }
+
         guard let station else {
             postUpdate()
             return
@@ -100,6 +105,7 @@ final class StationNowPlayingService {
     }
 
     private func fetchAndApply(url: URL, isInitial: Bool) async {
+        guard !PodcastPlaybackService.shared.isPodcastMode else { return }
         stateLock.lock()
         let bound = boundStation
         stateLock.unlock()
@@ -122,12 +128,13 @@ final class StationNowPlayingService {
                 }
             }
         } catch {
-            await MainActor.run {
-                stateLock.lock()
-                overrideTitle = nil
-                overrideArtist = nil
-                stateLock.unlock()
-                if Config.debugLog {
+            // Keep the last successfully-fetched title/artist rather than clearing to nil.
+            // Clearing on error causes the player screen to go blank when a bitrate switch
+            // clears ICY metadata at the same time the poll happens to fail — the external
+            // data is independent of which stream tier is active and should persist through
+            // transient API outages. Data is only reset when bind(to:) is called (station change).
+            if Config.debugLog {
+                await MainActor.run {
                     print("nowPlayingURL fetch failed: \(error.localizedDescription)")
                 }
             }

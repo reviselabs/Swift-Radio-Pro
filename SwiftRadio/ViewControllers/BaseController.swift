@@ -26,9 +26,9 @@ class BaseController: UIViewController {
 
         NSLayoutConstraint.activate([
             gradientBackgroundView.topAnchor.constraint(equalTo: view.topAnchor),
-            gradientBackgroundView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            gradientBackgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             gradientBackgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            gradientBackgroundView.leftAnchor.constraint(equalTo: view.leftAnchor)
+            gradientBackgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
     }
 }

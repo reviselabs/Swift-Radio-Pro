@@ -1,0 +1,12 @@
+{
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/ViewControllers/LibrariesViewController.swift" : {
+    "abi-baseline-json" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/SwiftRadio_CarPlay.abi.json",
+    "const-values" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/SwiftRadio-CarPlay-primary.swiftconstvalues",
+    "dependencies" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/SwiftRadio-CarPlay-primary.d",
+    "diagnostics" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/SwiftRadio-CarPlay-primary.dia",
+    "objc-header" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/SwiftRadio_CarPlay-Swift.h",
+    "swiftdoc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/SwiftRadio_CarPlay.swiftdoc",
+    "swiftmodule" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/SwiftRadio_CarPlay.swiftmodule",
+    "swiftsourceinfo" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/SwiftRadio_CarPlay.swiftsourceinfo"
+  }
+}

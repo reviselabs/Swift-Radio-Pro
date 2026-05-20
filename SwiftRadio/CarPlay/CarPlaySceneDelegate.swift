@@ -69,16 +69,18 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
                 stationImageCache.setObject(image, forKey: cacheKey)
                 item.setImage(image)
             } else {
-                station.getImage { [weak self] image in
-                    guard let self else { return }
+                station.getImage { [weak self, weak template] image in
+                    guard let self, let template else { return }
                     self.stationImageCache.setObject(image, forKey: cacheKey)
                     item.setImage(image)
+                    if let currentItems = template.sections.first?.items {
+                        template.updateSections([CPListSection(items: currentItems)])
+                    }
                 }
             }
 
             item.handler = { _, completion in
                 StationsManager.shared.set(station: station)
-                FRadioPlayer.shared.play()
                 completion()
             }
 

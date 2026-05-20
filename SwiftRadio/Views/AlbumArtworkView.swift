@@ -16,6 +16,7 @@ class AlbumArtworkView: UIView {
     private let containerView: UIView = {
         let view = UIView()
         view.clipsToBounds = true
+        view.backgroundColor = UIColor.white.withAlphaComponent(0.06)
         return view
     }()
 

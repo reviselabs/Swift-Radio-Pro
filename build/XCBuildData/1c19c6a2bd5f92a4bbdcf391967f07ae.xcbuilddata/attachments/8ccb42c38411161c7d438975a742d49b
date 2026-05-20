@@ -1,0 +1,236 @@
+{
+  "" : {
+    "const-values" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/SwiftRadio-CarPlay-primary.swiftconstvalues",
+    "dependencies" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/SwiftRadio-CarPlay-primary.d",
+    "diagnostics" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/SwiftRadio-CarPlay-primary.dia",
+    "emit-module-dependencies" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/SwiftRadio-CarPlay-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/SwiftRadio-CarPlay-primary-emit-module.dia",
+    "pch" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/SwiftRadio-CarPlay-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/SwiftRadio-CarPlay-primary.swiftdeps"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/App/AppDelegate.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/AppDelegate.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/AppDelegate.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/AppDelegate.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/App/SceneDelegate.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/SceneDelegate.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/SceneDelegate.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/SceneDelegate.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/CarPlay/CarPlaySceneDelegate.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/CarPlaySceneDelegate.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/CarPlaySceneDelegate.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/CarPlaySceneDelegate.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Cells/StationTableViewCell.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/StationTableViewCell.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/StationTableViewCell.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/StationTableViewCell.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Config/Config.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/Config.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/Config.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/Config.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Config/Content.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/Content.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/Content.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/Content.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Config/InfoSection.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/InfoSection.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/InfoSection.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/InfoSection.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Coordinators/AboutCoordinator.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/AboutCoordinator.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/AboutCoordinator.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/AboutCoordinator.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Coordinators/Coordinator.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/Coordinator.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/Coordinator.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/Coordinator.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Coordinators/MainCoordinator.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/MainCoordinator.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/MainCoordinator.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/MainCoordinator.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Helpers/BottomSheetHandler.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/BottomSheetHandler.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/BottomSheetHandler.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/BottomSheetHandler.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Helpers/Bundle+appName.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/Bundle+appName.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/Bundle+appName.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/Bundle+appName.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Helpers/Handoffable.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/Handoffable.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/Handoffable.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/Handoffable.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Helpers/NSLayoutConstraint+with.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/NSLayoutConstraint+with.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/NSLayoutConstraint+with.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/NSLayoutConstraint+with.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Helpers/ShareActivity.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/ShareActivity.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/ShareActivity.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/ShareActivity.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Helpers/UIImage+Cache.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/UIImage+Cache.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/UIImage+Cache.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/UIImage+Cache.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Helpers/UIImage+DropShadow.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/UIImage+DropShadow.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/UIImage+DropShadow.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/UIImage+DropShadow.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Helpers/UIImageView+Cache.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/UIImageView+Cache.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/UIImageView+Cache.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/UIImageView+Cache.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Helpers/UITableViewCell+reuseIdentifier.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/UITableViewCell+reuseIdentifier.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/UITableViewCell+reuseIdentifier.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/UITableViewCell+reuseIdentifier.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Helpers/UIViewController+Email.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/UIViewController+Email.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/UIViewController+Email.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/UIViewController+Email.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Model/FavoriteStationsStore.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/FavoriteStationsStore.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/FavoriteStationsStore.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/FavoriteStationsStore.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Model/PlaybackPreferences.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/PlaybackPreferences.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/PlaybackPreferences.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/PlaybackPreferences.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Model/RadioStation.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/RadioStation.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/RadioStation.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/RadioStation.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Model/StationsManager.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/StationsManager.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/StationsManager.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/StationsManager.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Networking/NetworkService.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/NetworkService.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/NetworkService.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/NetworkService.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Services/AudioSetupService.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/AudioSetupService.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/AudioSetupService.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/AudioSetupService.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Services/StationNowPlayingService.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/StationNowPlayingService.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/StationNowPlayingService.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/StationNowPlayingService.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Services/StreamBitrateTracker.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/StreamBitrateTracker.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/StreamBitrateTracker.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/StreamBitrateTracker.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/ViewControllers/AboutViewController.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/AboutViewController.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/AboutViewController.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/AboutViewController.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/ViewControllers/BaseController.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/BaseController.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/BaseController.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/BaseController.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/ViewControllers/BottomSheetViewController.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/BottomSheetViewController.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/BottomSheetViewController.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/BottomSheetViewController.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/ViewControllers/ContributorsViewController.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/ContributorsViewController.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/ContributorsViewController.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/ContributorsViewController.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/ViewControllers/FeaturesViewController.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/FeaturesViewController.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/FeaturesViewController.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/FeaturesViewController.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/ViewControllers/InfoDetailViewController.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/InfoDetailViewController.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/InfoDetailViewController.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/InfoDetailViewController.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/ViewControllers/LibrariesViewController.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/LibrariesViewController.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/LibrariesViewController.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/LibrariesViewController.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/ViewControllers/LoaderController.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/LoaderController.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/LoaderController.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/LoaderController.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/ViewControllers/NowPlayingViewController.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/NowPlayingViewController.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/NowPlayingViewController.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/NowPlayingViewController.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/ViewControllers/PlaybackSettingsViewController.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/PlaybackSettingsViewController.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/PlaybackSettingsViewController.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/PlaybackSettingsViewController.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/ViewControllers/StationsViewController.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/StationsViewController.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/StationsViewController.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/StationsViewController.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Views/AlbumArtworkView.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/AlbumArtworkView.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/AlbumArtworkView.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/AlbumArtworkView.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Views/ControlsView.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/ControlsView.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/ControlsView.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/ControlsView.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Views/GradientBackgroundView.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/GradientBackgroundView.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/GradientBackgroundView.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/GradientBackgroundView.o"
+  },
+  "/Users/radiocorp/StarterPlus2/SwiftRadio/Views/LogoShareView.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/LogoShareView.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/LogoShareView.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/LogoShareView.o"
+  },
+  "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/GeneratedAssetSymbols.o"
+  },
+  "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/DerivedSources/GeneratedStringSymbols_Localizable.swift" : {
+    "index-unit-output-path" : "/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/GeneratedStringSymbols_Localizable.o",
+    "llvm-bc" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/GeneratedStringSymbols_Localizable.bc",
+    "object" : "/Users/radiocorp/StarterPlus2/build/SwiftRadio.build/Release-iphoneos/SwiftRadio-CarPlay.build/Objects-normal/arm64/GeneratedStringSymbols_Localizable.o"
+  }
+}

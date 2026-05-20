@@ -25,7 +25,10 @@ class MainCoordinator: NavigationCoordinator {
     let tabBarController = UITabBarController()
 
     private let stationsNavAll = UINavigationController()
-    private let stationsNavFavorites = UINavigationController()
+    private let homeNav = UINavigationController()
+    private let podcastsNav = UINavigationController()
+
+    private var podcastPlaybackObserver: NSObjectProtocol?
 
     /// LNPopup / pushes use the currently selected tab’s navigation stack.
     var navigationController: UINavigationController {
@@ -115,30 +118,50 @@ class MainCoordinator: NavigationCoordinator {
 extension MainCoordinator: LoaderControllerDelegate {
     func didFinishLoading(_ controller: LoaderController, stations: [RadioStation]) {
         let allVC = StationsViewController(listKind: .allStations)
-        let favVC = StationsViewController(listKind: .favoritesOnly)
         allVC.delegate = self
-        favVC.delegate = self
 
         stationsNavAll.setViewControllers([allVC], animated: false)
-        stationsNavFavorites.setViewControllers([favVC], animated: false)
         stationsNavAll.delegate = popupReopenNavigationDelegate
-        stationsNavFavorites.delegate = popupReopenNavigationDelegate
 
         stationsNavAll.tabBarItem = UITabBarItem(
             title: Content.Tabs.allStations,
             image: UIImage(systemName: "radio"),
             selectedImage: nil
         )
-        stationsNavFavorites.tabBarItem = UITabBarItem(
-            title: Content.Tabs.favorites,
-            image: UIImage(systemName: "star.fill"),
+
+        let homeVC = HomeViewController()
+        homeVC.delegate = self
+        homeNav.setViewControllers([homeVC], animated: false)
+        homeNav.delegate = popupReopenNavigationDelegate
+        homeNav.tabBarItem = UITabBarItem(
+            title: Content.Tabs.home,
+            image: UIImage(systemName: "house.fill"),
             selectedImage: nil
         )
 
-        tabBarController.viewControllers = [stationsNavAll, stationsNavFavorites]
+        let podcastsVC = PodcastsViewController()
+        podcastsNav.setViewControllers([podcastsVC], animated: false)
+        podcastsNav.tabBarItem = UITabBarItem(
+            title: Content.Tabs.podcasts,
+            image: UIImage(systemName: "headphones"),
+            selectedImage: nil
+        )
+        tabBarController.viewControllers = [stationsNavAll, homeNav, podcastsNav]
         tabBarController.tabBar.tintColor = Config.tintColor
 
         window?.rootViewController = tabBarController
+
+        podcastPlaybackObserver = NotificationCenter.default.addObserver(
+            forName: .podcastPlaybackDidChange,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            guard let self, PodcastPlaybackService.shared.isPodcastMode else { return }
+            self.presentPopupBarIfNeeded()
+            DispatchQueue.main.async {
+                self.tabBarController.openPopup(animated: true)
+            }
+        }
     }
 }
 
@@ -147,7 +170,7 @@ extension MainCoordinator: LoaderControllerDelegate {
 extension MainCoordinator: StationsViewControllerDelegate {
 
     func didSelectStation(_ station: RadioStation, from stationsViewController: StationsViewController) {
-        let isNewStation = station != StationsManager.shared.currentStation
+        let isNewStation = station != StationsManager.shared.currentStation || PodcastPlaybackService.shared.isPodcastMode
         if isNewStation {
             StationsManager.shared.set(station: station)
             presentPopupBarIfNeeded()
@@ -223,6 +246,27 @@ extension MainCoordinator: NowPlayingViewControllerDelegate {
     }
 }
 
+// MARK: - HomeViewControllerDelegate
+
+extension MainCoordinator: HomeViewControllerDelegate {
+
+    func homeViewController(_ vc: HomeViewController, didSelectStation station: RadioStation) {
+        let isNewStation = station != StationsManager.shared.currentStation || PodcastPlaybackService.shared.isPodcastMode
+        if isNewStation {
+            StationsManager.shared.set(station: station)
+            presentPopupBarIfNeeded()
+        } else if player.isPlaying {
+            tabBarController.openPopup(animated: true)
+        } else {
+            player.togglePlaying()
+        }
+    }
+
+    func homeViewControllerPresentAbout(_ vc: HomeViewController) {
+        openAbout()
+    }
+}
+
 // MARK: - Navigation (re-open player after subpages)
 
 extension MainCoordinator {
@@ -230,7 +274,7 @@ extension MainCoordinator {
         guard reopenPlayerAfterPoppingToStationsRoot else { return }
         guard navigationController === navigationControllerAwaitingPlayerReopen,
               navigationController.viewControllers.count == 1,
-              viewController is StationsViewController,
+              (viewController is StationsViewController || viewController is HomeViewController),
               StationsManager.shared.currentStation != nil else { return }
         reopenPlayerAfterPoppingToStationsRoot = false
         navigationControllerAwaitingPlayerReopen = nil

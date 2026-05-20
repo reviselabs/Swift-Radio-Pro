@@ -74,6 +74,7 @@ class StationsManager {
 
     /// Re-applies the current station URL when the user changes stream quality in Settings.
     func applyCurrentStreamQualityIfNeeded() {
+        guard !PodcastPlaybackService.shared.isPodcastMode else { return }
         guard let station = currentStation else { return }
         applyStreamURL(for: station)
     }
@@ -111,6 +112,7 @@ class StationsManager {
             return
         }
 
+        PodcastPlaybackService.shared.exitPodcastMode()
         currentStation = station
         applyStreamURL(for: station)
     }
@@ -118,12 +120,14 @@ class StationsManager {
     func setNext() {
         guard let index = getIndex(of: currentStation) else { return }
         let station = (index + 1 == stations.count) ? stations[0] : stations[index + 1]
+        PodcastPlaybackService.shared.exitPodcastMode()
         currentStation = station
         applyStreamURL(for: station)
     }
 
     func setPrevious() {
         guard let index = getIndex(of: currentStation), let station = (index == 0) ? stations.last : stations[index - 1] else { return }
+        PodcastPlaybackService.shared.exitPodcastMode()
         currentStation = station
         applyStreamURL(for: station)
     }
@@ -134,6 +138,7 @@ class StationsManager {
     }
     
     private func reset() {
+        PodcastPlaybackService.shared.exitPodcastMode()
         currentStation = nil
         player.radioURL = nil
     }
@@ -180,6 +185,13 @@ extension StationsManager {
 
     /// Loads station branding artwork into Now Playing (station changes, or stream artwork cleared).
     private func reloadStationArtworkIntoLockScreen() {
+        if PodcastPlaybackService.shared.isPodcastMode {
+            let artworkURL = PodcastPlaybackService.shared.currentEpisode?.artworkURL
+            UIImage.image(from: artworkURL) { [weak self] image in
+                self?.updateLockScreen(withArtwork: image, rebuildFromScratch: true)
+            }
+            return
+        }
         guard let station = currentStation else {
             updateLockScreen(withArtwork: nil, rebuildFromScratch: true)
             return
@@ -194,7 +206,10 @@ extension StationsManager {
     private func updateNowPlayingMetadataAndTimingPreservingArtwork() {
         var info = MPNowPlayingInfoCenter.default().nowPlayingInfo ?? [:]
 
-        if let station = currentStation {
+        if let episode = PodcastPlaybackService.shared.currentEpisode, PodcastPlaybackService.shared.isPodcastMode {
+            info[MPMediaItemPropertyArtist] = episode.artist
+            info[MPMediaItemPropertyTitle] = episode.title
+        } else if let station = currentStation {
             info[MPMediaItemPropertyArtist] = station.artistName
             info[MPMediaItemPropertyTitle] = station.trackName
         }
@@ -230,7 +245,10 @@ extension StationsManager {
             }
         }
 
-        if let station = currentStation {
+        if let episode = PodcastPlaybackService.shared.currentEpisode, PodcastPlaybackService.shared.isPodcastMode {
+            nowPlayingInfo[MPMediaItemPropertyArtist] = episode.artist
+            nowPlayingInfo[MPMediaItemPropertyTitle] = episode.title
+        } else if let station = currentStation {
             nowPlayingInfo[MPMediaItemPropertyArtist] = station.artistName
             nowPlayingInfo[MPMediaItemPropertyTitle] = station.trackName
         }

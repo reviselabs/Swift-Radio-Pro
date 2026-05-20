@@ -474,14 +474,21 @@ class ControlsView: UIView {
         onAirContainer.addGestureRecognizer(onAirTap)
         onAirContainer.isAccessibilityElement = true
 
-        let streamQualityInner = UIStackView(arrangedSubviews: [streamQualityLabel, streamQualityMenuButton])
+        // A leading spacer matching the menu button's width ensures the label stays
+        // visually centered rather than shifting left due to the trailing chevron button.
+        let leadingBalancer = UIView()
+        leadingBalancer.translatesAutoresizingMaskIntoConstraints = false
+
+        let streamQualityInner = UIStackView(arrangedSubviews: [leadingBalancer, streamQualityLabel, streamQualityMenuButton])
         streamQualityInner.axis = .horizontal
         streamQualityInner.alignment = .center
-        streamQualityInner.spacing = 6
+        streamQualityInner.spacing = 0
         streamQualityInner.translatesAutoresizingMaskIntoConstraints = false
 
         streamQualityContainer.addSubview(streamQualityInner)
         NSLayoutConstraint.activate([
+            leadingBalancer.widthAnchor.constraint(equalTo: streamQualityMenuButton.widthAnchor),
+
             streamQualityInner.centerXAnchor.constraint(equalTo: streamQualityContainer.centerXAnchor),
             streamQualityInner.topAnchor.constraint(equalTo: streamQualityContainer.topAnchor),
             streamQualityInner.bottomAnchor.constraint(equalTo: streamQualityContainer.bottomAnchor),

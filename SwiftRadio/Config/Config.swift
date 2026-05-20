@@ -58,6 +58,17 @@ struct Config {
         ]
     }
 
+    struct Podcasts {
+        static let feeds: [Podcast] = [
+            Podcast(
+                id: "the-hype-feed",
+                title: "The Hype Feed",
+                feedURL: URL(string: "https://feeds.soundcloud.com/users/soundcloud:users:395823618/sounds.rss")!,
+                artworkURL: nil
+            )
+        ]
+    }
+
     struct About {
         static let sections: [InfoSection] = [
             InfoSection(title: Content.About.Sections.features, items: [

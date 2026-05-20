@@ -57,6 +57,10 @@ class AudioSetupService {
 
         commandCenter.togglePlayPauseCommand.addTarget { [weak self] _ in
             guard let self else { return .commandFailed }
+            if PodcastPlaybackService.shared.isPodcastMode {
+                self.player.togglePlaying()
+                return .success
+            }
             if self.player.isPlaying, self.player.duration == 0 {
                 self.player.stop()
             } else {

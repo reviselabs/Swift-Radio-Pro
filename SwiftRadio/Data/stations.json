@@ -117,14 +117,6 @@
             "longDesc": "The Hit Music Channel"
         },
         {
-            "name": "INJABULO Africa",
-            "website": "https://",
-            "streamURL": "http://streaming.starterfm.com/hls/injabulo/live.m3u8",
-            "imageURL": "station-injabulo",
-            "desc": "We are the culture",
-            "longDesc": "Playing the latest Amapiano, Afrobeats and Hip-hop from across Africa and the world."
-        },
-        {
             "name": "V1Radio",
             "website": "https://v1radio.com.au",
             "streamURL": "http://streaming.starterfm.com/hls/v1radio/live.m3u8",

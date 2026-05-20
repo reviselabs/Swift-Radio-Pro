@@ -1,0 +1,4 @@
+module LNPopupController {
+header "LNPopupController-Swift.h"
+export *
+}

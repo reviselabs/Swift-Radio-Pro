@@ -1,0 +1,33 @@
+Target dependency graph (14 targets)
+Target 'SwiftRadio-CarPlay' in project 'SwiftRadio'
+➜ Explicit dependency on target 'LNPopupController' in project 'LNPopupController'
+➜ Explicit dependency on target 'FRadioPlayer' in project 'FRadioPlayer'
+➜ Explicit dependency on target 'NVActivityIndicatorViewExtended' in project 'NVActivityIndicatorView'
+➜ Explicit dependency on target 'MarqueeLabel' in project 'MarqueeLabel'
+➜ Explicit dependency on target 'NVActivityIndicatorView' in project 'NVActivityIndicatorView'
+Target 'NVActivityIndicatorView' in project 'NVActivityIndicatorView'
+➜ Explicit dependency on target 'NVActivityIndicatorView' in project 'NVActivityIndicatorView'
+Target 'MarqueeLabel' in project 'MarqueeLabel'
+➜ Explicit dependency on target 'MarqueeLabel' in project 'MarqueeLabel'
+➜ Explicit dependency on target 'MarqueeLabel_MarqueeLabel' in project 'MarqueeLabel'
+Target 'MarqueeLabel' in project 'MarqueeLabel'
+➜ Explicit dependency on target 'MarqueeLabel_MarqueeLabel' in project 'MarqueeLabel'
+Target 'MarqueeLabel_MarqueeLabel' in project 'MarqueeLabel' (no dependencies)
+Target 'NVActivityIndicatorViewExtended' in project 'NVActivityIndicatorView'
+➜ Explicit dependency on target 'NVActivityIndicatorViewExtended' in project 'NVActivityIndicatorView'
+➜ Explicit dependency on target 'NVActivityIndicatorView' in project 'NVActivityIndicatorView'
+Target 'NVActivityIndicatorViewExtended' in project 'NVActivityIndicatorView'
+➜ Explicit dependency on target 'NVActivityIndicatorView' in project 'NVActivityIndicatorView'
+Target 'NVActivityIndicatorView' in project 'NVActivityIndicatorView' (no dependencies)
+Target 'FRadioPlayer' in project 'FRadioPlayer'
+➜ Explicit dependency on target 'FRadioPlayer' in project 'FRadioPlayer'
+Target 'FRadioPlayer' in project 'FRadioPlayer' (no dependencies)
+Target 'LNPopupController' in project 'LNPopupController'
+➜ Explicit dependency on target 'LNPopupController' in project 'LNPopupController'
+➜ Explicit dependency on target 'LNPopupController-ObjC' in project 'LNPopupController'
+➜ Explicit dependency on target 'LNPopupController-SwiftPrivate' in project 'LNPopupController'
+Target 'LNPopupController-SwiftPrivate' in project 'LNPopupController'
+➜ Explicit dependency on target 'LNPopupController-ObjC' in project 'LNPopupController'
+Target 'LNPopupController' in project 'LNPopupController'
+➜ Explicit dependency on target 'LNPopupController-ObjC' in project 'LNPopupController'
+Target 'LNPopupController-ObjC' in project 'LNPopupController' (no dependencies)

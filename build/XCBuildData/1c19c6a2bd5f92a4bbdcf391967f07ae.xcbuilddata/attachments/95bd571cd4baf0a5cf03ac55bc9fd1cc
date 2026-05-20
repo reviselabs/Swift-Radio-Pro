@@ -1,0 +1,21 @@
+{
+  "" : {
+    "const-values" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/NVActivityIndicatorView/build/NVActivityIndicatorView.build/Release-iphoneos/NVActivityIndicatorViewExtended.build/Objects-normal/arm64/NVActivityIndicatorViewExtended-primary.swiftconstvalues",
+    "dependencies" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/NVActivityIndicatorView/build/NVActivityIndicatorView.build/Release-iphoneos/NVActivityIndicatorViewExtended.build/Objects-normal/arm64/NVActivityIndicatorViewExtended-primary.d",
+    "diagnostics" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/NVActivityIndicatorView/build/NVActivityIndicatorView.build/Release-iphoneos/NVActivityIndicatorViewExtended.build/Objects-normal/arm64/NVActivityIndicatorViewExtended-primary.dia",
+    "emit-module-dependencies" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/NVActivityIndicatorView/build/NVActivityIndicatorView.build/Release-iphoneos/NVActivityIndicatorViewExtended.build/Objects-normal/arm64/NVActivityIndicatorViewExtended-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/NVActivityIndicatorView/build/NVActivityIndicatorView.build/Release-iphoneos/NVActivityIndicatorViewExtended.build/Objects-normal/arm64/NVActivityIndicatorViewExtended-primary-emit-module.dia",
+    "pch" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/NVActivityIndicatorView/build/NVActivityIndicatorView.build/Release-iphoneos/NVActivityIndicatorViewExtended.build/Objects-normal/arm64/NVActivityIndicatorViewExtended-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/NVActivityIndicatorView/build/NVActivityIndicatorView.build/Release-iphoneos/NVActivityIndicatorViewExtended.build/Objects-normal/arm64/NVActivityIndicatorViewExtended-primary.swiftdeps"
+  },
+  "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/NVActivityIndicatorView/Sources/Extended/NVActivityIndicatorPresenter.swift" : {
+    "index-unit-output-path" : "/NVActivityIndicatorView.build/Release-iphoneos/NVActivityIndicatorViewExtended.build/Objects-normal/arm64/NVActivityIndicatorPresenter.o",
+    "llvm-bc" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/NVActivityIndicatorView/build/NVActivityIndicatorView.build/Release-iphoneos/NVActivityIndicatorViewExtended.build/Objects-normal/arm64/NVActivityIndicatorPresenter.bc",
+    "object" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/NVActivityIndicatorView/build/NVActivityIndicatorView.build/Release-iphoneos/NVActivityIndicatorViewExtended.build/Objects-normal/arm64/NVActivityIndicatorPresenter.o"
+  },
+  "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/NVActivityIndicatorView/Sources/Extended/NVActivityIndicatorViewable.swift" : {
+    "index-unit-output-path" : "/NVActivityIndicatorView.build/Release-iphoneos/NVActivityIndicatorViewExtended.build/Objects-normal/arm64/NVActivityIndicatorViewable.o",
+    "llvm-bc" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/NVActivityIndicatorView/build/NVActivityIndicatorView.build/Release-iphoneos/NVActivityIndicatorViewExtended.build/Objects-normal/arm64/NVActivityIndicatorViewable.bc",
+    "object" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/NVActivityIndicatorView/build/NVActivityIndicatorView.build/Release-iphoneos/NVActivityIndicatorViewExtended.build/Objects-normal/arm64/NVActivityIndicatorViewable.o"
+  }
+}

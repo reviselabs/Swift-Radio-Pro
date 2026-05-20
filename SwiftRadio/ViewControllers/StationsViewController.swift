@@ -187,6 +187,18 @@ class StationsViewController: BaseController, Handoffable {
         case .favoritesOnly:
             title = Content.Tabs.favorites
         }
+        resyncBufferingState()
+    }
+
+    private func resyncBufferingState() {
+        switch player.state {
+        case .loading where player.playbackState != .stopped:
+            isBuffering = true
+        default:
+            isBuffering = false
+        }
+        updateNowPlayingAnimation()
+        updateVisibleCellsNowPlaying()
     }
 
     @objc func refresh(sender: AnyObject) {
@@ -235,7 +247,7 @@ class StationsViewController: BaseController, Handoffable {
         for case let cell as StationTableViewCell in tableView.visibleCells {
             guard let indexPath = tableView.indexPath(for: cell) else { continue }
             guard let station = station(at: indexPath) else { continue }
-            let isCurrentStation = station == manager.currentStation
+            let isCurrentStation = station == manager.currentStation && !PodcastPlaybackService.shared.isPodcastMode
             cell.setNowPlaying(isPlaying: player.isPlaying, isBuffering: isBuffering, isCurrentStation: isCurrentStation)
         }
     }
@@ -334,7 +346,7 @@ extension StationsViewController: UITableViewDataSource {
             FavoriteStationsStore.shared.toggleFavorite(station)
             self?.tableView.reloadRows(at: [indexPath], with: .none)
         }
-        let isCurrentStation = station == manager.currentStation
+        let isCurrentStation = station == manager.currentStation && !PodcastPlaybackService.shared.isPodcastMode
         cell.setNowPlaying(isPlaying: player.isPlaying, isBuffering: isBuffering, isCurrentStation: isCurrentStation)
         return cell
     }
@@ -351,7 +363,10 @@ extension StationsViewController: UITableViewDelegate {
         if listKind == .favoritesOnly, displayStations.isEmpty { return }
         guard let station = station(at: indexPath) else { return }
 
-        selectStation(station)
+        let detailVC = StationDetailViewController(station: station) { [weak self] s in
+            self?.selectStation(s)
+        }
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 

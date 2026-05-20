@@ -1,0 +1,16 @@
+{
+  "" : {
+    "const-values" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/LNPopupController/build/LNPopupController.build/Release-iphoneos/LNPopupController-SwiftPrivate.build/Objects-normal/arm64/LNPopupController-SwiftPrivate-primary.swiftconstvalues",
+    "dependencies" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/LNPopupController/build/LNPopupController.build/Release-iphoneos/LNPopupController-SwiftPrivate.build/Objects-normal/arm64/LNPopupController-SwiftPrivate-primary.d",
+    "diagnostics" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/LNPopupController/build/LNPopupController.build/Release-iphoneos/LNPopupController-SwiftPrivate.build/Objects-normal/arm64/LNPopupController-SwiftPrivate-primary.dia",
+    "emit-module-dependencies" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/LNPopupController/build/LNPopupController.build/Release-iphoneos/LNPopupController-SwiftPrivate.build/Objects-normal/arm64/LNPopupController-SwiftPrivate-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/LNPopupController/build/LNPopupController.build/Release-iphoneos/LNPopupController-SwiftPrivate.build/Objects-normal/arm64/LNPopupController-SwiftPrivate-primary-emit-module.dia",
+    "pch" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/LNPopupController/build/LNPopupController.build/Release-iphoneos/LNPopupController-SwiftPrivate.build/Objects-normal/arm64/LNPopupController-SwiftPrivate-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/LNPopupController/build/LNPopupController.build/Release-iphoneos/LNPopupController-SwiftPrivate.build/Objects-normal/arm64/LNPopupController-SwiftPrivate-primary.swiftdeps"
+  },
+  "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/LNPopupController/LNPopupController/LNPopupController/Private/Swift/LNPopupController+SwiftSupport.swift" : {
+    "index-unit-output-path" : "/LNPopupController.build/Release-iphoneos/LNPopupController-SwiftPrivate.build/Objects-normal/arm64/LNPopupController+SwiftSupport.o",
+    "llvm-bc" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/LNPopupController/build/LNPopupController.build/Release-iphoneos/LNPopupController-SwiftPrivate.build/Objects-normal/arm64/LNPopupController+SwiftSupport.bc",
+    "object" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/LNPopupController/build/LNPopupController.build/Release-iphoneos/LNPopupController-SwiftPrivate.build/Objects-normal/arm64/LNPopupController+SwiftSupport.o"
+  }
+}

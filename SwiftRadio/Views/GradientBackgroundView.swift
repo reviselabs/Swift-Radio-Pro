@@ -36,11 +36,11 @@ class GradientBackgroundView: UIView {
     private func updateGradientColors() {
         let color = Config.gradientColor
         gradientLayer.colors = [
-            color.withAlphaComponent(0.3).cgColor,
-            color.withAlphaComponent(0.15).cgColor,
-            color.withAlphaComponent(0.05).cgColor,
-            UIColor.clear.cgColor
+            color.withAlphaComponent(0.2).cgColor,
+            color.withAlphaComponent(0.4).cgColor,
+            color.withAlphaComponent(0.8).cgColor,
+            color.withAlphaComponent(0.1).cgColor
         ]
-        gradientLayer.locations = [0.0, 0.3, 0.6, 1.0]
+        gradientLayer.locations = [0.0, 0.35, 0.7, 1.0]
     }
 }

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>about.copyright</key>
+	<string>Copyright</string>
+	<key>about.feedback.message</key>
+	<string>We value your input! Please take a moment to provide feedback</string>
+	<key>about.feedback.title</key>
+	<string>Feedback</string>
+	<key>about.footerAuthors</key>
+	<string>Daniel Warren</string>
+	<key>about.footerCopyright</key>
+	<string>Starter Plus</string>
+	<key>about.headerText</key>
+	<string>**Swift Radio** is a fully featured, open-source radio station app written entirely in **Swift**. It provides robust, professional functionality out of the box, complete with **Apple CarPlay** support, making it the perfect foundation for **building** or **customizing** your own streaming radio experience.</string>
+	<key>about.items.appVersion</key>
+	<string>App Version</string>
+	<key>about.items.contributors</key>
+	<string>Contributors</string>
+	<key>about.items.email</key>
+	<string>Email</string>
+	<key>about.items.features</key>
+	<string>Features</string>
+	<key>about.items.libraries</key>
+	<string>Open Source Libraries</string>
+	<key>about.items.rateApp</key>
+	<string>Rate the App</string>
+	<key>about.items.shareApp</key>
+	<string>Share the App</string>
+	<key>about.items.specialThanks</key>
+	<string>Special Thanks</string>
+	<key>about.license.detail</key>
+	<string>MIT License</string>
+	<key>about.license.title</key>
+	<string>License</string>
+	<key>about.sections.contact</key>
+	<string>Contact</string>
+	<key>about.sections.credits</key>
+	<string>Credits</string>
+	<key>about.sections.features</key>
+	<string>Features</string>
+	<key>about.sections.legal</key>
+	<string>Legal</string>
+	<key>about.sections.settings</key>
+	<string>Settings</string>
+	<key>about.sections.support</key>
+	<string>Support</string>
+	<key>about.sections.version</key>
+	<string>Version</string>
+	<key>about.shareText</key>
+	<string>Check out Starter Plus!</string>
+	<key>about.title</key>
+	<string>About Starter Plus</string>
+	<key>bottomSheet.aboutStation</key>
+	<string>About Station</string>
+	<key>bottomSheet.playInMusicApp</key>
+	<string>Play in Music App</string>
+	<key>bottomSheet.shareNowPlaying</key>
+	<string>Share Now Playing</string>
+	<key>bottomSheet.stationWebsite</key>
+	<string>Station Website</string>
+	<key>common.commitsFormat</key>
+	<string>%d commits</string>
+	<key>common.couldNotSendEmail</key>
+	<string>Could Not Send Email</string>
+	<key>common.emailErrorMessage</key>
+	<string>Your device could not send e-mail.  Please check e-mail configuration and try again.</string>
+	<key>common.noDescription</key>
+	<string>No description</string>
+	<key>common.ok</key>
+	<string>OK</string>
+	<key>contributors.title</key>
+	<string>Contributors</string>
+	<key>features.albumArt.description</key>
+	<string>Displays track information and album covers to enhance the listening experience.</string>
+	<key>features.albumArt.title</key>
+	<string>Album Art &amp; Metadata</string>
+	<key>features.carPlay.description</key>
+	<string>Lets users control their radio playback directly from their CarPlay dashboard.</string>
+	<key>features.carPlay.title</key>
+	<string>Apple CarPlay Support</string>
+	<key>features.customizableUI.description</key>
+	<string>Includes a flexible interface that you can easily personalize with your own theme and branding.</string>
+	<key>features.customizableUI.title</key>
+	<string>Customizable UI</string>
+	<key>features.easySetup.description</key>
+	<string>Ready to run right out of the box, and you can adjust key settings in a single configuration file.</string>
+	<key>features.easySetup.title</key>
+	<string>Easy Project Setup</string>
+	<key>features.lockScreen.description</key>
+	<string>Shows artwork and track info on the lock screen, and provides convenient controls without opening the app.</string>
+	<key>features.lockScreen.title</key>
+	<string>Lock Screen &amp; Control Center Integration</string>
+	<key>features.multipleStations.description</key>
+	<string>Comes with a straightforward station list manager that supports multiple streaming URLs.</string>
+	<key>features.multipleStations.title</key>
+	<string>Multiple Stations Setup</string>
+	<key>features.swiftCodebase.description</key>
+	<string>Entirely written in Swift with a clean and modern structure.</string>
+	<key>features.swiftCodebase.title</key>
+	<string>Swift Codebase</string>
+	<key>features.title</key>
+	<string>Features</string>
+	<key>libraries.title</key>
+	<string>Libraries</string>
+	<key>loader.errorTitle</key>
+	<string>Something went wrong!</string>
+	<key>loader.retryButton</key>
+	<string>Try again</string>
+	<key>player.autoQualityShort</key>
+	<string>Auto</string>
+	<key>player.autoWithBitrate</key>
+	<string>Auto · %lld kbps</string>
+	<key>player.liveBadge</key>
+	<string>LIVE</string>
+	<key>player.streamQualityMenuTitle</key>
+	<string>Stream quality</string>
+	<key>player.tierHighTitle</key>
+	<string>High quality</string>
+	<key>player.tierLowTitle</key>
+	<string>Low quality</string>
+	<key>player.tierMidTitle</key>
+	<string>Mid quality</string>
+	<key>player.tierWithBitrateLabel</key>
+	<string>%1$@ · %2$@</string>
+	<key>settings.playbackMenuTitle</key>
+	<string>Stream quality</string>
+	<key>settings.playbackTitle</key>
+	<string>Playback</string>
+	<key>settings.quality.auto</key>
+	<string>Auto quality</string>
+	<key>settings.quality.high</key>
+	<string>High quality</string>
+	<key>settings.quality.low</key>
+	<string>Low quality</string>
+	<key>settings.quality.medium</key>
+	<string>Mid quality</string>
+	<key>settings.streamQualityFooter</key>
+	<string>Auto uses streamURL. Low / Mid / High use streamURLlow, streamURLmid, streamURLhigh when set. Optional bitrateLabelLow, bitrateLabelMid, bitrateLabelHigh describe each tier on the player (e.g. 320 kbps).</string>
+	<key>stationDetail.defaultDescription</key>
+	<string>You are listening to Starter Plus. Australia’s home for independent media.</string>
+	<key>stationDetail.title</key>
+	<string>About Station</string>
+	<key>stationDetail.visitWebsite</key>
+	<string>Visit the official station page</string>
+	<key>stations.emptyFavorites</key>
+	<string>No favorites yet. Tap the star on any station in Starter Plus to add one.</string>
+	<key>stations.favoriteAccessibility</key>
+	<string>Favorite</string>
+	<key>stations.loadingMessage</key>
+	<string>Loading Stations...</string>
+	<key>stations.title</key>
+	<string>Starter Plus</string>
+	<key>tabs.allStations</key>
+	<string>Stations</string>
+	<key>tabs.favorites</key>
+	<string>Favorites</string>
+</dict>
+</plist>

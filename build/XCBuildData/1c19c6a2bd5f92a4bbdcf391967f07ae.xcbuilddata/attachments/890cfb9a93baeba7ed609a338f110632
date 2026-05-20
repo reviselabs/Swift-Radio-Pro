@@ -1,0 +1,4 @@
+module LNPopupController_ObjC {
+umbrella "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/LNPopupController/LNPopupController/include"
+export *
+}

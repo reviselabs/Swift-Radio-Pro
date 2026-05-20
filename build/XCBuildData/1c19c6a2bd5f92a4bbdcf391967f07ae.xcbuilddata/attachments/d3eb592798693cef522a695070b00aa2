@@ -1,0 +1,21 @@
+{
+  "" : {
+    "const-values" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/MarqueeLabel/build/MarqueeLabel.build/Release-iphoneos/MarqueeLabel.build/Objects-normal/arm64/MarqueeLabel-primary.swiftconstvalues",
+    "dependencies" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/MarqueeLabel/build/MarqueeLabel.build/Release-iphoneos/MarqueeLabel.build/Objects-normal/arm64/MarqueeLabel-primary.d",
+    "diagnostics" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/MarqueeLabel/build/MarqueeLabel.build/Release-iphoneos/MarqueeLabel.build/Objects-normal/arm64/MarqueeLabel-primary.dia",
+    "emit-module-dependencies" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/MarqueeLabel/build/MarqueeLabel.build/Release-iphoneos/MarqueeLabel.build/Objects-normal/arm64/MarqueeLabel-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/MarqueeLabel/build/MarqueeLabel.build/Release-iphoneos/MarqueeLabel.build/Objects-normal/arm64/MarqueeLabel-primary-emit-module.dia",
+    "pch" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/MarqueeLabel/build/MarqueeLabel.build/Release-iphoneos/MarqueeLabel.build/Objects-normal/arm64/MarqueeLabel-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/MarqueeLabel/build/MarqueeLabel.build/Release-iphoneos/MarqueeLabel.build/Objects-normal/arm64/MarqueeLabel-primary.swiftdeps"
+  },
+  "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/MarqueeLabel/Sources/MarqueeLabel.swift" : {
+    "index-unit-output-path" : "/MarqueeLabel.build/Release-iphoneos/MarqueeLabel.build/Objects-normal/arm64/MarqueeLabel.o",
+    "llvm-bc" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/MarqueeLabel/build/MarqueeLabel.build/Release-iphoneos/MarqueeLabel.build/Objects-normal/arm64/MarqueeLabel.bc",
+    "object" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/MarqueeLabel/build/MarqueeLabel.build/Release-iphoneos/MarqueeLabel.build/Objects-normal/arm64/MarqueeLabel.o"
+  },
+  "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/MarqueeLabel/build/MarqueeLabel.build/Release-iphoneos/MarqueeLabel.build/DerivedSources/resource_bundle_accessor.swift" : {
+    "index-unit-output-path" : "/MarqueeLabel.build/Release-iphoneos/MarqueeLabel.build/Objects-normal/arm64/resource_bundle_accessor.o",
+    "llvm-bc" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/MarqueeLabel/build/MarqueeLabel.build/Release-iphoneos/MarqueeLabel.build/Objects-normal/arm64/resource_bundle_accessor.bc",
+    "object" : "/Users/radiocorp/Library/Developer/Xcode/DerivedData/SwiftRadio-bxzdhrylwpaguahiydcblqeleamt/SourcePackages/checkouts/MarqueeLabel/build/MarqueeLabel.build/Release-iphoneos/MarqueeLabel.build/Objects-normal/arm64/resource_bundle_accessor.o"
+  }
+}
